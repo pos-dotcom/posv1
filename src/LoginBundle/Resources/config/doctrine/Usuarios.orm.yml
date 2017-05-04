@@ -1,0 +1,28 @@
+LoginBundle\Entity\Usuarios:
+    type: entity
+    table: null
+    repositoryClass: LoginBundle\Repository\UsuariosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '50'
+            nullable: true
+        clave:
+            type: string
+            length: '10'
+            nullable: true
+        usuario:
+            type: string
+            length: '10'
+            nullable: true
+        cargo:
+            type: string
+            length: '10'
+            nullable: true
+    lifecycleCallbacks: {  }

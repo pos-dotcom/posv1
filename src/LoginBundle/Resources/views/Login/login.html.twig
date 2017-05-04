@@ -1,0 +1,50 @@
+{%extends '::frontend.html.twig'%}
+
+
+{% block body %}
+    
+    
+    
+    
+    
+   <div class="container">
+  
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <section class="login-form"> 
+    <form method="post" action="{{path('login_homepage')}}" role="login">
+        <br>
+        <center><!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
+            <font style=" font:bold 30px 'Aleo'; text-shadow:1px 1px 15px #000; color:#fff;"><center>DISTRIBUIDORA EL PALACIO</center></font>
+            <br>
+            
+          <div class="input-prepend">
+              <span style="height:30px; width:25px;" class="add-on"><i class="icon-user icon-2x"></i></span>
+            <input style="height:30px;" type="text" name="usuario" placeholder="Usuario" required class="form-control input-lg"  />
+          </div>
+          <br>
+          <div class="input-prepend">
+              <span style="height:30px; width:25px;" class="add-on"><i class="icon-lock icon-2x"></i></span>
+            <input style="height:30px;" type="password" class="form-control input-lg" name="clave" id="password" placeholder="Contraseña" required="" />
+            <div class="pwstrength_viewport_progress"></div>
+          </div>
+            <br>
+          <button type="submit" name="go" class="btn btn-lg btn-primary"><i class="icon-signin icon-large"></i>&nbsp; Ingresar</button>
+        </center>
+        </form> 
+
+        
+      </section>  
+      </div>
+      
+      <div class="col-md-4"></div>
+      
+
+  </div>
+     
+      
+  
+{% endblock%}   
+    
