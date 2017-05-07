@@ -34,12 +34,10 @@ class LoginController extends Controller
             }   
             else
             {
-               
-               
+ 
                $this->get('session')->getFlashBag()->add('Mensaje', 'Los datos ingresados no son validos');
                return $this->redirect($this->generateUrl('login'));
-               
-               
+                
             }
              
             

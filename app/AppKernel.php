@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new LoginBundle\LoginBundle(),
+            new TableroBundle\TableroBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
