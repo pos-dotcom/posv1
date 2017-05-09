@@ -1,0 +1,28 @@
+MantenimientosBundle\Entity\Proveedor:
+    type: entity
+    table: null
+    repositoryClass: MantenimientosBundle\Repository\ProveedorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoProveedor:
+            type: integer
+            unique: true
+            column: codigo_proveedor
+        nombreProveedor:
+            type: string
+            length: '100'
+            column: nombre_proveedor
+        telefono:
+            type: string
+            length: '10'
+            nullable: true
+        contacto:
+            type: string
+            length: '50'
+            nullable: true
+    lifecycleCallbacks: {  }

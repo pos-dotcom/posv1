@@ -1,0 +1,28 @@
+MantenimientosBundle\Entity\Agencia:
+    type: entity
+    table: null
+    repositoryClass: MantenimientosBundle\Repository\AgenciaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoAgencia:
+            type: integer
+            unique: true
+            column: codigo_agencia
+        nombreAgencia:
+            type: string
+            length: '100'
+            column: nombre_agencia
+        telefono:
+            type: string
+            length: '10'
+            nullable: true
+        descripcion:
+            type: string
+            length: '100'
+            nullable: true
+    lifecycleCallbacks: {  }

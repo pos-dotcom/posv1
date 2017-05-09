@@ -1,3 +1,7 @@
+mantenimientos:
+    resource: "@MantenimientosBundle/Resources/config/routing.yml"
+    prefix:   /
+
 tablero:
     resource: "@TableroBundle/Resources/config/routing.yml"
     prefix:   /

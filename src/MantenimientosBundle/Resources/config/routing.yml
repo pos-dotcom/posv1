@@ -1,0 +1,7 @@
+mantenimientos_homepage:
+    path:     /
+    defaults: { _controller: MantenimientosBundle:Default:index }
+    
+mantenimientos:
+    path:     /
+    defaults: { _controller: MantenimientosBundle:Catalogos:index }

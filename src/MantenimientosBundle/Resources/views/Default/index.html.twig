@@ -3,20 +3,18 @@
 
 <body>
     {{ include('navfixed.html.twig')}}
-    <p>
-<span class="label label-primary"> {{app.session.get('nombre')}} </span>
-    </p>
+    
 <div class="container-fluid">
       <div class="row-fluid">
 	<div class="span2">
           <div class="well sidebar-nav">
                      <ul class="nav nav-list">
-              <li class="active"><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+              <li ><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
 			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
 			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
                         <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
-                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventasss<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
 			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                         <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
 			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
@@ -29,26 +27,23 @@
         </div><!--/span-->
 	<div class="span10">
 	<div class="contentheader">
-            <i class="icon-dashboard"></i> Tablero
+            <i class="icon-cogs"></i> Mantenimientos
 	</div>
 			<ul class="breadcrumb">
-			<li class="active">Tablero</li>
+			<li class="active">Mantenimientos</li>
 			</ul>
-			<font style=" font:bold 44px 'Aleo'; text-shadow:1px 1px 25px #000; color:#fff;"><center>Distribuidora El Palacio</center></font>
+			<font style=" font:bold 44px 'Aleo'; text-shadow:1px 1px 25px #000; color:#fff;"><center>Mantenimiento de Cat&aacute;logos</center></font>
                         <div id="mainmain">
  
-                        <a href=""><i class="icon-shopping-cart icon-2x"></i><br> Ventas</a>               
-                        <a href=""><i class="icon-list-alt icon-2x"></i><br> Productos</a>      
-                        <a href=""><i class="icon-group icon-2x"></i><br> Vendedores</a>     
+                        <a href=""><i class="icon-building icon-2x"></i><br> Agencias</a> 
+                        <a href=""><i class="icon-wrench icon-2x"></i><br> Rubros</a> 
+                        <a href=""><i class="icon-flag icon-2x"></i><br> Categorias</a>      
+                        <a href=""><i class="icon-user-md icon-2x"></i><br> Vendedores</a>     
                         <a href=""><i class="icon-group icon-2x"></i><br> Proveedores</a>     
-                        <a href=""><i class="icon-bar-chart icon-2x"></i><br> Reporte de Ventas</a>
-                        <a href=""><i class="icon-bar-chart icon-2x"></i><br> Compras</a>
-                        <a href="{{path('logout')}}"><font color="red"><i class="icon-off icon-2x"></i></font><br> Salir</a> 
                         <div class="clearfix"></div>
                         </div>
         </div>
-</div>
+    </div>
 </div>
 
  {% endblock %}
-

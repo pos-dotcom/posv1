@@ -1,0 +1,34 @@
+MantenimientosBundle\Entity\Empleados:
+    type: entity
+    table: null
+    repositoryClass: MantenimientosBundle\Repository\EmpleadosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoEmpleado:
+            type: integer
+            unique: true
+            column: codigo_empleado
+        nombres:
+            type: string
+            length: '50'
+        apellidos:
+            type: string
+            length: '50'
+        dui:
+            type: string
+            length: '15'
+            unique: true
+        direccion:
+            type: string
+            length: '100'
+            nullable: true
+        telefono:
+            type: string
+            length: '10'
+            nullable: true
+    lifecycleCallbacks: {  }

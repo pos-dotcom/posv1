@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new LoginBundle\LoginBundle(),
             new TableroBundle\TableroBundle(),
+            new MantenimientosBundle\MantenimientosBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

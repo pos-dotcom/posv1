@@ -1,0 +1,20 @@
+MantenimientosBundle\Entity\Categorias:
+    type: entity
+    table: null
+    repositoryClass: MantenimientosBundle\Repository\CategoriasRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoCategoria:
+            type: integer
+            unique: true
+            column: codigo_categoria
+        nombreCategoria:
+            type: string
+            length: '100'
+            column: nombre_categoria
+    lifecycleCallbacks: {  }
