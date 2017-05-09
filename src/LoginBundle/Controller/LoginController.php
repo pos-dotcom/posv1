@@ -39,12 +39,18 @@ class LoginController extends Controller
                return $this->redirect($this->generateUrl('login'));
                 
             }
-             
-            
             
         }
         
-        
         return $this->render('LoginBundle:Login:login.html.twig');
+    }
+    
+     public function logoutAction(Request $request)
+    {  
+        $session=$request->getSession();
+        $session->clear();
+         $this->get('session')->getFlashBag()->add('Mensaje', 'Ha salido correctamente del sistema');
+               return $this->redirect($this->generateUrl('login'));
+        
     }
 }

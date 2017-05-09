@@ -11,4 +11,9 @@ class TableroController extends Controller
         return $this->render('TableroBundle:Default:index.html.twig');
         
     }
+    
+    public function tableroAction()
+    {
+        return $this->render('TableroBundle:Tablero:tablero.html.twig');
+    }
 }

@@ -6,7 +6,12 @@ login_homepage:
 login:
     path:     /login
     defaults: { _controller: LoginBundle:Login:login }
+
+logout:
+    path:     /logout
+    defaults: { _controller: LoginBundle:Login:logout }
     
 tablero:
     path:     /tablero
     defaults: { _controller: TableroBundle:Tablero:tablero }
+    
