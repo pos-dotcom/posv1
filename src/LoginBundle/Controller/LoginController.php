@@ -9,7 +9,19 @@ class LoginController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('LoginBundle:Login:login.html.twig');
+        
+        $session=$request->getSession();
+        if($session->has("id"))
+        {
+             return $this->render('LoginBundle:Default:index.html.twig');
+        }
+        else
+        {
+              $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+               return $this->redirect($this->generateUrl('login'));
+             
+        }   
+        //return $this->render('LoginBundle:Login:login.html.twig');
     }
     
     
