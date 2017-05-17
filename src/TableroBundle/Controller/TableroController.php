@@ -12,7 +12,8 @@ class TableroController extends Controller
         $session=$request->getSession();
         if($session->has("id"))
         {
-             return $this->render('LoginBundle:Default:index.html.twig');
+             //return $this->render('LoginBundle:Default:index.html.twig');
+            return $this->render('TableroBundle:Default:index.html.twig');
         }
         else
         {
