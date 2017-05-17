@@ -25,6 +25,19 @@ class TableroController extends Controller
     
     public function tableroAction()
     {
-        return $this->render('TableroBundle:Tablero:tablero.html.twig');
+        
+        $session=$request->getSession();
+        if($session->has("id"))
+        {
+             //return $this->render('LoginBundle:Default:index.html.twig');
+             return $this->render('TableroBundle:Tablero:tablero.html.twig');
+        }
+        else
+        {
+              $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+               return $this->redirect($this->generateUrl('login'));
+             
+        }  
+        //return $this->render('TableroBundle:Tablero:tablero.html.twig');
     }
 }
