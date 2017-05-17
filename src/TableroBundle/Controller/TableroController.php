@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TableroController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         
         $session=$request->getSession();
