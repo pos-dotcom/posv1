@@ -1,3 +1,3 @@
-tablero_homepage:
-    path:     /
-    defaults: { _controller: TableroBundle:Default:index }
+tablero:
+    path:     /tablero
+    defaults: { _controller: TableroBundle:Tablero:tablero }

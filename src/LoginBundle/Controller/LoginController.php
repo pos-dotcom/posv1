@@ -61,8 +61,8 @@ class LoginController extends Controller
     {  
         $session=$request->getSession();
         $session->clear();
-         $this->get('session')->getFlashBag()->add('Mensaje', 'Ha salido correctamente del sistema');
-               return $this->redirect($this->generateUrl('login'));
+        $this->get('session')->getFlashBag()->add('Mensaje', 'Ha salido correctamente del sistema');
+        return $this->redirect($this->generateUrl('login'));
         
     }
 }

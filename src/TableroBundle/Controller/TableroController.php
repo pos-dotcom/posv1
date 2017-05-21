@@ -15,8 +15,8 @@ class TableroController extends Controller
         $session=$request->getSession();
         if($session->has("id"))
         {
-            // return $this->render('LoginBundle:Default:index.html.twig');
-            return $this->render('TableroBundle:Default:index.html.twig');
+            
+            return $this->render('TableroBundle:Tablero:tablero.xhtml.twing');
         }
         else
         {
@@ -24,13 +24,24 @@ class TableroController extends Controller
                return $this->redirect($this->generateUrl('login'));
              
         }  
-       //return $this->render('TableroBundle:Default:index.html.twig');
+      
         
     }
     
-    public function tableroAction()
+    public function tableroAction(Request $request)
     {
-        
-        return $this->render('TableroBundle:Tablero:tablero.html.twig');
+        $session=$request->getSession();
+        if($session->has("id"))
+        {
+             
+            return $this->render('TableroBundle:Tablero:tablero.html.twig');
+        }
+        else
+        {
+              $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+               return $this->redirect($this->generateUrl('login'));
+             
+        }  
+
     }
 }
