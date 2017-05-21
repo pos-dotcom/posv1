@@ -1,18 +1,17 @@
 MantenimientosBundle\Entity\Agencia:
     type: entity
-    table: null
+    table: agencia
     repositoryClass: MantenimientosBundle\Repository\AgenciaRepository
-    id:
-        id:
+    codigoAgencia:
             type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
-        codigoAgencia:
-            type: integer
-            unique: true
+            nullable: false
+            options:
+                unsigned: false
+            id: false
             column: codigo_agencia
+            generator:
+                strategy: IDENTITY
+    fields:
         nombreAgencia:
             type: string
             length: '100'

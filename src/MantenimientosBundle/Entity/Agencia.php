@@ -9,8 +9,9 @@ class Agencia
 {
     /**
      * @var int
+    
      */
-    private $id;
+    //private $id;
 
     /**
      * @var int

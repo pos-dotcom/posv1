@@ -12,9 +12,12 @@ class CategoriasController extends Controller
         $session=$request->getSession();
         if($session->has("id"))
         {
-            
+            $datos=$this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Categorias')
+                    ->findAll();
+            return $this->render('MantenimientosBundle:Catalogos:ListaCategorias.html.twig',compact("datos"));
            
-             return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
+           //  return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
         }
         else
         {
