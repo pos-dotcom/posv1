@@ -5,7 +5,7 @@ namespace MantenimientosBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class CatalogosController extends Controller
+class RubrosController extends Controller
 {
     public function indexAction(Request $request)
     {
