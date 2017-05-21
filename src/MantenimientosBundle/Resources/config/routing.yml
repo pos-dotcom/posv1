@@ -5,3 +5,28 @@ mantenimientos_homepage:
 mantenimientos:
     path:     /mantenimientos
     defaults: { _controller: MantenimientosBundle:Catalogos:index }
+    
+agencias:
+    path:     /mantenimientos/agencias
+    defaults: { _controller: MantenimientosBundle:Agencias:index }
+
+rubros:
+    path:     /mantenimientos/rubros
+    defaults: { _controller: MantenimientosBundle:Rubros:index }
+
+categorias:
+    path:     /mantenimientos/categorias
+    defaults: { _controller: MantenimientosBundle:Categorias:index }
+    
+empleados:
+    path:     /mantenimientos/empleados
+    defaults: { _controller: MantenimientosBundle:Empleados:index }
+
+proveedores:
+    path:     /mantenimientos/proveedores
+    defaults: { _controller: MantenimientosBundle:Proveedores:index }
+
+vendedores:
+    path:     /mantenimientos/vendedores
+    defaults: { _controller: MantenimientosBundle:Vendedores:index }
+
