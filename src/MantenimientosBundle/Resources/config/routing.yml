@@ -3,5 +3,5 @@ mantenimientos_homepage:
     defaults: { _controller: MantenimientosBundle:Default:index }
     
 mantenimientos:
-    path:     /
+    path:     /mantenimientos
     defaults: { _controller: MantenimientosBundle:Catalogos:index }

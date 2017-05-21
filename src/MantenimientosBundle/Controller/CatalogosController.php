@@ -3,12 +3,26 @@
 namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class CatalogosController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
+        $session=$request->getSession();
+        if($session->has("id"))
+        {
+            
+           
+             return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
+        }
+        else
+        {
+              $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+               return $this->redirect($this->generateUrl('login'));
+             
+        } 
+       
     }
     
     public function listacategoriasAction()
