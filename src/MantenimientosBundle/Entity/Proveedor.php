@@ -28,6 +28,11 @@ class Proveedor
      * @var string
      */
     private $contacto;
+    
+    /**
+     * @var string
+     */
+    private $notas;
 
 
     /**
@@ -135,5 +140,33 @@ class Proveedor
     {
         return $this->contacto;
     }
+    
+    
+    /**
+     * Set notas
+     *
+     * @param string $notas
+     *
+     * @return Proveedor
+     */
+    public function setNotas($notas)
+    {
+        $this->notas = $notas;
+
+        return $this;
+    }
+
+    /**
+     * Get notas
+     *
+     * @return string
+     */
+    public function getNotas()
+    {
+        return $this->notas;
+    }
+    
+    
+    
 }
 

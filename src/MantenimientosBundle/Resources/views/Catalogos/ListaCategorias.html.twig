@@ -30,10 +30,10 @@
 	  </div>
           <ul class="breadcrumb">
 			<li><a href="">Mantenimiento</a></li> /
-			<li class="active">Agencias</li>
+			<li class="active">Categorias</li>
 	  </ul>
         <div style="margin-top: -19px; margin-bottom: 21px;">
-            <h2>Listado de Agencias</h2>
+            <h2>Listado de Categorias</h2>
         </div>
      
   <div id="maintable">
@@ -44,7 +44,7 @@
         <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
                 <thead>
                         <tr>
-                                <th width="5%"> Cod. Agencia </th>
+                                <th width="5%"> Cod. Categoria </th>
                               
                                 <th width="10%"> Nombre </th>
                                    <th width="10%"> Accion </th>
@@ -57,16 +57,16 @@
                                 
                                 <tr class="record">
                                     <td>
-                                      {{ dato.codigoAgencia}}  
+                                      {{ dato.codigoCategoria}}  
                                         
                                     </td>
                                     <td>
-                                        {{dato.nombreAgencia}}
+                                        {{dato.nombreCategoria}}
                                     </td>
                                     <td>
                                         
-                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoAgencia}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
-                                        <a href="{{asset('')}}/{{dato.codigoAgencia}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
+                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoCategoria}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
+                                        <a href="{{asset('')}}/{{dato.codigoCategoria}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
 			
                                         
                                     </td>

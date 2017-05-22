@@ -26,26 +26,27 @@
         
         <div class="span10">
           <div class="contentheader">
-			<i class="icon-building"></i> Agencias
+			<i class="icon-building"></i> Proveedores
 	  </div>
           <ul class="breadcrumb">
 			<li><a href="">Mantenimiento</a></li> /
-			<li class="active">Agencias</li>
+			<li class="active">Proveedores</li>
 	  </ul>
         <div style="margin-top: -19px; margin-bottom: 21px;">
-            <h2>Listado de Agencias</h2>
+            <h2>Listado de Proveedores</h2>
         </div>
      
   <div id="maintable">
         
         <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
             <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
-                <a rel="facebox" href=""><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Categoria</button></a><br><br>
+                <a rel="facebox" href=""><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Proveedor</button></a><br><br>
         <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
                 <thead>
                         <tr>
-                                <th width="5%"> Cod. Agencia </th>
+                                <th width="5%"> Cod. Proveedor </th>
                               
+                                <th width="10%"> Nombre </th>
                                 <th width="10%"> Nombre </th>
                                    <th width="10%"> Accion </th>
 
@@ -57,16 +58,16 @@
                                 
                                 <tr class="record">
                                     <td>
-                                      {{ dato.codigoAgencia}}  
+                                      {{ dato.codigoProveedor}}  
                                         
                                     </td>
                                     <td>
-                                        {{dato.nombreAgencia}}
+                                        {{dato.nombreProveedor}}
                                     </td>
                                     <td>
                                         
-                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoAgencia}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
-                                        <a href="{{asset('')}}/{{dato.codigoAgencia}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
+                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoProveedor}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
+                                        <a href="{{asset('')}}/{{dato.codigoProveedor}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
 			
                                         
                                     </td>

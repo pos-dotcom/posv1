@@ -13,9 +13,9 @@ class VendedoresController extends Controller
         if($session->has("id"))
         {
             $datos=$this->getDoctrine()
-                    ->getRepository('MantenimientosBundle:Categorias')
+                    ->getRepository('MantenimientosBundle:Empleados')
                     ->findAll();
-            return $this->render('MantenimientosBundle:Catalogos:ListaCategorias.html.twig',compact("datos"));
+            return $this->render('MantenimientosBundle:Catalogos:ListaEmpleados.html.twig',compact("datos"));
            
             // return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
         }

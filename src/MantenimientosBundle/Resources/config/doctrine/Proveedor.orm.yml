@@ -25,4 +25,8 @@ MantenimientosBundle\Entity\Proveedor:
             type: string
             length: '50'
             nullable: true
+        notas:
+            type: string
+            length: 'a00'
+            nullable: true
     lifecycleCallbacks: {  }

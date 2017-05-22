@@ -12,9 +12,11 @@ class EmpleadosController extends Controller
         $session=$request->getSession();
         if($session->has("id"))
         {
-            
+            $datos=$this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Empleados')
+                    ->findAll();
            
-             return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
+             return $this->render('MantenimientosBundle:Empleados:index.html.twig');
         }
         else
         {
