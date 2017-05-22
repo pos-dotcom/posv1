@@ -7,13 +7,7 @@ namespace MantenimientosBundle\Entity;
  */
 class Agencia
 {
-    /**
-     * @var int
-    
-     */
-    //private $id;
-
-    /**
+     /**
      * @var int
      */
     private $codigoAgencia;

@@ -1,13 +1,14 @@
 MantenimientosBundle\Entity\Agencia:
     type: entity
-    table: agencia
+    table: null
     repositoryClass: MantenimientosBundle\Repository\AgenciaRepository
-    codigoAgencia:
+    id:
+        codigoAgencia:
             type: integer
             nullable: false
             options:
                 unsigned: false
-            id: false
+            id: true
             column: codigo_agencia
             generator:
                 strategy: IDENTITY
@@ -15,6 +16,7 @@ MantenimientosBundle\Entity\Agencia:
         nombreAgencia:
             type: string
             length: '100'
+            nullable: true
             column: nombre_agencia
         telefono:
             type: string

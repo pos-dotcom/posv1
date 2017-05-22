@@ -13,9 +13,11 @@ class AgenciasController extends Controller
         if($session->has("id"))
         {
             $datos=$this->getDoctrine()
-                    ->getRepository('MantenimientosBundle:Categorias')
+                    ->getRepository('MantenimientosBundle:Agencia')
                     ->findAll();
-            return $this->render('MantenimientosBundle:Catalogos:ListaCategorias.html.twig',compact("datos"));
+           
+           // return $this->render('MantenimientosBundle:Catalogos::ListaCategorias.html.twig',compact("datos"));
+             return $this->render('MantenimientosBundle:Catalogos:ListaAgencias.html.twig',compact("datos"));
            
           //   return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
         }

@@ -7,7 +7,7 @@
         <div class="span2">
           <div class="well sidebar-nav">
                      <ul class="nav nav-list">
-                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
 			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
 			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
                         <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
@@ -44,7 +44,7 @@
         <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
                 <thead>
                         <tr>
-                                <th width="5%"> Cod. Agencias </th>
+                                <th width="5%"> Cod. Agencia </th>
                               
                                 <th width="10%"> Nombre </th>
                                    <th width="10%"> Accion </th>
@@ -53,17 +53,26 @@
                 </thead>
                 <tbody>
 
-
+                            {% for dato in datos %}
+                                
                                 <tr class="record">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                </td>
-                                </tr>
+                                    <td>
+                                      {{ dato.codigoAgencia}}  
+                                        
+                                    </td>
+                                    <td>
+                                        {{dato.nombreAgencia}}
+                                    </td>
+                                    <td>
+                                        
+                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoAgencia}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
+                                        <a href="{{asset('')}}/{{dato.codigoAgencia}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
+			
+                                        
+                                    </td>
 
+                                </tr>
+                             {% endfor %}
 
 
                 </tbody>
