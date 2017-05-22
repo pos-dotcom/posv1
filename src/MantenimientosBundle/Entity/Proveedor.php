@@ -7,10 +7,7 @@ namespace MantenimientosBundle\Entity;
  */
 class Proveedor
 {
-    /**
-     * @var int
-     */
-    private $id;
+    
 
     /**
      * @var int

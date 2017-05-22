@@ -3,16 +3,16 @@ MantenimientosBundle\Entity\Proveedor:
     table: null
     repositoryClass: MantenimientosBundle\Repository\ProveedorRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoProveedor:
             type: integer
-            unique: true
+            nullable: false
+            options:
+                unsigned: false
+            id: true
             column: codigo_proveedor
+            generator:
+                strategy: IDENTITY
+    fields:
         nombreProveedor:
             type: string
             length: '100'

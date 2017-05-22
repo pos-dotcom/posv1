@@ -7,11 +7,7 @@ namespace MantenimientosBundle\Entity;
  */
 class Categorias
 {
-    /**
-     * @var int
-     */
-    private $id;
-
+    
     /**
      * @var int
      */

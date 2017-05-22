@@ -3,16 +3,16 @@ MantenimientosBundle\Entity\Categorias:
     table: null
     repositoryClass: MantenimientosBundle\Repository\CategoriasRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoCategoria:
             type: integer
-            unique: true
+            nullable: false
+            options:
+                unsigned: false
+            id: true
             column: codigo_categoria
+            generator:
+                strategy: IDENTITY
+    fields:
         nombreCategoria:
             type: string
             length: '100'

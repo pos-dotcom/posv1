@@ -3,16 +3,16 @@ MantenimientosBundle\Entity\Empleados:
     table: null
     repositoryClass: MantenimientosBundle\Repository\EmpleadosRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoEmpleado:
             type: integer
-            unique: true
+            nullable: false
+            options:
+                unsigned: false
+            id: true
             column: codigo_empleado
+            generator:
+                strategy: IDENTITY
+    fields:
         nombres:
             type: string
             length: '50'

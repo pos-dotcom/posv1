@@ -7,11 +7,7 @@ namespace MantenimientosBundle\Entity;
  */
 class Rubros
 {
-    /**
-     * @var int
-     */
-    private $id;
-
+    
     /**
      * @var int
      */

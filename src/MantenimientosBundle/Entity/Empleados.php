@@ -10,11 +10,6 @@ class Empleados
     /**
      * @var int
      */
-    private $id;
-
-    /**
-     * @var int
-     */
     private $codigoEmpleado;
 
     /**
