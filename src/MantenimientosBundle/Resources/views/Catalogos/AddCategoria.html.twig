@@ -1,7 +1,20 @@
 {%extends '::frontend.html.twig'%}
 {% block body %}
-<center><h4><i class="icon-plus-sign icon-large"></i> Agregar Categoria</h4></center>
-<hr>
-{{form(form)}}
-
-{% endblock body %}
+    <center>
+        <h4>
+            <i class="icon-plus-sign icon-large"></i>Nueva Agencia
+        </h4>
+    </center>
+    <hr>
+    
+    <div id="ac">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        
+    {{ form_end(form) }}
+    <br>
+    
+            </div>
+    
+{% endblock %}

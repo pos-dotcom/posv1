@@ -24,13 +24,25 @@ class CategoriasController extends Controller {
         }
     }
 
-    public function addAction() {
+    public function add2Action() {
         $form=$this->createForm(CategoriasType::class);
         return $this->render('MantenimientosBundle:Catalogos:AddCategoria.html.twig',array("form"=>$form->createView()));
     }
     
-    public function add2Action() {
-        return $this->render('MantenimientosBundle:Catalogos:AddCategoria.html.twig');
+    public function addAction(Request $request) {
+        $cat =new Categorias();
+        $form=$this->createForm(CategoriasType::class,$cat);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cat);
+            $em->flush();
+            //return $this->redirectToRoute('index');
+            return $this->redirect($this->generateUrl('categorias'));
+        }
+        
+        return $this->render('MantenimientosBundle:Catalogos:AddCategoria.html.twig',array("form"=> $form->createView()));
     }
 
     public function listacategoriasAction() {

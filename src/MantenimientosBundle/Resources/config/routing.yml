@@ -16,7 +16,8 @@ categorias:
     
 addcategorias:
     path:     /mantenimientos/categorias/add
-    defaults: { _controller: MantenimientosBundle:Categorias:add }  
+    defaults: { _controller: MantenimientosBundle:Categorias:add }
+    
     
 add2categorias:
     path:     /mantenimientos/categorias/add2

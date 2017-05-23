@@ -2,6 +2,10 @@
 
 namespace MantenimientosBundle\Entity;
 
+
+
+
+
 /**
  * Categorias
  */
@@ -20,6 +24,7 @@ class Categorias
     
     /**
      * @var int
+
      */
     private $codigoRubro;
 

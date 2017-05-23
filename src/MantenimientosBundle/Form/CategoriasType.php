@@ -5,8 +5,8 @@ namespace MantenimientosBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 
@@ -19,7 +19,8 @@ class CategoriasType extends AbstractType
     {
         $builder->add('nombreCategoria',TextType::class,array("required"=>true))
                 ->add('codigoRubro',TextType::class,array("required"=>true))
-                ->add('Guardar',SubmitType::class);
+                ->add('save', SubmitType::class, array('label' => 'gUARDAR'));
+                
     }
     
     /**
