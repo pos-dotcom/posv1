@@ -17,6 +17,11 @@ class Categorias
      * @var string
      */
     private $nombreCategoria;
+    
+    /**
+     * @var int
+     */
+    private $codigoRubro;
 
 
     /**
@@ -75,6 +80,32 @@ class Categorias
     public function getNombreCategoria()
     {
         return $this->nombreCategoria;
+    }
+    
+    
+    
+    /**
+     * Set codigoRubro
+     *
+     * @param integer $codigoRubro
+     *
+     * @return Categorias
+     */
+    public function setCodigoRubro($codigoRubro)
+    {
+        $this->codigoRubro = $codigoRubro;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoRubro
+     *
+     * @return int
+     */
+    public function getCodigoRubro()
+    {
+        return $this->codigoRubro;
     }
 }
 

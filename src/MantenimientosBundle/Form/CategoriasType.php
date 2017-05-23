@@ -5,6 +5,10 @@ namespace MantenimientosBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+
 
 class CategoriasType extends AbstractType
 {
@@ -13,7 +17,9 @@ class CategoriasType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoCategoria')->add('nombreCategoria');
+        $builder->add('nombreCategoria',TextType::class,array("required"=>true))
+                ->add('codigoRubro',TextType::class,array("required"=>true))
+                ->add('Guardar',SubmitType::class);
     }
     
     /**

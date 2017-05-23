@@ -14,6 +14,16 @@ categorias:
     path:     /mantenimientos/categorias
     defaults: { _controller: MantenimientosBundle:Categorias:index }
     
+addcategorias:
+    path:     /mantenimientos/categorias/add
+    defaults: { _controller: MantenimientosBundle:Categorias:add }  
+    
+add2categorias:
+    path:     /mantenimientos/categorias/add2
+    defaults: { _controller: MantenimientosBundle:Categorias:add2 }   
+    
+    
+    
 empleados:
     path:     /mantenimientos/empleados
     defaults: { _controller: MantenimientosBundle:Empleados:index }

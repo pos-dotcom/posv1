@@ -17,4 +17,8 @@ MantenimientosBundle\Entity\Categorias:
             type: string
             length: '100'
             column: nombre_categoria
+        codigoRubro:
+            type: integer
+            unique: true
+            column: codigo_rubro
     lifecycleCallbacks: {  }
