@@ -5,6 +5,8 @@ namespace MantenimientosBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EmpleadosType extends AbstractType
 {
@@ -13,12 +15,12 @@ class EmpleadosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoEmpleado')
-                ->add('nombres')
-                ->add('apellidos')
-                ->add('dui')
-                ->add('direccion')
-                ->add('telefono');
+        $builder->add('nombres',TextType::class,array("required"=>true))
+                ->add('apellidos',TextType::class,array("required"=>true))
+                ->add('dui',TextType::class,array("required"=>true))
+                ->add('direccion',TextType::class)
+                ->add('telefono',TextType::class)
+                ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
     
     /**

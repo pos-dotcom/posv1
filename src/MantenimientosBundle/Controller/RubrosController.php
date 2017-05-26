@@ -5,7 +5,7 @@ namespace MantenimientosBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use MantenimientosBundle\Entity\Rubros;
-use MantenimientosBundle\Form\rubrosType;
+use MantenimientosBundle\Form\RubrosType;
 
 class RubrosController extends Controller
 {

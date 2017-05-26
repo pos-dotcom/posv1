@@ -1,7 +1,7 @@
 {%extends '::frontend.html.twig'%}
 {% block body %}
-
-    {{ include('navfixed.html.twig')}}
+    
+     {{ include('navfixed.html.twig')}}
    <div class="container-fluid">
     <div class="row-fluid">
         <div class="span2">
@@ -37,50 +37,34 @@
         </div>
      
   <div id="maintable">
+  
+    
+    
+    
+    
+    
+    
+   <center>
+        <h4>
+            <i class="icon-plus-sign icon-large"></i>Nueva Proveedor
+        </h4>
+    </center>
+    <hr>
+    <div id="ac">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
         
-        <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
-            <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
-                <a  href="{{path('addproveedor')}}"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Proveedor</button></a><br><br>
-        <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
-                <thead>
-                        <tr>
-                                <th width="5%"> Cod. Proveedor </th>
-                              
-                                <th width="10%"> Nombre </th>
-                                <th width="10%"> Notas </th>
-                                   <th width="10%"> Accion </th>
-
-                        </tr>
-                </thead>
-                <tbody>
-
-                            {% for dato in datos %}
-                                
-                                <tr class="record">
-                                    <td>
-                                      {{ dato.codigoProveedor}}  
-                                        
-                                    </td>
-                                    <td>
-                                        {{dato.nombreProveedor}}
-                                    </td>
-                                    <td>
-                                        
-                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoProveedor}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
-                                        <a href="{{asset('')}}/{{dato.codigoProveedor}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
-			
-                                        
-                                    </td>
-
-                                </tr>
-                             {% endfor %}
-
-
-                </tbody>
-        </table>
-    <div class="clearfix"></div>
+    {{ form_end(form) }}
+    <br>
+    
+    </div>
+    
+ 
+	
+	 <div class="clearfix"></div>
     </div> 
     </div>
     </div>
-</div>
+</div>       
 {% endblock %}

@@ -26,20 +26,20 @@ addcategorias:
     path:     /mantenimientos/categorias/add
     defaults: { _controller: MantenimientosBundle:Categorias:add }
     
-    
-  
-    
-    
-    
 empleados:
     path:     /mantenimientos/empleados
     defaults: { _controller: MantenimientosBundle:Empleados:index }
-addempleados:
+addempleado:
     path:     /mantenimientos/empleados/add
     defaults: { _controller: MantenimientosBundle:Empleados:add }
+    
 proveedores:
     path:     /mantenimientos/proveedores
     defaults: { _controller: MantenimientosBundle:Proveedores:index }
+
+addproveedor:
+    path:     /mantenimientos/proveedores/add
+    defaults: { _controller: MantenimientosBundle:Proveedores:add }
 
 vendedores:
     path:     /mantenimientos/vendedores

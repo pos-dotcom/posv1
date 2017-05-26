@@ -4,6 +4,8 @@ namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use MantenimientosBundle\Entity\Proveedor;
+use MantenimientosBundle\Form\ProveedorType;    
 
 class ProveedoresController extends Controller
 {
@@ -25,6 +27,22 @@ class ProveedoresController extends Controller
              
         } 
        
+    }
+    
+    public function addAction(Request $request) {
+        $pro =new Proveedor();
+        $form=$this->createForm(ProveedorType::class,$pro);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($pro);
+            $em->flush();
+            //return $this->redirectToRoute('index');
+            return $this->redirect($this->generateUrl('proveedores'));
+        }
+        
+        return $this->render('MantenimientosBundle:Catalogos:AddProveedor.html.twig',array("form"=> $form->createView()));
     }
     
     public function listacategoriasAction()
