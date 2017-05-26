@@ -5,10 +5,18 @@ mantenimientos:
 agencias:
     path:     /mantenimientos/agencias
     defaults: { _controller: MantenimientosBundle:Agencias:index }
+    
+addagencia:
+    path:     /mantenimientos/agencia/add
+    defaults: { _controller: MantenimientosBundle:Agencias:add } 
 
 rubros:
     path:     /mantenimientos/rubros
     defaults: { _controller: MantenimientosBundle:Rubros:index }
+    
+addrubros:
+    path:     /mantenimientos/rubros/add
+    defaults: { _controller: MantenimientosBundle:Rubros:add } 
 
 categorias:
     path:     /mantenimientos/categorias
@@ -19,16 +27,16 @@ addcategorias:
     defaults: { _controller: MantenimientosBundle:Categorias:add }
     
     
-add2categorias:
-    path:     /mantenimientos/categorias/add2
-    defaults: { _controller: MantenimientosBundle:Categorias:add2 }   
+  
     
     
     
 empleados:
     path:     /mantenimientos/empleados
     defaults: { _controller: MantenimientosBundle:Empleados:index }
-
+addempleados:
+    path:     /mantenimientos/empleados/add
+    defaults: { _controller: MantenimientosBundle:Empleados:add }
 proveedores:
     path:     /mantenimientos/proveedores
     defaults: { _controller: MantenimientosBundle:Proveedores:index }

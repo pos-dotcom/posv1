@@ -40,15 +40,13 @@
         
         <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
             <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
-                <a rel="facebox" href="{{ path('addcategorias') }}"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Categoria</button></a><br><br>
+                <a  href="{{ path('addcategorias') }}"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Categoria</button></a><br><br>
         <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
                 <thead>
                         <tr>
                                 <th width="5%"> Cod. Categoria </th>
-                              
                                 <th width="10%"> Nombre </th>
-                                   <th width="10%"> Accion </th>
-
+                                <th width="10%"> Accion </th>
                         </tr>
                 </thead>
                 <tbody>

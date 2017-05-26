@@ -4,6 +4,9 @@ namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use MantenimientosBundle\Entity\Empleados;
+use MantenimientosBundle\Form\EmpleadosType;
+
 
 class VendedoresController extends Controller
 {
@@ -27,6 +30,23 @@ class VendedoresController extends Controller
         } 
        
     }
+    
+    public function addAction(Request $request) {
+        $empl =new Empleados();
+        $form=$this->createForm(EmpleadosType::class,$empl);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($empl);
+            $em->flush();
+            //return $this->redirectToRoute('index');
+            return $this->redirect($this->generateUrl('agencias'));
+        }
+        
+        return $this->render('MantenimientosBundle:Catalogos:AddAgencia.html.twig',array("form"=> $form->createView()));
+    }
+    
     
     public function listaAction()
     {

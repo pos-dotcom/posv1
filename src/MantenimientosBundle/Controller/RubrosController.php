@@ -4,6 +4,8 @@ namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use MantenimientosBundle\Entity\Rubros;
+use MantenimientosBundle\Form\rubrosType;
 
 class RubrosController extends Controller
 {
@@ -25,6 +27,23 @@ class RubrosController extends Controller
              
         } 
        
+    }
+    
+    
+     public function addAction(Request $request) {
+        $rbr =new Rubros();
+        $form=$this->createForm(RubrosType::class,$rbr);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($rbr);
+            $em->flush();
+            //return $this->redirectToRoute('index');
+            return $this->redirect($this->generateUrl('rubros'));
+        }
+        
+        return $this->render('MantenimientosBundle:Catalogos:AddRubro.html.twig',array("form"=> $form->createView()));
     }
     
     public function listacategoriasAction()

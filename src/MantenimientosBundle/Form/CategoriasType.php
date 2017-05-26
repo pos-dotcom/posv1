@@ -19,7 +19,8 @@ class CategoriasType extends AbstractType
     {
         $builder->add('nombreCategoria',TextType::class,array("required"=>true))
                 ->add('codigoRubro',TextType::class,array("required"=>true))
-                ->add('save', SubmitType::class, array('label' => 'gUARDAR'));
+                ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
+               // ->getForm();
                 
     }
     

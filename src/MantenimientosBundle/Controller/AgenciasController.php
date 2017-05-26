@@ -4,6 +4,8 @@ namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use MantenimientosBundle\Entity\Agencia;
+use MantenimientosBundle\Form\AgenciaType;
 
 class AgenciasController extends Controller
 {
@@ -28,6 +30,23 @@ class AgenciasController extends Controller
              
         } 
        
+    }
+    
+    
+     public function addAction(Request $request) {
+        $agn =new Agencia();
+        $form=$this->createForm(AgenciaType::class,$agn);
+        $form->handleRequest($request);
+        if( $form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($agn);
+            $em->flush();
+            //return $this->redirectToRoute('index');
+            return $this->redirect($this->generateUrl('agencias'));
+        }
+        
+        return $this->render('MantenimientosBundle:Catalogos:AddAgencia.html.twig',array("form"=> $form->createView()));
     }
     
     public function listacategoriasAction()

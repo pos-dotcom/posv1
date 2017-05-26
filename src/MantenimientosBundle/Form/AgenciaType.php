@@ -5,6 +5,9 @@ namespace MantenimientosBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class AgenciaType extends AbstractType
 {
@@ -13,7 +16,10 @@ class AgenciaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoAgencia')->add('nombreAgencia')->add('telefono')->add('descripcion');
+        $builder->add('nombreAgencia',TextType::class,array("required"=>true))
+                ->add('telefono',TextType::class)
+                ->add('descripcion',TextType::class)
+                ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
     
     /**
