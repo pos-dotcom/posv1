@@ -1,15 +1,13 @@
 {%extends '::frontend.html.twig'%}
 {% block body %}
-
-<body>
-    {{ include('navfixed.html.twig')}}
     
-<div class="container-fluid">
-      <div class="row-fluid">
-	<div class="span2">
+     {{ include('navfixed.html.twig')}}
+   <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
           <div class="well sidebar-nav">
                      <ul class="nav nav-list">
-              <li ><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
 			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
 			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
                         <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
@@ -25,26 +23,48 @@
 				</ul>                               
         </div><!--/.well -->
         </div><!--/span-->
-	<div class="span10">
-	<div class="contentheader">
-            <i class="icon-cogs"></i> Mantenimientos
-	</div>
-			<ul class="breadcrumb">
-			<li class="active">Mantenimientos</li>
-			</ul>
-			<font style=" font:bold 44px 'Aleo'; text-shadow:1px 1px 25px #000; color:#fff;"><center>Mantenimiento de Cat&aacute;logos</center></font>
-                        <div id="mainmain">
- 
-                        <a href="{{path('agencias')}}"><i class="icon-building icon-2x"></i><br> Agencias</a> 
-                        <a href="{{path('rubros')}}"><i class="icon-wrench icon-2x"></i><br> Rubros</a> 
-                        <a href="{{path('categorias')}}"><i class="icon-flag icon-2x"></i><br> Categorias</a>      
-                        <a href="{{path('empleados')}}"><i class="icon-user-md icon-2x"></i><br> Vendedores</a>     
-                        <a href="{{path('proveedores')}}"><i class="icon-group icon-2x"></i><br> Proveedores</a>
-                        <a href="{{path('productos')}}"><i class="icon-group icon-2x"></i><br> Productos</a>
-                        <div class="clearfix"></div>
-                        </div>
+        
+        <div class="span10">
+          <div class="contentheader">
+			<i class="icon-building"></i> Productos
+	  </div>
+          <ul class="breadcrumb">
+			<li><a href="">Mantenimiento</a></li> /
+			<li class="active">Productos</li>
+	  </ul>
+        <div style="margin-top: -19px; margin-bottom: 21px;">
+            <h2>Listado de Productos</h2>
         </div>
+     
+  <div id="maintable">
+  
+    
+    
+    
+    
+    
+    
+   <center>
+        <h4>
+            <i class="icon-plus-sign icon-large"></i>Nuevo Producto
+        </h4>
+    </center>
+    <hr>
+    <div id="ac">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        
+    {{ form_end(form) }}
+    <br>
+    
     </div>
-</div>
-
- {% endblock %}
+    
+ 
+	
+	 <div class="clearfix"></div>
+    </div> 
+    </div>
+    </div>
+</div>       
+{% endblock %}

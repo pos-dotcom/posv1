@@ -41,7 +41,10 @@ addproveedor:
     path:     /mantenimientos/proveedores/add
     defaults: { _controller: MantenimientosBundle:Proveedores:add }
 
-vendedores:
-    path:     /mantenimientos/vendedores
-    defaults: { _controller: MantenimientosBundle:Vendedores:index }
+productos:
+    path:     /mantenimientos/productos
+    defaults: { _controller: MantenimientosBundle:productos:index }
+addproducto:
+    path:     /mantenimientos/productos/add
+    defaults: { _controller: MantenimientosBundle:productos:add }
 

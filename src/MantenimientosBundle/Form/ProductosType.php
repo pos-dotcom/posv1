@@ -8,8 +8,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-\Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ProductosType extends AbstractType
 {
@@ -23,17 +24,17 @@ class ProductosType extends AbstractType
                        array('class'=>'MantenimientosBundle\Entity\Categorias',
                     'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria'))
                 ->add('nombre',TextType::class,array("required"=>true))
-                ->add('precioCosto')
-                ->add('precioVenta')
-                ->add('precioFacturado')
-                ->add('ganancia')
+                ->add('precioCosto',TextType::class,array("required"=>true))
+                ->add('precioVenta',TextType::class,array("required"=>true))
+                ->add('precioFacturado',TextType::class,array("required"=>true))
+                ->add('ganancia',TextType::class,array("required"=>true))
                 ->add('existencia',TextType::class,array("required"=>true))
                 ->add('existenciaPrevia',TextType::class,array("required"=>true))
                 ->add('ultimaCompra',DateType::class,array("required"=>true))
                 ->add('ultimaVenta',DateType::class,array("required"=>true))
                 ->add('docena',TextType::class,array("required"=>true))
-                ->add('bPrecioDocena',TextType::class,array("required"=>true))
-                ->add('bActivo',TextType::class,array("required"=>true))
+                ->add('bPrecioDocena',CheckboxType::class)
+                ->add('bActivo',CheckboxType::class)
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
     
