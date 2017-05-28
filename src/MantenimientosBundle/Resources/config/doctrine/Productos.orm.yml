@@ -1,0 +1,76 @@
+MantenimientosBundle\Entity\Productos:
+    type: entity
+    table: null
+    repositoryClass: MantenimientosBundle\Repository\ProductosRepository
+    id:
+        codigoProducto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            unique: true
+            column: codigo_producto
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigoArticulo:
+            type: string
+            length: '200'
+            column: codigo_articulo
+        codigoCategoria:
+            type: integer
+            column: codigo_categoria
+        nombre:
+            type: string
+            length: '200'
+        precioCosto:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_costo
+        precioVenta:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+            column: precio_venta
+        precioFacturado:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+            column: precio_facturado
+        ganancia:
+            type: decimal
+            precision: '8'
+            scale: '2'
+            nullable: true
+        existencia:
+            type: integer
+        existenciaPrevia:
+            type: integer
+            nullable: true
+            column: existencia_previa
+        ultimaCompra:
+            type: date
+            nullable: true
+            column: ultima_compra
+        ultimaVenta:
+            type: date
+            nullable: true
+            column: ultima_venta
+        docena:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+        bPrecioDocena:
+            type: integer
+            column: b_precio_docena
+        bActivo:
+            type: string
+            length: '1'
+            nullable: true
+            column: b_activo
+    lifecycleCallbacks: {  }

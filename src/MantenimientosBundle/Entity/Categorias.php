@@ -2,6 +2,7 @@
 
 namespace MantenimientosBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Categorias
@@ -14,6 +15,7 @@ class Categorias
      * @ORM\JoinColumn(name="codigoRubro", referencedColumnName="codigo_rubro")
      */
     protected $rubros;
+    
     
     
     /**
