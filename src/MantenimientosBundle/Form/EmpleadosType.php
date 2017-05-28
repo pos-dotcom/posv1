@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EmpleadosType extends AbstractType
@@ -18,7 +19,7 @@ class EmpleadosType extends AbstractType
         $builder->add('nombres',TextType::class,array("required"=>true))
                 ->add('apellidos',TextType::class,array("required"=>true))
                 ->add('dui',TextType::class,array("required"=>true))
-                ->add('direccion',TextType::class)
+                ->add('direccion',TextareaType::class)
                 ->add('telefono',TextType::class)
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
