@@ -7,7 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class CategoriasType extends AbstractType
@@ -18,7 +19,10 @@ class CategoriasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombreCategoria',TextType::class,array("required"=>true))
-                ->add('codigoRubro',TextType::class,array("required"=>true))
+                //->add('codigoRubro',ChoiceType::class,array("required"=>true))
+                ->add('codigoRubro', EntityType::class,
+                       array('class'=>'MantenimientosBundle\Entity\Rubros',
+                    'choice_value'=>'codigoRubro','choice_label'=>'nombreRubro'))
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
                // ->getForm();
                 

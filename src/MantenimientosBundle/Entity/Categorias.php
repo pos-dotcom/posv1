@@ -1,16 +1,20 @@
 <?php
 
 namespace MantenimientosBundle\Entity;
-
-
-
-
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Categorias
  */
 class Categorias
 {
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="rubros", inversedBy="categorias")
+     * @ORM\JoinColumn(name="codigoRubro", referencedColumnName="codigo_rubro")
+     */
+    protected $rubros;
+    
     
     /**
      * @var int
@@ -111,6 +115,19 @@ class Categorias
     public function getCodigoRubro()
     {
         return $this->codigoRubro;
+    }
+    
+    
+    /**
+     * @return array
+     */
+    public function getCategorias()
+    {
+        return $this->categorias->toArray();
+    }
+    
+     public function __toString() {
+        return $this->nombreCategoria;
     }
 }
 

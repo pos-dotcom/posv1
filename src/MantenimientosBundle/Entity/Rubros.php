@@ -2,12 +2,23 @@
 
 namespace MantenimientosBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Rubros
  */
-class Rubros
-{
-    
+class Rubros {
+
+    /**
+     * @ORM\OneToMany(targetEntity="categorias", mappedBy="rubros")
+     */
+    protected $categorias;
+
+    public function __construct() {
+        $this->categorias = new ArrayCollection();
+    }
+
     /**
      * @var int
      */
@@ -18,14 +29,12 @@ class Rubros
      */
     private $nombreRubro;
 
-
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -36,8 +45,7 @@ class Rubros
      *
      * @return Rubros
      */
-    public function setCodigoRubro($codigoRubro)
-    {
+    public function setCodigoRubro($codigoRubro) {
         $this->codigoRubro = $codigoRubro;
 
         return $this;
@@ -48,8 +56,7 @@ class Rubros
      *
      * @return int
      */
-    public function getCodigoRubro()
-    {
+    public function getCodigoRubro() {
         return $this->codigoRubro;
     }
 
@@ -60,8 +67,7 @@ class Rubros
      *
      * @return Rubros
      */
-    public function setNombreRubro($nombreRubro)
-    {
+    public function setNombreRubro($nombreRubro) {
         $this->nombreRubro = $nombreRubro;
 
         return $this;
@@ -72,9 +78,22 @@ class Rubros
      *
      * @return string
      */
-    public function getNombreRubro()
-    {
+    public function getNombreRubro() {
         return $this->nombreRubro;
     }
-}
 
+    /**
+     * @return array
+     */
+    public function getRubros() {
+        return $this->Rubros->toArray();
+    }
+
+    public function __toString() {
+        return strval($this->codigoRubro);
+            
+    }
+    
+   
+
+}
