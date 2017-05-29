@@ -4,7 +4,6 @@ namespace MantenimientosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use MantenimientosBundle\Entity\Categorias;
 use MantenimientosBundle\Entity\Productos;
 use MantenimientosBundle\Form\ProductosType;
 
