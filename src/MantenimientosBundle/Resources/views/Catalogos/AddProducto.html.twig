@@ -1,4 +1,9 @@
 {%extends '::frontend.html.twig'%}
+{% block javascripts %}
+<script>
+$('.edit_custom').find('input').unwrap();
+</script>
+ {% endblock %}
 {% block body %}
     
      {{ include('navfixed.html.twig')}}
@@ -45,13 +50,71 @@
     </center>
     <hr>
     <div id="ac">
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{ form_widget(form) }}
-        {{ form_errors(form) }}
+        <div class="edit_custom">
+        <span>
+            
+            {{ form_label(form.codigoArticulo) }}
+            {{ form_errors(form.codigoArticulo) }}
+            {{ form_widget(form.codigoArticulo) }}
+        </span><br>
         
-    {{ form_end(form) }}
+        <span>
+            
+            {{ form_label(form.codigoCategoria) }}
+            {{ form_errors(form.codigoCategoria) }}
+            {{ form_widget(form.codigoCategoria) }}
+        </span>
+        <br>
+        
+         <span>
+            
+            {{ form_label(form.nombre) }}
+            {{ form_errors(form.nombre) }}
+            {{ form_widget(form.nombre) }}
+         </span><br>
+        
+         <span>
+        
+            {{ form_label(form.precioCosto) }}
+            {{ form_errors(form.precioCosto) }}
+            {{ form_widget(form.precioCosto) }}
+        </span><br>
+        <span>
+     
+            {{ form_label(form.precioVenta) }}
+            {{ form_errors(form.precioVenta) }}
+            {{ form_widget(form.precioVenta) }}
+        </span><br>
+        <span>
+         
+            {{ form_label(form.bPrecioDocena) }}
+            {{ form_errors(form.bPrecioDocena) }}
+            {{ form_widget(form.bPrecioDocena) }}
+        </span><br>
+        <span>
+        
+            {{ form_label(form.ganancia) }}
+            {{ form_errors(form.ganancia) }}
+            {{ form_widget(form.ganancia) }}
+        </span><br>
+        <span>
+     
+            {{ form_label(form.existencia) }}
+            {{ form_errors(form.existencia) }}
+            {{ form_widget(form.existencia) }}
+        </span><br>
+        <span>
+     
+            {{ form_label(form.docena) }}
+            {{ form_errors(form.docena) }}
+            {{ form_widget(form.docena) }}
+        </span><br>
+        <span><br>
+            {{ form_widget(form.save) }}
+        </span>
+        
     <br>
-    
+     </div>
     </div>
     
  

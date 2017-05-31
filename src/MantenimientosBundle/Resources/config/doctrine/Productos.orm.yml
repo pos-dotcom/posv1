@@ -68,6 +68,7 @@ MantenimientosBundle\Entity\Productos:
         bPrecioDocena:
             type: integer
             column: b_precio_docena
+            nullable: true
         bActivo:
             type: string
             length: '1'

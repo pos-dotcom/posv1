@@ -19,21 +19,21 @@ class ProductosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoArticulo',TextType::class,array("required"=>true))
+        $builder->add('codigoArticulo',TextType::class,array('label'=>"Codigo","required"=>true))
                 ->add('codigoCategoria',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Categorias',
-                    'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria'))
-                ->add('nombre',TextType::class,array("required"=>true))
-                ->add('precioCosto',TextType::class,array("required"=>true))
-                ->add('precioVenta',TextType::class,array("required"=>true))
-                ->add('precioFacturado',TextType::class,array("required"=>true))
-                ->add('ganancia',TextType::class,array("required"=>true))
-                ->add('existencia',TextType::class,array("required"=>true))
-                ->add('existenciaPrevia',TextType::class,array("required"=>true))
-                ->add('ultimaCompra',DateType::class,array("required"=>true))
-                ->add('ultimaVenta',DateType::class,array("required"=>true))
-                ->add('docena',TextType::class,array("required"=>true))
-                ->add('bPrecioDocena',CheckboxType::class)
+                    'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria','label'=>"Categoria"))
+                ->add('nombre',TextType::class,array('label'=>"Nombre"))
+                ->add('precioCosto',TextType::class,array('label'=>"Costo"))
+                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta"))
+                ->add('precioFacturado',TextType::class,array('label'=>"Precio Facturado"))
+                ->add('ganancia',TextType::class,array('label'=>"Ganancia"))
+                ->add('existencia',TextType::class,array('label'=>"Unidades"))
+                ->add('existenciaPrevia',TextType::class,array('label'=>"Existencia Previa"))
+                ->add('ultimaCompra',DateType::class,array('label'=>"Ultima Compra"))
+                ->add('ultimaVenta',DateType::class,array('label'=>"Ultima Venta"))
+                ->add('docena',TextType::class,array('label'=>"Docena"))
+                ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena"))
                 ->add('bActivo',CheckboxType::class)
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
