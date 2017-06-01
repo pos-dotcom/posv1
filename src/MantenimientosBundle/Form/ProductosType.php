@@ -19,21 +19,21 @@ class ProductosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoArticulo',TextType::class,array('label'=>"Codigo","required"=>true))
+        $builder->add('codigoArticulo',TextType::class,array('label'=>"Codigo"))
                 ->add('codigoCategoria',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Categorias',
                     'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria','label'=>"Categoria"))
                 ->add('nombre',TextType::class,array('label'=>"Nombre"))
                 ->add('precioCosto',TextType::class,array('label'=>"Costo"))
-                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta"))
+                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta",'required'=>"False"))
                 ->add('precioFacturado',TextType::class,array('label'=>"Precio Facturado"))
-                ->add('ganancia',TextType::class,array('label'=>"Ganancia"))
+                ->add('ganancia',TextType::class,array('label'=>"Ganancia",'required'=>"False"))
                 ->add('existencia',TextType::class,array('label'=>"Unidades"))
                 ->add('existenciaPrevia',TextType::class,array('label'=>"Existencia Previa"))
                 ->add('ultimaCompra',DateType::class,array('label'=>"Ultima Compra"))
                 ->add('ultimaVenta',DateType::class,array('label'=>"Ultima Venta"))
                 ->add('docena',TextType::class,array('label'=>"Docena"))
-                ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena"))
+                ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena",'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
                 ->add('bActivo',CheckboxType::class)
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }

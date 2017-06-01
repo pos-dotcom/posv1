@@ -1,127 +1,104 @@
 {%extends '::frontend.html.twig'%}
+
 {% block javascripts %}
-<script>
-$('.edit_custom').find('input').unwrap();
-</script>
- {% endblock %}
+    <script>
+        $('.edit_custom').find('input').unwrap();
+        $('.edit_custom').find('check').unwrap();
+
+    </script>
+{% endblock %}
 {% block body %}
-    
-     {{ include('navfixed.html.twig')}}
-   <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-                     <ul class="nav nav-list">
+
+    {{ include('navfixed.html.twig')}}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
                         <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
-			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
-			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+                        <li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
                         <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
                         <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                         <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-			<li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                         <br><br><br>		
-			
-				</ul>                               
-        </div><!--/.well -->
-        </div><!--/span-->
-        
-        <div class="span10">
-          <div class="contentheader">
-			<i class="icon-building"></i> Productos
-	  </div>
-          <ul class="breadcrumb">
-			<li><a href="">Mantenimiento</a></li> /
-			<li class="active">Productos</li>
-	  </ul>
-        <div style="margin-top: -19px; margin-bottom: 21px;">
-            <h2>Listado de Productos</h2>
+
+                    </ul>                               
+                </div><!--/.well -->
+            </div><!--/span-->
+
+            <div class="span10">
+                <div class="contentheader">
+                    <i class="icon-building"></i> Productos
+                </div>
+                <ul class="breadcrumb">
+                    <li><a href="">Mantenimiento</a></li> /
+                    <li class="active">Productos</li>
+                </ul>
+                <div style="margin-top: -19px; margin-bottom: 21px;">
+                    <h2>Listado de Productos</h2>
+                </div>
+
+                <div id="maintable">
+
+                    <center>
+                        <h4>
+                            <i class="icon-plus-sign icon-large"></i>Nuevo Producto
+                        </h4>
+                    </center>
+                    <hr>
+                    <div id="center">
+                        <div id="ac">
+                            <div class="edit_custom" >
+                                
+                                <span>Codigo:</span>{{ form_widget(form.docena) }}
+
+                                <br>
+                                <span>Categoria:</span>
+                                {{ form_errors(form.codigoCategoria) }}
+                                {{ form_widget(form.codigoCategoria) }}
+                                <br>
+                                <span>Nombre:</span>
+                                {{ form_errors(form.nombre) }}
+                                {{ form_widget(form.nombre) }}
+                                <br>
+                                <span>Costo:</span>
+                                {{ form_errors(form.precioCosto) }}
+                                {{ form_widget(form.precioCosto) }}
+                                <br>
+                                <span>Precio venta:</span>
+                                {{ form_errors(form.precioVenta) }}
+                                {{ form_widget(form.precioVenta) }}
+                                <br>
+                                <span>Ganancia:</span>
+                                {{ form_errors(form.ganancia) }}
+                                {{ form_widget(form.ganancia) }}
+                                <br>
+                                <span>Unidades:</span>
+                                {{ form_errors(form.existencia) }}
+                                {{ form_widget(form.existencia) }}
+                                <br>
+                                <span>Precio Docena:</span>
+                                {{ form_errors(form.bPrecioDocena) }}
+                                {{ form_widget(form.bPrecioDocena) }}
+
+                                <br>
+                                {{ form_widget(form.save) }}
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div> 
+            </div>
         </div>
-     
-  <div id="maintable">
-  
-   <center>
-        <h4>
-            <i class="icon-plus-sign icon-large"></i>Nuevo Producto
-        </h4>
-    </center>
-    <hr>
-    <div id="ac">
-        <div class="edit_custom">
-        <span>
-            
-            {{ form_label(form.codigoArticulo) }}
-            {{ form_errors(form.codigoArticulo) }}
-            {{ form_widget(form.codigoArticulo) }}
-        </span><br>
-        
-        <span>
-            
-            {{ form_label(form.codigoCategoria) }}
-            {{ form_errors(form.codigoCategoria) }}
-            {{ form_widget(form.codigoCategoria) }}
-        </span>
-        <br>
-        
-         <span>
-            
-            {{ form_label(form.nombre) }}
-            {{ form_errors(form.nombre) }}
-            {{ form_widget(form.nombre) }}
-         </span><br>
-        
-         <span>
-        
-            {{ form_label(form.precioCosto) }}
-            {{ form_errors(form.precioCosto) }}
-            {{ form_widget(form.precioCosto) }}
-        </span><br>
-        <span>
-     
-            {{ form_label(form.precioVenta) }}
-            {{ form_errors(form.precioVenta) }}
-            {{ form_widget(form.precioVenta) }}
-        </span><br>
-        <span>
-         
-            {{ form_label(form.bPrecioDocena) }}
-            {{ form_errors(form.bPrecioDocena) }}
-            {{ form_widget(form.bPrecioDocena) }}
-        </span><br>
-        <span>
-        
-            {{ form_label(form.ganancia) }}
-            {{ form_errors(form.ganancia) }}
-            {{ form_widget(form.ganancia) }}
-        </span><br>
-        <span>
-     
-            {{ form_label(form.existencia) }}
-            {{ form_errors(form.existencia) }}
-            {{ form_widget(form.existencia) }}
-        </span><br>
-        <span>
-     
-            {{ form_label(form.docena) }}
-            {{ form_errors(form.docena) }}
-            {{ form_widget(form.docena) }}
-        </span><br>
-        <span><br>
-            {{ form_widget(form.save) }}
-        </span>
-        
-    <br>
-     </div>
-    </div>
-    
- 
-	
-	 <div class="clearfix"></div>
-    </div> 
-    </div>
-    </div>
-</div>       
+    </div>       
 {% endblock %}
