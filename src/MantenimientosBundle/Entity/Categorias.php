@@ -17,6 +17,16 @@ class Categorias
     protected $rubros;
     
     
+    /**
+     * @ORM\OneToMany(targetEntity="productos", mappedBy="categorias")
+     */
+    protected $productos;
+
+    public function __construct() {
+        $this->productos = new ArrayCollection();
+    }
+    
+    
     
     /**
      * @var int
@@ -129,7 +139,7 @@ class Categorias
     }
     
      public function __toString() {
-        return $this->nombreCategoria;
+        return strval($this->codigoCategoria);
     }
 }
 

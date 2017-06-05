@@ -52,10 +52,6 @@ class Productos
      */
     private $precioVenta;
 
-    /**
-     * @var string
-     */
-    private $precioFacturado;
 
     /**
      * @var string
@@ -71,16 +67,6 @@ class Productos
      * @var int
      */
     private $existenciaPrevia;
-
-    /**
-     * @var \DateTime
-     */
-    private $ultimaCompra;
-
-    /**
-     * @var \DateTime
-     */
-    private $ultimaVenta;
 
     /**
      * @var string
@@ -253,30 +239,6 @@ class Productos
     }
 
     /**
-     * Set precioFacturado
-     *
-     * @param string $precioFacturado
-     *
-     * @return Productos
-     */
-    public function setPrecioFacturado($precioFacturado)
-    {
-        $this->precioFacturado = $precioFacturado;
-
-        return $this;
-    }
-
-    /**
-     * Get precioFacturado
-     *
-     * @return string
-     */
-    public function getPrecioFacturado()
-    {
-        return $this->precioFacturado;
-    }
-
-    /**
      * Set ganancia
      *
      * @param string $ganancia
@@ -346,54 +308,6 @@ class Productos
     public function getExistenciaPrevia()
     {
         return $this->existenciaPrevia;
-    }
-
-    /**
-     * Set ultimaCompra
-     *
-     * @param \DateTime $ultimaCompra
-     *
-     * @return Productos
-     */
-    public function setUltimaCompra($ultimaCompra)
-    {
-        $this->ultimaCompra = $ultimaCompra;
-
-        return $this;
-    }
-
-    /**
-     * Get ultimaCompra
-     *
-     * @return \DateTime
-     */
-    public function getUltimaCompra()
-    {
-        return $this->ultimaCompra;
-    }
-
-    /**
-     * Set ultimaVenta
-     *
-     * @param \DateTime $ultimaVenta
-     *
-     * @return Productos
-     */
-    public function setUltimaVenta($ultimaVenta)
-    {
-        $this->ultimaVenta = $ultimaVenta;
-
-        return $this;
-    }
-
-    /**
-     * Get ultimaVenta
-     *
-     * @return \DateTime
-     */
-    public function getUltimaVenta()
-    {
-        return $this->ultimaVenta;
     }
 
     /**
@@ -468,9 +382,19 @@ class Productos
         return $this->bActivo;
     }
     
+    /**
+     * @return array
+     */
+    public function getProductos()
+    {
+        return $this->productos->toArray();
+    }
     
       public function __toString() {
-        return $this->nombreCategoria;
+        return strval($this->codigoProducto);
     }
+    
+    
+    
 }
 

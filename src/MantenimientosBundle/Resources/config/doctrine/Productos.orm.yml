@@ -35,12 +35,6 @@ MantenimientosBundle\Entity\Productos:
             scale: '9'
             nullable: true
             column: precio_venta
-        precioFacturado:
-            type: decimal
-            precision: '18'
-            scale: '9'
-            nullable: true
-            column: precio_facturado
         ganancia:
             type: decimal
             precision: '8'
@@ -52,14 +46,6 @@ MantenimientosBundle\Entity\Productos:
             type: integer
             nullable: true
             column: existencia_previa
-        ultimaCompra:
-            type: date
-            nullable: true
-            column: ultima_compra
-        ultimaVenta:
-            type: date
-            nullable: true
-            column: ultima_venta
         docena:
             type: decimal
             precision: '18'

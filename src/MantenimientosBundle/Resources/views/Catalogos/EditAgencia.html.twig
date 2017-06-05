@@ -1,0 +1,66 @@
+{%extends '::frontend.html.twig'%}
+{% block body %}
+    
+     {{ include('navfixed.html.twig')}}
+   <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+                     <ul class="nav nav-list">
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
+			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <br><br><br>		
+			
+				</ul>                               
+        </div><!--/.well -->
+        </div><!--/span-->
+        
+        <div class="span10">
+          <div class="contentheader">
+			<i class="icon-building"></i> Agencias
+	  </div>
+          <ul class="breadcrumb">
+			<li><a href="">Mantenimiento</a></li> /
+			<li class="active">Agencias</li>
+	  </ul>
+        <div style="margin-top: -19px; margin-bottom: 21px;">
+            <h2>Listado de Agencias</h2>
+        </div>
+     
+  <div id="maintable">
+  
+   <center>
+        <h4>
+            <i class="icon-plus-sign icon-large"></i>Nueva Agencia
+        </h4>
+    </center>
+    <hr>
+    <div id="ac">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        
+    {{ form_end(form) }}
+    <br>
+    
+    </div>
+      
+      
+      
+      
+      
+	 <div class="clearfix"></div>
+    </div> 
+    </div>
+    </div>
+</div> 
+{% endblock %}

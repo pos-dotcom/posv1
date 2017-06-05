@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -24,17 +23,12 @@ class ProductosType extends AbstractType
                        array('class'=>'MantenimientosBundle\Entity\Categorias',
                     'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria','label'=>"Categoria"))
                 ->add('nombre',TextType::class,array('label'=>"Nombre"))
-                ->add('precioCosto',TextType::class,array('label'=>"Costo"))
-                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta",'required'=>"False"))
-                ->add('precioFacturado',TextType::class,array('label'=>"Precio Facturado"))
-                ->add('ganancia',TextType::class,array('label'=>"Ganancia",'required'=>"False"))
-                ->add('existencia',TextType::class,array('label'=>"Unidades"))
-                ->add('existenciaPrevia',TextType::class,array('label'=>"Existencia Previa"))
-                ->add('ultimaCompra',DateType::class,array('label'=>"Ultima Compra"))
-                ->add('ultimaVenta',DateType::class,array('label'=>"Ultima Venta"))
-                ->add('docena',TextType::class,array('label'=>"Docena"))
+                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta",'required'=>False))
+                ->add('precioCosto',TextType::class,array('label'=>"Costo",'required'=>False))
+                ->add('ganancia',TextType::class,array('label'=>"Ganancias",'disabled'=>true,'required'=>False))
+                ->add('existencia',TextType::class,array('label'=>"Unidades",'required'=>False))
+                ->add('docena',TextType::class,array('label'=>"Docena",'required'=>False,'disabled'=>true,'attr'=>array('onkeyup'=>"sum();")))
                 ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena",'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
-                ->add('bActivo',CheckboxType::class)
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
     

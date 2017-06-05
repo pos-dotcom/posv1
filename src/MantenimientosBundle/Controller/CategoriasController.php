@@ -53,6 +53,32 @@ class CategoriasController extends Controller {
             return $this->redirect($this->generateUrl('login'));
         }
     }
+    
+    
+    public function editAction(Request $request) {
+        $session = $request->getSession();
+        if ($session->has("id")) {
+
+
+
+            $cat = new Categorias();
+            $form = $this->createForm(CategoriasType::class, $cat);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($cat);
+                $em->flush();
+                //return $this->redirectToRoute('index');
+                return $this->redirect($this->generateUrl('categorias'));
+            }
+
+            return $this->render('MantenimientosBundle:Catalogos:EditCategoria.html.twig', array("form" => $form->createView()));
+        } else {
+
+            $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+            return $this->redirect($this->generateUrl('login'));
+        }
+    }
 
     public function listacategoriasAction() {
         $datos = $this->getDoctrine()

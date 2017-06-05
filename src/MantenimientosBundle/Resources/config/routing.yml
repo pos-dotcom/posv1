@@ -10,6 +10,9 @@ addagencia:
     path:     /mantenimientos/agencias/add
     defaults: { _controller: MantenimientosBundle:Agencias:add } 
 
+editagencia:
+    path:     /mantenimientos/agencias/edit
+    defaults: { _controller: MantenimientosBundle:Agencias:edit }
 rubros:
     path:     /mantenimientos/rubros
     defaults: { _controller: MantenimientosBundle:Rubros:index }
