@@ -45,21 +45,26 @@ class ProveedoresController extends Controller {
         }
     }
     
-     public function editAction(Request $request) {
+    public function editAction($codigoProveedor, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-
-            $pro = new Proveedor();
-            $form = $this->createForm(ProveedorType::class, $pro);
+            $prov = new Proveedor();
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Proveedor')
+                    ->find($codigoProveedor);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe agencia con valor ' . $codigoProveedor);
+            }
+            $form = $this->createForm(ProveedorType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($pro);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado proveedor exitosamente');
                 return $this->redirect($this->generateUrl('proveedores'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditProveedor.html.twig', array("form" => $form->createView()));
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');

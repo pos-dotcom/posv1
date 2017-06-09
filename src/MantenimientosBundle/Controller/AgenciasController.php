@@ -37,7 +37,8 @@ class AgenciasController extends Controller {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha agregado agencia exitosamente');
+
                 return $this->redirect($this->generateUrl('agencias'));
             }
 
@@ -47,23 +48,27 @@ class AgenciasController extends Controller {
             return $this->redirect($this->generateUrl('login'));
         }
     }
-    
-    
-    public function editAction(Request $request) {
+
+    public function editAction($codigoAgencia, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-
             $agn = new Agencia();
-            $form = $this->createForm(AgenciaType::class, $agn);
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Agencia')
+                    ->find($codigoAgencia);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe agencia con valor ' . $codigoAgencia);
+            }
+            $form = $this->createForm(AgenciaType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($agn);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado agencia exitosamente');
                 return $this->redirect($this->generateUrl('agencias'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditAgencia.html.twig', array("form" => $form->createView()));
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');

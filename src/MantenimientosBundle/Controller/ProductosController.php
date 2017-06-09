@@ -47,23 +47,28 @@ class ProductosController extends Controller {
         }
     }
     
-    public function editAction(Request $request) {
+    public function editAction($codigoProducto, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-            $prod = new Productos();
-            $form = $this->createForm(ProductosType::class, $prod);
+            $pro = new Productos();
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Productos')
+                    ->find($codigoProducto);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe agencia con valor ' . $codigoProducto);
+            }
+            $form = $this->createForm(ProductosType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($prod);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado producto exitosamente');
                 return $this->redirect($this->generateUrl('productos'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditProducto.html.twig', array("form" => $form->createView()));
         } else {
-
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
             return $this->redirect($this->generateUrl('login'));
         }

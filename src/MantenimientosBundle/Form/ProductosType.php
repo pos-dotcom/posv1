@@ -27,7 +27,7 @@ class ProductosType extends AbstractType
                 ->add('precioCosto',TextType::class,array('label'=>"Costo",'required'=>False))
                 ->add('ganancia',TextType::class,array('label'=>"Ganancias",'disabled'=>true,'required'=>False))
                 ->add('existencia',TextType::class,array('label'=>"Unidades",'required'=>False))
-                ->add('docena',TextType::class,array('label'=>"Docena",'required'=>False,'disabled'=>true,'attr'=>array('onkeyup'=>"sum();")))
+                ->add('docena',TextType::class,array('label'=>"Docena",'required'=>False,'disabled'=>true))
                 ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena",'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }

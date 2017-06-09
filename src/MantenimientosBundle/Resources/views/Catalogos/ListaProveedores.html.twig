@@ -37,6 +37,12 @@
         </div>
      
   <div id="maintable">
+       {% for  flashMessage in app.session.flashBag.get('Mensaje') %}
+          <span class="alert-success">
+            <center><h3>{{flashMessage}}</h3></center>
+        </span>
+
+    {% endfor %}
         
         <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
             <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
@@ -71,7 +77,7 @@
                                     
                                     <td>
                                         
-                                        <a  rel="facebox" href="{{asset('')}}/{{dato.codigoProveedor}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
+                                        <a  href="{{asset('/mantenimientos/proveedores/edit')}}/{{dato.codigoProveedor}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
                                         <a href="{{asset('')}}/{{dato.codigoProveedor}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
 			
                                         

@@ -11,7 +11,7 @@ addagencia:
     defaults: { _controller: MantenimientosBundle:Agencias:add } 
 
 editagencia:
-    path:     /mantenimientos/agencias/edit
+    path:     /mantenimientos/agencias/edit/{codigoAgencia}
     defaults: { _controller: MantenimientosBundle:Agencias:edit }
 rubros:
     path:     /mantenimientos/rubros
@@ -20,6 +20,10 @@ rubros:
 addrubros:
     path:     /mantenimientos/rubros/add
     defaults: { _controller: MantenimientosBundle:Rubros:add } 
+    
+editrubros:
+    path:     /mantenimientos/rubros/edit/{codigoRubro}
+    defaults: { _controller: MantenimientosBundle:Rubros:edit }
 
 categorias:
     path:     /mantenimientos/categorias
@@ -29,12 +33,21 @@ addcategorias:
     path:     /mantenimientos/categorias/add
     defaults: { _controller: MantenimientosBundle:Categorias:add }
     
+editcategorias:
+    path:     /mantenimientos/categorias/edit/{codigoCategoria}
+    defaults: { _controller: MantenimientosBundle:Categorias:edit }
+    
 empleados:
     path:     /mantenimientos/empleados
     defaults: { _controller: MantenimientosBundle:Empleados:index }
+    
 addempleado:
     path:     /mantenimientos/empleados/add
     defaults: { _controller: MantenimientosBundle:Empleados:add }
+
+editempleado:
+    path:     /mantenimientos/empleados/edit/{codigoEmpleado}
+    defaults: { _controller: MantenimientosBundle:Empleados:edit }
     
 proveedores:
     path:     /mantenimientos/proveedores
@@ -44,10 +57,19 @@ addproveedor:
     path:     /mantenimientos/proveedores/add
     defaults: { _controller: MantenimientosBundle:Proveedores:add }
 
+editproveedor:
+    path:     /mantenimientos/proveedores/edit/{codigoProveedor}
+    defaults: { _controller: MantenimientosBundle:Proveedores:edit }
+    
 productos:
     path:     /mantenimientos/productos
     defaults: { _controller: MantenimientosBundle:Productos:index }
+    
 addproducto:
     path:     /mantenimientos/productos/add
     defaults: { _controller: MantenimientosBundle:Productos:add }
+    
+editproducto:
+    path:     /mantenimientos/productos/edit/{codigoProducto}
+    defaults: { _controller: MantenimientosBundle:Productos:edit }
 

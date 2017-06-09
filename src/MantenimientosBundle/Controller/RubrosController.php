@@ -46,22 +46,26 @@ class RubrosController extends Controller {
         }
     }
     
-    public function editAction(Request $request) {
-
+    public function editAction($codigoRubro, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-
             $rbr = new Rubros();
-            $form = $this->createForm(RubrosType::class, $rbr);
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Rubros')
+                    ->find($codigoRubro);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe agencia con valor ' . $codigoRubro);
+            }
+            $form = $this->createForm(RubrosType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($rbr);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado rubro exitosamente');
                 return $this->redirect($this->generateUrl('rubros'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditRubro.html.twig', array("form" => $form->createView()));
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');

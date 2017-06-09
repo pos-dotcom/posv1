@@ -33,8 +33,6 @@ class CategoriasController extends Controller {
         $session = $request->getSession();
         if ($session->has("id")) {
 
-
-
             $cat = new Categorias();
             $form = $this->createForm(CategoriasType::class, $cat);
             $form->handleRequest($request);
@@ -55,26 +53,28 @@ class CategoriasController extends Controller {
     }
     
     
-    public function editAction(Request $request) {
+    public function editAction($codigoCategoria, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-
-
-
             $cat = new Categorias();
-            $form = $this->createForm(CategoriasType::class, $cat);
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Categorias')
+                    ->find($codigoCategoria);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe categoria con valor ' . $codigoCategoria);
+            }
+            $form = $this->createForm(CategoriasType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($cat);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado categoria exitosamente');
                 return $this->redirect($this->generateUrl('categorias'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditCategoria.html.twig', array("form" => $form->createView()));
         } else {
-
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
             return $this->redirect($this->generateUrl('login'));
         }

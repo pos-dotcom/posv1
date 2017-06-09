@@ -46,24 +46,28 @@ class EmpleadosController extends Controller {
         }
     }
     
-    public function editAction(Request $request) {
+    public function editAction($codigoEmpleado, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
-
             $empl = new Empleados();
-            $form = $this->createForm(EmpleadosType::class, $empl);
+            $datos = $this->getDoctrine()
+                    ->getRepository('MantenimientosBundle:Empleados')
+                    ->find($codigoEmpleado);
+            if (!$datos) {
+                throw $this->createNotFoundException('No existe agencia con valor ' . $codigoEmpleado);
+            }
+            $form = $this->createForm(EmpleadosType::class, $datos);
             $form->handleRequest($request);
+
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($empl);
+                //$em->persist($agn);
                 $em->flush();
-                //return $this->redirectToRoute('index');
+                $this->get('session')->getFlashBag()->add('Mensaje', 'Se ha modificado empleado exitosamente');
                 return $this->redirect($this->generateUrl('empleados'));
             }
-
             return $this->render('MantenimientosBundle:Catalogos:EditEmpleado.html.twig', array("form" => $form->createView()));
         } else {
-
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
             return $this->redirect($this->generateUrl('login'));
         }
