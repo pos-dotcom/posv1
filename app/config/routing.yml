@@ -1,3 +1,7 @@
+reportes:
+    resource: "@ReportesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 movimientos:
     resource: "@MovimientosBundle/Resources/config/routing.yml"
     prefix:   /

@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new VentasBundle\VentasBundle(),
             new ComprasBundle\ComprasBundle(),
             new MovimientosBundle\MovimientosBundle(),
+            new ReportesBundle\ReportesBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
