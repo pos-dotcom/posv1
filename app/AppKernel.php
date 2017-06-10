@@ -20,6 +20,10 @@ class AppKernel extends Kernel
             new TableroBundle\TableroBundle(),
             new MantenimientosBundle\MantenimientosBundle(),
             new SeguridadBundle\SeguridadBundle(),
+            new ProductosBundle\ProductosBundle(),
+            new VentasBundle\VentasBundle(),
+            new ComprasBundle\ComprasBundle(),
+            new MovimientosBundle\MovimientosBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

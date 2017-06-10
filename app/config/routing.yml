@@ -1,3 +1,19 @@
+movimientos:
+    resource: "@MovimientosBundle/Resources/config/routing.yml"
+    prefix:   /
+
+compras:
+    resource: "@ComprasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ventas:
+    resource: "@VentasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+productos:
+    resource: "@ProductosBundle/Resources/config/routing.yml"
+    prefix:   /
+
 seguridad:
     resource: "@SeguridadBundle/Resources/config/routing.yml"
     prefix:   /
