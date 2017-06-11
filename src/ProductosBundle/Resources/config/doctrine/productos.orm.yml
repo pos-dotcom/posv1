@@ -1,0 +1,65 @@
+ProductosBundle\Entity\productos:
+    type: entity
+    table: null
+    repositoryClass: ProductosBundle\Repository\productosRepository
+    id:
+        codigoProducto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            unique: true
+            column: codigo_producto
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigoArticulo:
+            type: string
+            length: '200'
+            column: codigo_articulo
+        codigoCategoria:
+            type: integer
+            column: codigo_categoria
+        nombre:
+            type: string
+            length: '200'
+        precioCosto:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+            column: precio_costo
+        precioVenta:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+            column: precio_venta
+        ganancia:
+            type: decimal
+            precision: '8'
+            scale: '2'
+            nullable: true
+        existencia:
+            type: integer
+            nullable: true
+        existenciaPrevia:
+            type: integer
+            nullable: true
+            column: existencia_previa
+        docena:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            nullable: true
+        bPrecioDocena:
+            type: boolean
+            nullable: true
+            column: b_precio_docena
+        bActivo:
+            type: string
+            length: '1'
+            nullable: true
+            column: b_activo
+    lifecycleCallbacks: {  }
