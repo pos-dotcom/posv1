@@ -24,7 +24,7 @@
         {% endblock %}
         
          {% block javascripts %}
-             <script src="{{asset('js/application.js')}}" type="text/javascript" charset="utf-8"></script>
+             
              <script src="{{asset('lib/jquery.js')}}" type="text/javascript"></script>
              <script src="{{asset('src/facebox.js')}}" type="text/javascript"></script>
              <script type="text/javascript">
@@ -34,11 +34,10 @@
                       closeImage   : '{{asset('src/closelabel.png')}}'
                     })
                 })
-                
-                
-                
              </script>
+             <script src="{{asset('js/application.js')}}" type="text/javascript" charset="utf-8"></script>
          {% endblock %}
+         
     </head>
     <body>
 

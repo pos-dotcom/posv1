@@ -1,0 +1,33 @@
+ComprasBundle\Entity\ComprasEnc:
+    type: entity
+    table: null
+    repositoryClass: ComprasBundle\Repository\ComprasEncRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoCompraEnc:
+            type: integer
+            column: codigo_compra_enc
+        numFactura:
+            type: string
+            length: '10'
+            column: num_factura
+        fechaCompra:
+            type: date
+            column: fecha_compra
+        codigoProveedor:
+            type: integer
+            column: codigo_proveedor
+        observacion:
+            type: string
+            length: '100'
+        total:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: total
+    lifecycleCallbacks: {  }

@@ -1,0 +1,34 @@
+ComprasBundle\Entity\ComprasDet:
+    type: entity
+    table: null
+    repositoryClass: ComprasBundle\Repository\ComprasDetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoCompraDet:
+            type: integer
+            column: codigo_compra_det
+        numFactura:
+            type: string
+            length: '10'
+            column: num_factura
+        codigoProducto:
+            type: integer
+            column: codigo_producto
+        cantidad:
+            type: integer
+        bDocena:
+            type: integer
+            column: b_docena
+        costo:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        codigoCompraEnc:
+            type: integer
+            column: codigo_compra_enc
+    lifecycleCallbacks: {  }

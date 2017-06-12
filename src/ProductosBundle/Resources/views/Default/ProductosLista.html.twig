@@ -3,9 +3,7 @@
 
     <body>
         {{ include('navfixed.html.twig')}}
-        <p>
-            <span class="label label-primary"> {{app.session.get('nombre')}} </span>
-        </p>
+
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span2">
@@ -18,10 +16,11 @@
                             <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                             <li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte de Ventas&nbsp;&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                            <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href=""><i class="icon-bar-chart icon-large "></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+
                             <br><br><br>		
 
                         </ul>                               
@@ -34,6 +33,7 @@
                     <ul class="breadcrumb">
                         <li class="active">Productos</li>
                     </ul>
+                    <input type="text" style="padding:15px;" name="filter" value="" id="filter" placeholder="Buscar Producto..." autocomplete="off" />
                     <div class="content" id="content">
                         <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
                             <thead>
@@ -46,7 +46,7 @@
                                     <th width="6%"> Costo </th>
                                     <th width="6%"> Precio Venta </th>
                                     <th width="6%"> Unidades </th>
-                                    <th width="6%"> Docena </th>
+                                    <th width="6%"> Docenas </th>
                                     <th width="6%"> EL PALACIO </th>
                                     <th width="6%"> MERCADO </th>
                                     <th width="6%"> RUTEO </th>
@@ -58,50 +58,48 @@
                                 {% for dato in datos %}
 
                                     <tr class="record">
-                                        <td>
+                                        <td >
                                             {{ dato.codigoArticulo}}  
 
                                         </td>
-                                        <td>
+                                        <td >
                                             {{dato.nombre}}
                                         </td>
-                                        <td>
-                                            
+                                        <td >
+
                                             {{dato.precioCosto|number_format(2,'.',',')}}
                                         </td>
-                                        <td>
+                                        <td >
                                             {{dato.precioVenta|number_format(2,'.',',')}}
                                         </td>
-                                        <td>
+                                        <td >
                                             {{dato.existencia}}
                                         </td>
 
-                                        <td>
+                                        <td >
                                             {{dato.docena}}
                                         </td>
-                                        <td>
+                                        <td >
                                             0
                                         </td>
-                                        <td>
+                                        <td >
                                             0
                                         </td>
-                                        <td>
+                                        <td >
                                             0
                                         </td>
-                                        <td>
+                                        <td >
                                             {{dato.precioVenta * dato.existencia}}
                                         </td>
                                         <td>
-                                            <a  title="Click para editar el producto" href=""><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
-                                            <a  title="Click para borrar el producto" id="" class="delbutton" ><button class="btn btn-danger"><i class="icon-trash"></i></button></a>
-                                            <a  title="Click para mas informacion" href="" class="btn-info" ><button class="btn btn-info"><i class="icon-info-sign"></i></button></a>
-                        
+                                            <a title="Click para editar el producto" ><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
+                                            <a title="Click para borrar el producto" id="" class="delbutton" ><button class="btn btn-danger"><i class="icon-trash"></i></button></a>
+                                            <a title="Click para mas informacion" class="btn-info" ><button class="btn btn-info"><i class="icon-info-sign"></i></button></a>
+
                                         </td>
 
                                     </tr>
                                 {% endfor %}
-
-
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
