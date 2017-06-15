@@ -1,0 +1,31 @@
+<link href="../style.css" media="screen" rel="stylesheet" type="text/css" >
+
+<table class="table table-bordered" id="resultTable" data-responsive="table"   style="text-align: left;">
+    <thead> 
+        <tr>
+            <th width="25%"> Codigo </th>
+           
+            <th width="3%"> Cantidad </th>
+            <th width="8%"> Costo </th>
+
+        </tr>
+    </thead>
+            
+    <tbody>
+        {% for dato in datoscom %}
+
+            <tr class="record">
+                <td>
+                    {{dato.codigoProducto}}
+                </td>
+                <td>
+                    {{dato.cantidad}}  
+                </td>
+                
+                <td>
+                    {{dato.costo|number_format(2,'.',',')}} 
+                </td>
+            </tr>
+        {% endfor %}    
+    </tbody>
+</table>

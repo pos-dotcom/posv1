@@ -5,7 +5,7 @@ namespace ComprasBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class ComprasController extends Controller
 {
     public function indexAction(Request $request)
     {
@@ -14,17 +14,27 @@ class DefaultController extends Controller
             $datos = $this->getDoctrine()
                     ->getRepository('ComprasBundle:ComprasEnc')
                     ->findAll();
-             return $this->render('ProductosBundle:Default:ComprasLista.html.twig',compact("datos"));
+             return $this->render('ComprasBundle:Default:ComprasLista.html.twig',compact("datos"));
             
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
             return $this->redirect($this->generateUrl('login'));
-        }
-        
-        
-        
-        
-        
-        //return $this->render('ComprasBundle:Default:index.html.twig');
+        }  
+    }
+    
+    public function verCompraAction(Request $request)
+    {
+        $session = $request->getSession();
+        if ($session->has("id")) {
+            // $compra=$request->get("usuario");
+            $datoscom = $this->getDoctrine()
+                    ->getRepository('ComprasBundle:ComprasDet')
+                    ->findBy(array('codigoCompraEnc'=> 1));
+             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscom"));
+            
+        } else {
+            $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+            return $this->redirect($this->generateUrl('login'));
+        }  
     }
 }

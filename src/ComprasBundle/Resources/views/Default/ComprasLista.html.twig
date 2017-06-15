@@ -64,6 +64,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    {% for dato in datos %}
+                                        <tr class="record">
+                                            <td>
+                                                {{dato.numFactura}}
+                                            </td>
+                                            <td>
+                                                {{dato.fechaCompra|date('d/m/Y')}}  
+                                            </td>
+                                            <td>
+                                                {{dato.codigoProveedor}}
+                                            </td>
+                                            <td>
+                                               {{dato.observacion}} 
+                                            </td>
+                                            <td>
+                                               <a rel="facebox" href="{{asset('/compras/vercompra')}}/{{dato.codigoCompraEnc}}"> <button class="btn btn-primary btn-mini"><i class="icon-search"></i> Ver </button></a>
+                                                <a href="#" id="" class="delbutton" title="Borrar"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar </button></a>
+			
+                                            </td>
+                                        </tr>
+                                     {% endfor %}
+                                        
+                                        
                                 </tbody>
                             </table>
 

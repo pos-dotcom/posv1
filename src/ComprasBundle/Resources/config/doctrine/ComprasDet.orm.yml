@@ -3,15 +3,14 @@ ComprasBundle\Entity\ComprasDet:
     table: null
     repositoryClass: ComprasBundle\Repository\ComprasDetRepository
     id:
-        id:
+        codigoCompraDet:
             type: integer
+            column: codigo_compra_det
             id: true
             generator:
                 strategy: AUTO
     fields:
-        codigoCompraDet:
-            type: integer
-            column: codigo_compra_det
+        
         numFactura:
             type: string
             length: '10'

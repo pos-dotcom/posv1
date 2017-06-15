@@ -3,15 +3,15 @@ ComprasBundle\Entity\ComprasEnc:
     table: null
     repositoryClass: ComprasBundle\Repository\ComprasEncRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoCompraEnc:
             type: integer
+            nullable: false
             column: codigo_compra_enc
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        
         numFactura:
             type: string
             length: '10'

@@ -50,6 +50,7 @@ class ProductosController extends Controller {
     public function editAction($codigoProducto, Request $request) {
         $session = $request->getSession();
         if ($session->has("id")) {
+           
             $pro = new Productos();
             $datos = $this->getDoctrine()
                     ->getRepository('MantenimientosBundle:Productos')
