@@ -6,13 +6,14 @@ namespace ComprasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+
 /**
  * Proveedor
  */
 class Proveedor
 {
     /**
-     * @ORM\OneToMany(targetEntity="comprasEnc", mappedBy="Proveedor")
+     * @ORM\OneToMany(targetEntity="ComprasEnc", mappedBy="Proveedor")
      */
     protected $comprasEnc;
 

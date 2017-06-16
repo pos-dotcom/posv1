@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class ComprasEnc
 {
     /**
-     * @ORM\ManyToOne(targetEntity="proveedor", inversedBy="compras")
+     * @ORM\ManyToOne(targetEntity="proveedor", inversedBy="ComprasEnc")
      * @ORM\JoinColumn(name="codigoProveedor", referencedColumnName="codigo_proveedor")
      */
     

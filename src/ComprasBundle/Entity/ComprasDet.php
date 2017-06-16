@@ -1,6 +1,9 @@
 <?php
 
 namespace ComprasBundle\Entity;
+namespace MantenimientosBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * ComprasDet
@@ -9,7 +12,7 @@ class ComprasDet
 {
     
      /**
-     * @ORM\ManyToOne(targetEntity="productos", inversedBy="ComprasDet")
+     * @ORM\ManyToOne(targetEntity="Productos", inversedBy="ComprasDet")
      * @ORM\JoinColumn(name="codigoProducto", referencedColumnName="codigo_producto")
      */
     
