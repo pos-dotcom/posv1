@@ -4,7 +4,7 @@ namespace ComprasBundle\Entity;
 namespace MantenimientosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 
 /**
@@ -17,6 +17,7 @@ class ComprasEnc
      * @ORM\JoinColumn(name="codigoProveedor", referencedColumnName="codigo_proveedor")
      */
     
+    protected $codigoProveedor;
     
     /**
      * @var int
@@ -38,10 +39,7 @@ class ComprasEnc
      */
     private $fechaCompra;
 
-    /**
-     * @var int
-     */
-    private $codigoProveedor;
+    
 
     /**
      * @var string
@@ -213,7 +211,7 @@ class ComprasEnc
      */
     public function getCompras()
     {
-        return $this->compras->toArray();
+        return $this->ComprasEnc->toArray();
     }
     
       public function __toString() {
