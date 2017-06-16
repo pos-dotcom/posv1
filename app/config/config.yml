@@ -8,9 +8,9 @@ imports:
     - { resource: "@SeguridadBundle/Resources/config/services.yml" }
     - { resource: "@ProductosBundle/Resources/config/services.yml" }
     - { resource: "@VentasBundle/Resources/config/services.yml" }
-    - { resource: "@ComprasBundle/Resources/config/services.yml" }
     - { resource: "@MovimientosBundle/Resources/config/services.yml" }
     - { resource: "@ReportesBundle/Resources/config/services.yml" }
+    - { resource: "@ComprasBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration

@@ -1,14 +1,3 @@
-#comprass:
-#    path:     /
-#    defaults: { _controller: ComprasBundle:Default:index }
-    
-compras:
-    path:     /compras
-    defaults: { _controller: ComprasBundle:Compras:index }
-
-vercompra:
-    path:     /compras/vercompra/{codigoCompraEnc}
-    defaults: { _controller: ComprasBundle:Compras:vercompra }
-comprasadd:
-    path:      /compras/add
-    defaults: { _controller: ComprasBundle:Compras:add }
+compras_homepage:
+    path:     /
+    defaults: { _controller: ComprasBundle:Default:index }

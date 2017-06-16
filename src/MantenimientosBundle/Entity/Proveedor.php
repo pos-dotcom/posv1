@@ -178,7 +178,17 @@ class Proveedor
         return $this->notas;
     }
     
+    /**
+     * @return array
+     */
+    public function getProveedor()
+    {
+        return $this->Proveedor->toArray();
+    }
     
+    public function __toString() {
+        return strval($this->codigoProveedor);
+    }
     
 }
 

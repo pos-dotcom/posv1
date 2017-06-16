@@ -1,13 +1,13 @@
+compras:
+    resource: "@ComprasBundle/Resources/config/routing.yml"
+    prefix:   /
+
 reportes:
     resource: "@ReportesBundle/Resources/config/routing.yml"
     prefix:   /
 
 movimientos:
     resource: "@MovimientosBundle/Resources/config/routing.yml"
-    prefix:   /
-
-compras:
-    resource: "@ComprasBundle/Resources/config/routing.yml"
     prefix:   /
 
 ventas:
