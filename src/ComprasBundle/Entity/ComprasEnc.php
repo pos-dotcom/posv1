@@ -1,12 +1,23 @@
 <?php
 
 namespace ComprasBundle\Entity;
+namespace MantenimientosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * ComprasEnc
  */
 class ComprasEnc
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="proveedor", inversedBy="compras")
+     * @ORM\JoinColumn(name="codigoProveedor", referencedColumnName="codigo_proveedor")
+     */
+    
+    
     /**
      * @var int
      */
@@ -196,5 +207,20 @@ class ComprasEnc
     {
         return $this->total;
     }
+    
+    /**
+     * @return array
+     */
+    public function getCompras()
+    {
+        return $this->compras->toArray();
+    }
+    
+      public function __toString() {
+        return strval($this->codigoProveedor);
+        
+    }
+    
+    
 }
 

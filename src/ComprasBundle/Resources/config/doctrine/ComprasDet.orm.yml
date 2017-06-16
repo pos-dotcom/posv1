@@ -21,8 +21,9 @@ ComprasBundle\Entity\ComprasDet:
         cantidad:
             type: integer
         bDocena:
-            type: integer
-            column: b_docena
+           type: boolean
+           nullable: true
+           column: b_docena
         costo:
             type: decimal
             precision: '18'

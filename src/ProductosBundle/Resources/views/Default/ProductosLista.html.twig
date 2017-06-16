@@ -15,7 +15,7 @@
                             <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
                             <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                            <li ><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                             <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte de Ventas&nbsp;&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                             <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
@@ -38,7 +38,7 @@
                         <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
                             <thead>
                                 <tr>
-                                    <th width="12%"> Codigo</th>
+                                    <th width="12%"> Codigo Artículo</th>
                                     <!--<th width="14%"> Categoria  </th> -->
                                     <th width="13%"> Nombre </th>
                                     <!--<th width="9%"> Fecha Ultima Compra </th>
@@ -89,7 +89,7 @@
                                             0
                                         </td>
                                         <td >
-                                            {{dato.precioVenta * dato.existencia}}
+                                            {{dato.precioVenta * dato.existencia |number_format(2,'.',',')}}
                                         </td>
                                         <td>
                                             <a title="Click para editar el producto" ><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>

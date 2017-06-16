@@ -27,10 +27,10 @@ class ComprasController extends Controller
         $session = $request->getSession();
         if ($session->has("id")) {
             // $compra=$request->get("usuario");
-            $datoscom = $this->getDoctrine()
+            $datoscompra = $this->getDoctrine()
                     ->getRepository('ComprasBundle:ComprasDet')
                     ->findBy(array('codigoCompraEnc'=> 1));
-             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscom"));
+             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
             
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');

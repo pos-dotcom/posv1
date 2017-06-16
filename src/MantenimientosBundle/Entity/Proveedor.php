@@ -1,13 +1,24 @@
 <?php
 
 namespace MantenimientosBundle\Entity;
+namespace ComprasBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Proveedor
  */
 class Proveedor
 {
-    
+    /**
+     * @ORM\OneToMany(targetEntity="comprasEnc", mappedBy="Proveedor")
+     */
+    protected $comprasEnc;
+
+    public function __construct() {
+        $this->comprasEnc = new ArrayCollection();
+    }
 
     /**
      * @var int

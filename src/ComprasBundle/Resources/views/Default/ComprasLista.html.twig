@@ -9,13 +9,13 @@
                     <div class="well sidebar-nav">
                         <ul class="nav nav-list">
 
-                            <li class="active"><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                            <li ><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
                             <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
                             <li><a href="{{path('productoslista')}}"><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
                             <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
                             <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                            <li class="active"><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                             <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
                             <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
                             <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
@@ -60,6 +60,7 @@
                                         <th width="15%"> Fecha </th>
                                         <th width="15%"> Proveedor </th>
                                         <th width="15%"> Comentario </th>
+                                        <th width="15%"> Total </th>
                                         <th width="15%"> Accion </th>
                                     </tr>
                                 </thead>
@@ -78,6 +79,9 @@
                                             </td>
                                             <td>
                                                {{dato.observacion}} 
+                                            </td>
+                                            <td>
+                                               {{dato.total|number_format(2,'.',',')}} 
                                             </td>
                                             <td>
                                                <a rel="facebox" href="{{asset('/compras/vercompra')}}/{{dato.codigoCompraEnc}}"> <button class="btn btn-primary btn-mini"><i class="icon-search"></i> Ver </button></a>

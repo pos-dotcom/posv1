@@ -7,6 +7,13 @@ namespace ComprasBundle\Entity;
  */
 class ComprasDet
 {
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="productos", inversedBy="ComprasDet")
+     * @ORM\JoinColumn(name="codigoProducto", referencedColumnName="codigo_producto")
+     */
+    
+    
     /**
      * @var int
      */
@@ -33,7 +40,7 @@ class ComprasDet
     private $cantidad;
 
     /**
-     * @var int
+     *  @var bool
      */
     private $bDocena;
 
@@ -157,7 +164,7 @@ class ComprasDet
     /**
      * Set bDocena
      *
-     * @param integer $bDocena
+     * @param boolean $bDocena
      *
      * @return ComprasDet
      */
@@ -171,7 +178,7 @@ class ComprasDet
     /**
      * Get bDocena
      *
-     * @return int
+     * @return bool
      */
     public function getBDocena()
     {
@@ -224,6 +231,14 @@ class ComprasDet
     public function getCodigoCompraEnc()
     {
         return $this->codigoCompraEnc;
+    }
+    
+        /**
+     * @return array
+     */
+    public function getComprasDet()
+    {
+        return $this->comprasDet->toArray();
     }
 }
 

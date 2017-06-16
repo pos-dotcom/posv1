@@ -3,16 +3,16 @@
 <table class="table table-bordered" id="resultTable" data-responsive="table"   style="text-align: left;">
     <thead> 
         <tr>
-            <th width="25%"> Codigo </th>
-           
+            <th width="25%"> Codigo Artículo </th>
             <th width="3%"> Cantidad </th>
+            <th width="3%"> Docena </th>
             <th width="8%"> Costo </th>
 
         </tr>
     </thead>
             
     <tbody>
-        {% for dato in datoscom %}
+        {% for dato in datoscompra %}
 
             <tr class="record">
                 <td>
@@ -21,7 +21,9 @@
                 <td>
                     {{dato.cantidad}}  
                 </td>
-                
+                <td>
+                    {{dato.bDocena}}  
+                </td>
                 <td>
                     {{dato.costo|number_format(2,'.',',')}} 
                 </td>
