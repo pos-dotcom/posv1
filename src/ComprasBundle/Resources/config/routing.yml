@@ -2,5 +2,5 @@ compras:
     path:     /compras
     defaults: { _controller: ComprasBundle:Compras:index }
 vercompra:
-    path:     /compras/vercompra/{codigoComprasEnc}
+    path:     /compras/vercompra/{codigoCompraEnc}
     defaults: { _controller: ComprasBundle:Compras:vercompra }

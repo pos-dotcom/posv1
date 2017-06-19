@@ -25,14 +25,14 @@ class ComprasController extends Controller
     }
     
     
-    public function verCompraAction($codigoCompra)
+    public function verCompraAction($codigoCompraEnc)
     {
        // $session = $request->getSession();
         //if ($session->has("id")) {
             
             $datoscompra = $this->getDoctrine()
                     ->getRepository('ComprasBundle:Compras_Det')
-                    ->findBy(array('codigoCompraEnc'=> $codigoCompra));
+                    ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
              return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
             
        /* } else {

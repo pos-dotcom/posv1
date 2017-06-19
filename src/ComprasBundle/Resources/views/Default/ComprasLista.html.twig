@@ -1,111 +1,107 @@
 {%extends '::frontend.html.twig'%}
-
+  
 {% block body %}
 
-    <body>
-        {{ include('navfixed.html.twig')}}
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span2">
-                    <div class="well sidebar-nav">
-                        <ul class="nav nav-list">
+    {{ include('navfixed.html.twig')}}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
 
-                            <li ><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
-                            <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
-                            <li><a href="{{path('productoslista')}}"><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
-                            <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
-                            <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                            <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li class="active"><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                            <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                            <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                            <br><br><br>		
+                        <li ><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                        <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+                        <li><a href="{{path('productoslista')}}"><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li class="active"><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <br><br><br>		
 
 
-                        </ul>
-                    </div><!--/.well -->
-                </div><!--/span-->
-                <div class="span10">
-                    <div class="contentheader">
-                        <i class="icon-dashboard"></i> Tablero
-                    </div>
-                    <ul class="breadcrumb">
-                        <a href="dashboard.php"><li>Tablero</li></a> /
-                        <li class="active">Lista de Compras</li>
                     </ul>
-                    <div id="maintable">
-                        <div style="margin-top: -19px; margin-bottom: 21px;">
-                            <a  href="index.php"><button class="btn btn-default btn-large" style="float: none;"><i class="icon icon-circle-arrow-left icon-large"></i>Volver</button></a>
-                        </div>
-                        <form action="purchaseslist.php" method="get">
-                            <center>
-                                <strong>Compras de mercaderia</strong><br><br>
-                                <strong>De : <input type="date" style="width: 223px; padding:14px;" name="d1" value="" /> A: <input type="date" style="width: 223px; padding:14px;" name="d2" value="" />
-                                    <button class="btn btn-lg" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" type="submit"><i class="icon icon-search icon-large"></i> Buscar</button>
-                                </strong>
-                                <br>
-                                <input type="text" name="code" style="height:35px; margin-top: -1px;" value="X" id="code"  placeholder="Buscar en las compras..." /> 
-                                <input type="hidden" name="code_hidden" value="X" id="code_hidden"   /> 
+                </div><!--/.well -->
+            </div><!--/span-->
+            <div class="span10">
+                <div class="contentheader">
+                    <i class="icon-dashboard"></i> Tablero
+                </div>
+                <ul class="breadcrumb">
+                    <a href="dashboard.php"><li>Tablero</li></a> /
+                    <li class="active">Lista de Compras</li>
+                </ul>
+                <div id="maintable">
 
-                            </center>
-                        </form>    
-                        <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Proveedor..." autocomplete="off" />
-                        <a rel="facebox" href="purchases.php"><Button type="submit" class="btn btn-success" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Compras</button></a><br><br>
-                        <div class="content" id="content">
-                            <table class="hovertable" id="resultTable" data-responsive="table" style="text-align: left;">
-                                <thead>
-                                    <tr>
-                                        <th width="15%"> Numero de Factura </th>
-                                        <th width="15%"> Fecha </th>
-                                        <th width="15%"> Proveedor </th>
-                                        <th width="15%"> Comentario </th>
-                                        <th width="15%"> Total </th>
-                                        <th width="15%"> Accion </th>
+                    <form action="purchaseslist.php" method="get">
+                        <center>
+                            <strong>Compras de mercaderia</strong><br><br>
+                            <strong>De : <input type="date" style="width: 223px; padding:14px;" name="d1" value="" /> A: <input type="date" style="width: 223px; padding:14px;" name="d2" value="" />
+                                <button class="btn btn-lg" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" type="submit"><i class="icon icon-search icon-large"></i> Buscar</button>
+                            </strong>
+                            <br>
+                            <input type="text" name="code" style="height:35px; margin-top: -1px;" value="X" id="code"  placeholder="Buscar en las compras..." /> 
+                            <input type="hidden" name="code_hidden" value="X" id="code_hidden"   /> 
+
+                        </center>
+                    </form>    
+                    <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Proveedor..." autocomplete="off" />
+                    <a rel="facebox" href="purchases.php"><Button type="submit" class="btn btn-success" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Compras</button></a><br><br>
+                    <div class="content" id="content">
+                        <table class="hovertable" id="resultTable" data-responsive="table" style="text-align: left;">
+                            <thead>
+                                <tr>
+                                    <th width="15%"> Numero de Factura </th>
+                                    <th width="15%"> Fecha </th>
+                                    <th width="15%"> Proveedor </th>
+                                    <th width="15%"> Comentario </th>
+                                    <th width="15%"> Total </th>
+                                    <th width="15%"> Accion </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for dato in datos %}
+                                    <tr class="record"  >
+                                        <td>
+                                            {{dato.numFactura}}
+                                        </td>
+                                        <td>
+                                            {{dato.fechaCompra|date('d/m/Y')}}  
+                                        </td>
+                                        <td>
+                                            {{dato.codigoProveedor}}
+                                        </td>
+                                        <td>
+                                            {{dato.observacion}} 
+                                        </td>
+                                        <td>
+                                            {{dato.total|number_format(2,'.',',')}} 
+                                        </td>
+                                        <td>
+                                            <a class="compra" href="{{path('vercompra',{'codigoCompraEnc': dato.codigoCompraEnc})}}" data-target="#myModal" data-toggle="modal" > <button class="btn  btn-mini btn-primary"><i class="icon-search"></i> Ver </button></a>
+                                            <a href="#"  class="delbutton" title="Borrar"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar </button></a>
+
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-
-                                    {% for dato in datos %}
-                                        <tr class="record"  >
-                                            <td>
-                                                {{dato.numFactura}}
-                                            </td>
-                                            <td>
-                                                {{dato.fechaCompra|date('d/m/Y')}}  
-                                            </td>
-                                            <td>
-                                                {{dato.codigoProveedor}}
-                                            </td>
-                                            <td>
-                                                {{dato.observacion}} 
-                                            </td>
-                                            <td>
-                                                {{dato.total|number_format(2,'.',',')}} 
-                                            </td>
-                                            <td>
-                                                <a rel="facebox"  href="{{asset('/compras/vercompra')}}/{{dato.codigoCompraEnc}}" > <button data-id="{{dato.codigoCompraEnc}}" class="btn  btn-mini btn-primary"><i class="icon-search"></i> Ver </button></a>
-                                                <a href="#" id="" class="delbutton" title="Borrar"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar </button></a>
-
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
+                                {% endfor %}
 
 
-                                </tbody>
-                            </table>
-                            <div id="infocompra" style="display: none;">
-                                <p>Popup div</p>
-                                <p>It looks great!</p>
-                            </div>
-                            <div class="clearfix"></div>
+                            </tbody>
+                        </table>
+                        <div id="infocompra" >
+
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
+        </div>
 
-        {% endblock %}
+    {% endblock body%}
 
 
 
