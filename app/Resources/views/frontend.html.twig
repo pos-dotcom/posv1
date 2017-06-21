@@ -20,21 +20,25 @@
 
 
         {% block javascript %}
-            <script src="{{asset('lib/jquery-3.2.1.min.js')}}" type="text/javascript"></script>     
+            <script src="{{asset('lib/jquery.js')}}" type="text/javascript"></script>     
             <script src="{{asset('lib/js/bootstrap.js')}}" type="text/javascript"></script>     
             <script src="{{asset('lib/js/bootstrap.min.js')}}" type="text/javascript"></script>   
 
             <script type="text/javascript">
                 $(document).ready(function () {
-                    $('.compra').on('click', function (event) {
+                    $('.compra').on('click','[data-toggle="modal"]', function (event) {
                         event.preventDefault(); //cancela el comportamiento por defecto
-                        $('#infocompra').load($(this).attr('href')); //carga por ajax a la capa "notice_viewer"
+                         $($(this).data("target")+' .modal-body').load($(this).attr('href'));
+                        // $('#infocompra').load($(this).attr('href')); //carga por ajax a la capa "notice_viewer"
                         //$('.btn-primary').on('click', function (){
                         //var dataId = $(this).attr("data-id");
                         //alert(dataId);
                     });
                 });
+                                             
             </script> 
+            
+            
 
         {% endblock  %}  
 
