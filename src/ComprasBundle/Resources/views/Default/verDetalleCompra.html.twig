@@ -1,45 +1,43 @@
 
 
-<table >
-    <thead> 
-        <tr>
-            <th width="25%"> Codigo Artículo </th>
-             <th width="3%"> Cantidad </th>
-            <th width="8%"> Costo </th>
-            <th width="8%"> Total </th>
-            <th width="3%"> Docena </th>
+<div class="panel panel-default panel-table">
+    <div class="panel-heading">
+        
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered table-list">
+            <thead>
+                <tr>
+                   
+                    <th class="hidden-xs">Codigo Artículo</th>
+                    <th> Cantidad </th>
+                    <th> Costo </th>
+                    <th> Total </th>
+                    <th> Docena </th>
+                </tr> 
+            </thead>
+            <tbody>
+                {% for dato in datoscompra %}
+                    <tr>
+                        
+                        <td class="hidden-xs"> {{dato.codigoProducto}}</td>
+                        <td>{{dato.cantidad}} </td>
+                        <td> {{dato.costo|number_format(2,'.',',')}} </td>
+                        <td>{{(dato.cantidad * dato.costo) |number_format(2,'.',',') }}  </td>
+                        <td>
+                            {% if dato.bDocena == true %}
+                                <input type="checkbox" checked disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
+                            {% else %}
+                                <input type="checkbox" disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
+                            {% endif %}
+                        </td>
+                    </tr>
 
-        </tr>
-    </thead>
-    <tbody>
-        {% for dato in datoscompra %}
+                {% endfor %} 
 
-            <tr class="record">
-                <td>
-                    {{dato.codigoProducto}}
-                </td>
-                <td>
-                    {{dato.cantidad}}  
-                </td>
-                 <td>
-                    {{dato.costo|number_format(2,'.',',')}} 
-                </td>
-                <td>
-                    {{(dato.cantidad * dato.costo) |number_format(2,'.',',') }}  
-                </td>
-                
-                <td>
-                    
-                    {% if dato.bDocena == true %}
-                        <input type="checkbox" checked disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
-                    {% else %}
-                        <input type="checkbox" disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
-                    {% endif %}
-                    
-                </td>
-               
-               
-            </tr>
-        {% endfor %}    
-    </tbody>
-</table>
+            </tbody>
+        </table>
+
+    </div>
+    
+</div>
