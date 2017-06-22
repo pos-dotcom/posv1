@@ -18,7 +18,7 @@ $(document).ready(function ()
 //    $.each($tds, function() {               // Visits every single <td> element
 //     console.log($(this).text());        // Prints out the text within the <td>
 //    });
-        $('.btn-default').on('click', function () {
+        $('a.btn-default').on('click', function () {
             var dataId = $(this).attr("data-id");
             //alert($(this).attr("data-id"));
             $.post('/posv1/web/compras/vercompra/',dataId)   

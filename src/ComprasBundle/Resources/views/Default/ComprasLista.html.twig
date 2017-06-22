@@ -62,7 +62,7 @@
                                 </thead>
                                 <tbody>
                                     {% for dato in datos %}
-                                        <tr>
+                                        <tr data-id="{{ dato.codigoCompraEnc}}">
                                             <td align="center">
                                                 <a class="btn btn-default compra" href="{{path('vercompra',{'codigoCompraEnc': dato.codigoCompraEnc})}}" data-target="#myModal" data-toggle="modal"><em class="fa fa-eye" aria-hidden="true"></em></a>
                                                 <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
