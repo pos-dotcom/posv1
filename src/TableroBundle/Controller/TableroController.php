@@ -16,7 +16,7 @@ class TableroController extends Controller
         if($session->has("id"))
         {
             
-            return $this->render('TableroBundle:Tablero:tablero.xhtml.twing');
+            return $this->render('TableroBundle:Tablero:home.xhtml.twing');
         }
         else
         {
@@ -34,7 +34,7 @@ class TableroController extends Controller
         if($session->has("id"))
         {
              
-            return $this->render('TableroBundle:Tablero:tablero.html.twig');
+            return $this->render('TableroBundle:Tablero:home.html.twig');
         }
         else
         {
