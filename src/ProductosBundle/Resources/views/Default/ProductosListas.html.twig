@@ -1,0 +1,112 @@
+{%extends '::frontend.html.twig'%}
+{% block body %}
+
+    <body>
+        {{ include('navfixed.html.twig')}}
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                            <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+                            <li class="active"><a href="{{path('productoslista')}}"><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                            <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                            <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                            <li ><a href="{{path('compras')}}"><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte de Ventas&nbsp;&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                            <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto&nbsp;<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                            <li><a href=""><i class="icon-bar-chart icon-large "></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+
+                            <br><br><br>		
+
+                        </ul>                               
+                    </div><!--/.well -->
+                </div><!--/span-->
+                <div class="span10">
+                    <div class="contentheader">
+                        <i class="icon-list-alt"></i> Productos
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="active">Productos</li>
+                    </ul>
+                    <input type="text" style="padding:15px;" name="filter" value="" id="filter" placeholder="Buscar Producto..." autocomplete="off" />
+                    <div class="content" id="content">
+                        <table class="hoverTable" id="resultTable" data-responsive="table" style="text-align: left;">
+                            <thead>
+                                <tr>
+                                    <th width="12%"> Codigo Artículo</th>
+                                    <!--<th width="14%"> Categoria  </th> -->
+                                    <th width="13%"> Nombre </th>
+                                    <!--<th width="9%"> Fecha Ultima Compra </th>
+                                    <th width="9%"> Fecha Ultima Venta </th>-->
+                                    <th width="6%"> Costo </th>
+                                    <th width="6%"> Precio Venta </th>
+                                    <th width="6%"> Unidades </th>
+                                    <th width="6%"> Docenas </th>
+                                    <th width="6%"> EL PALACIO </th>
+                                    <th width="6%"> MERCADO </th>
+                                    <th width="6%"> RUTEO </th>
+                                    <th width="8%"> Total </th>
+                                    <th width="8%"> Accion </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for dato in datos %}
+
+                                    <tr class="record">
+                                        <td >
+                                            {{ dato.codigoArticulo}}  
+
+                                        </td>
+                                        <td >
+                                            {{dato.nombre}}
+                                        </td>
+                                        <td >
+
+                                            {{dato.precioCosto|number_format(2,'.',',')}}
+                                        </td>
+                                        <td >
+                                            {{dato.precioVenta|number_format(2,'.',',')}}
+                                        </td>
+                                        <td >
+                                            {{dato.existencia}}
+                                        </td>
+
+                                        <td >
+                                            {{dato.docena}}
+                                        </td>
+                                        <td >
+                                            0
+                                        </td>
+                                        <td >
+                                            0
+                                        </td>
+                                        <td >
+                                            0
+                                        </td>
+                                        <td >
+                                            {{dato.precioVenta * dato.existencia |number_format(2,'.',',')}}
+                                        </td>
+                                        <td>
+                                            <a title="Click para editar el producto" ><button class="btn btn-warning"><i class="icon-edit"></i> </button> </a>
+                                            <a title="Click para borrar el producto" id="" class="delbutton" ><button class="btn btn-danger"><i class="icon-trash"></i></button></a>
+                                            <a title="Click para mas informacion" class="btn-info" ><button class="btn btn-info"><i class="icon-info-sign"></i></button></a>
+
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+

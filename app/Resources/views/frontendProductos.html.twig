@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Bienvenido!{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('images/pos.jpg')}}">
+        <link rel="stylesheet" href="{{asset('css/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="{{asset('css/plugins/datatables/dataTables.bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('css/dist/css/AdminLTE.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/dist/css/skins/_all-skins.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/modalScroll.css')}}">
+     
+
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            {{ include('navfixed.html.twig')}} 
+            {% block body %}
+
+            {% endblock %}
+
+        </div>
+
+        <!-- jQuery 3.1.1 -->
+        <script src="{{asset('css/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="{{asset('css/bootstrap/js/bootstrap.min.js')}}"></script>
+        <!-- DataTables -->
+        <script src="{{asset('css/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('css/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+        <!-- SlimScroll -->
+        <script src="{{asset('css/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
+        <!-- FastClick -->
+        <script src="{{asset('css/plugins/fastclick/fastclick.js')}}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{asset('css/dist/js/app.min.js')}}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{asset('css/dist/js/demo.js')}}"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                $("#tblProductos").DataTable();
+                $('#tblComprasDet').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+        </script>
+       <script src="{{asset('css/VerProdDet.js')}}"></script>
+        <script src="{{asset('css/Tablas.js')}}"></script>
+
+    </body>
+
+
+</html>

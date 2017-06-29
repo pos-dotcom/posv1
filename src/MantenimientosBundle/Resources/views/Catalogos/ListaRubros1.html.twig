@@ -1,0 +1,91 @@
+{%extends '::frontend.html.twig'%}
+{% block body %}
+
+    {{ include('navfixed.html.twig')}}
+   <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+                     <ul class="nav nav-list">
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
+			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <br><br><br>		
+			
+				</ul>                               
+        </div><!--/.well -->
+        </div><!--/span-->
+        
+        <div class="span10">
+          <div class="contentheader">
+			<i class="icon-building"></i> Rubros
+	  </div>
+          <ul class="breadcrumb">
+			<li><a href="">Mantenimiento</a></li> /
+			<li class="active">Rubros</li>
+	  </ul>
+        <div style="margin-top: -19px; margin-bottom: 21px;">
+            <h2>Listado de Rubros</h2>
+        </div>
+     
+  <div id="maintable">
+       {% for  flashMessage in app.session.flashBag.get('Mensaje') %}
+          <span class="alert-success">
+            <center><h3>{{flashMessage}}</h3></center>
+        </span>
+
+    {% endfor %}
+        
+        <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
+            <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
+                <a  href="{{path('addrubros')}}"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Rubro</button></a><br><br>
+        <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
+                <thead>
+                        <tr>
+                                <th width="5%"> Cod. Rubro </th>
+                              
+                                <th width="10%"> Nombre </th>
+                                   <th width="10%"> Accion </th>
+
+                        </tr>
+                </thead>
+                <tbody>
+
+                            {% for dato in datos %}
+                                
+                                <tr class="record">
+                                    <td>
+                                      {{ dato.codigoRubro}}  
+                                        
+                                    </td>
+                                    <td>
+                                        {{dato.nombreRubro}}
+                                    </td>
+                                    <td>
+                                        
+                                        <a href="{{path('editrubros',{'codigoRubro':dato.codigoRubro})}}"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a> 
+                                        <a href="{{asset('')}}/{{dato.codigoRubro}}" class="delbutton"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
+			
+                                        
+                                    </td>
+
+                                </tr>
+                             {% endfor %}
+
+
+                </tbody>
+        </table>
+    <div class="clearfix"></div>
+    </div> 
+    </div>
+    </div>
+</div>
+{% endblock %}

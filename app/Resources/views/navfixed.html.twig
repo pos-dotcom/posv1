@@ -1,162 +1,140 @@
-   <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">POS - Punto de Venta</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smithy</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{app.session.get('nombre')}}<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="{{path('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href=""><i class="fa fa-fw fa-dashboard"></i> Tablero</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-credit-card"></i> Ventas</a>
-                    </li>
-                    <li>
-                        <a href="{{path('productoslista')}}"><i class="fa fa-fw fa-table"></i> Productos</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-arrows"></i> Movimientos</a>
-                    </li>
+<header class="main-header">
 
-                    <li>
-                        <a href="{{path('compras')}}"><i class="fa fa-cubes"></i> Inventario de Ventas</a>
-                    </li>
-                    <li>
-                        <a href="{{path('compras')}}"><i class="fa fa-shopping-cart"></i> Compras</a>
-                    </li>
-                    
-                    <li>
-                        <a href="{{path('mantenimientos')}}"><i class="fa fa-fw fa-wrench"></i> Mantenimientos</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#"><i class="fa fa-line-chart"></i> Reporte de Ventas</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-area-chart"></i> Ventas por Vendedor</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-pie-chart"></i> Ventas por Producto</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-area-chart"></i> Ventas por Categoria</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
+    <!-- Logo -->
+    <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>P</b>OS</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>POS-</b>LTE</span>
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <span class="hidden-xs">Alexander Pierce</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <p>
+                                Alexander Pierce - Web Developer
+                                <small>Member since Nov. 2012</small>
+                            </p>
+                        </li>
+                        <!-- Menu Body -->
+
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-default btn-flat">Salir</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">Menu Principal</li>
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Tablero</span>
+
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa fa-credit-card"></i> <span>Ventas</span>
+                </a>
+            </li>
+            <li >
+                <a href="{{path('productoslista')}}">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <i class="fa fa-arrows"></i>
+                    <span>Movimientos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-cubes"></i> <span>Inventario de Ventas</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{path('compras')}}">
+                    <i class="fa fa-shopping-cart"></i> <span>Compras    </span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="{{path('mantenimientos')}}">
+                    <i class="fa fa-fw fa-wrench"></i> <span>Mantenimientos</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ><a href="{{path('agencias')}}"><i class="fa fa-building"></i> Agencias</a></li>
+                    <li><a href="{{path('rubros')}}"><i class="fa fa-list-ol"></i>Rubros</a></li>
+                    <li><a href="{{path('categorias')}}"><i class="fa fa-list-ul"></i> Categorias</a></li>
+                    <li><a href="{{path('empleados')}}"><i class="fa fa-users"></i>Empleados</a></li>
+                    <li><a href="{{path('proveedores')}}"><i class="fa fa-truck"></i> Proveedores</a></li>
+                    <li><a href="{{path('productos')}}"><i class="fa fa-tasks"></i> Productos</a></li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-	
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-fw fa-bar-chart-o"></i> <span>Reportes</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="pages/tables/simple.html"><i class="fa fa-line-chart"></i> Reporte de Ventas</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-area-chart"></i> Ventas por Vendedor</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-pie-chart"></i> Ventas por Producto</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-area-chart"></i> Ventas por Categoria</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-area-chart"></i> Ventas por Vendedor</a></li>
+                    <li><a href="pages/tables/data.html"><i class="fa fa-area-chart"></i> Ventas por Vendedor</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+
+<!-- /.content-wrapper -->
+
+
+
+
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+
+

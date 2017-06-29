@@ -15,6 +15,7 @@ class ComprasController extends Controller
                     ->getRepository('ComprasBundle:Compras_Enc')
                     ->findAll();
              return $this->render('ComprasBundle:Default:ComprasLista.html.twig',compact("datos"));
+            //return $this->render('ComprasBundle:Default:bTemplate.html.twig',compact("datos"));
             
         } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
@@ -33,7 +34,8 @@ class ComprasController extends Controller
             $datoscompra = $this->getDoctrine()
                     ->getRepository('ComprasBundle:Compras_Det')
                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
-             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
+            return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
+          //  return $this->render('ComprasBundle:Default:remTemplate.html.twig',compact("datoscompra"));
             
        /* } else {
             $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
