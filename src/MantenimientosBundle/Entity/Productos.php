@@ -1,7 +1,7 @@
 <?php
 
 namespace MantenimientosBundle\Entity;
-namespace ComprasBundle\Entity;
+//namespace ComprasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
