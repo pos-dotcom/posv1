@@ -14,7 +14,9 @@ class ProductosController extends Controller {
         if ($session->has("id")) {
             $datos = $this->getDoctrine()
                     ->getRepository('MantenimientosBundle:Productos')
-                    ->findAll();
+                    ->findProductos();
+                     //$categorias = $producto->getCategorias();
+                    //->findAll();
             return $this->render('MantenimientosBundle:Catalogos:ListaProductos.html.twig', compact("datos"));
 
             //  return $this->render('MantenimientosBundle:Catalogos:index.html.twig');

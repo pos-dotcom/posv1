@@ -31,7 +31,8 @@
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                 <th> Cod. Producto </th>
+                                <th> Cod. Producto </th>
+                                <th> Categoria </th> 
                                 <th> Nombre </th>
                                 <th> Accion </th>
                         </tr>
@@ -44,6 +45,9 @@
                                     <td>
                                       {{ dato.codigoArticulo}}  
                                         
+                                    </td>
+                                    <td>
+                                      {{ dato.categorias.getNombreCategoria()}} 
                                     </td>
                                     <td>
                                         {{dato.nombre}}

@@ -10,16 +10,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Categorias
 {
     
-    /**
-     * @ORM\ManyToOne(targetEntity="rubros", inversedBy="categorias")
-     * @ORM\JoinColumn(name="codigoRubro", referencedColumnName="codigo_rubro")
-     */
+    
     protected $rubros;
     
     
-    /**
-     * @ORM\OneToMany(targetEntity="productos", mappedBy="categorias")
-     */
     protected $productos;
 
     public function __construct() {
@@ -65,7 +59,6 @@ class Categorias
     public function setCodigoCategoria($codigoCategoria)
     {
         $this->codigoCategoria = $codigoCategoria;
-
         return $this;
     }
 
@@ -89,7 +82,6 @@ class Categorias
     public function setNombreCategoria($nombreCategoria)
     {
         $this->nombreCategoria = $nombreCategoria;
-
         return $this;
     }
 
@@ -102,10 +94,7 @@ class Categorias
     {
         return $this->nombreCategoria;
     }
-    
-    
-    
-    /**
+     /**
      * Set codigoRubro
      *
      * @param integer $codigoRubro
@@ -141,5 +130,5 @@ class Categorias
      public function __toString() {
         return strval($this->codigoCategoria);
     }
+      
 }
-

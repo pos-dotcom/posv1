@@ -59,6 +59,7 @@ class CategoriasController extends Controller {
             $cat = new Categorias();
             $datos = $this->getDoctrine()
                     ->getRepository('MantenimientosBundle:Categorias')
+                    //->findByOneIdJoinedToRubro($codigoCategoria);
                     ->find($codigoCategoria);
             if (!$datos) {
                 throw $this->createNotFoundException('No existe categoria con valor ' . $codigoCategoria);

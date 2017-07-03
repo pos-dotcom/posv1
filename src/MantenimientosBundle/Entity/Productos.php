@@ -10,20 +10,16 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Productos
 {
-       /**
-     * @ORM\ManyToOne(targetEntity="categorias", inversedBy="productos")
-     * @ORM\JoinColumn(name="codigoCategoria", referencedColumnName="codigo_categoria")
-     */
-    protected $categorias;
     
-    /**
-     * @ORM\OneToMany(targetEntity="ComprasDet", mappedBy="productos")
-     */
+    private $categorias;
+    
+    
     protected $comprasDet;
 
     public function __construct() {
         $this->comprasDet = new ArrayCollection();
     }
+    
     
     /**
      * @var int
@@ -402,7 +398,7 @@ class Productos
         return strval($this->codigoProducto);
     }
     
+   
     
     
 }
-

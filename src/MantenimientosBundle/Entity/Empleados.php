@@ -192,4 +192,3 @@ class Empleados
         return $this->telefono;
     }
 }
-

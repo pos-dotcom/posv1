@@ -61,4 +61,11 @@ MantenimientosBundle\Entity\Productos:
             length: '1'
             nullable: true
             column: b_activo
+    manyToOne:
+        categorias:
+            targetEntity: Categorias
+            inversedBy: productos
+            joinColumn:
+                name: codigo_categoria
+                referencedColumnName: codigo_categoria
     lifecycleCallbacks: {  }

@@ -21,4 +21,8 @@ MantenimientosBundle\Entity\Categorias:
             type: integer
             unique: false
             column: codigo_rubro
+    oneToMany:
+        productos:
+            targetEntity: Productos
+            mappedBy: categorias
     lifecycleCallbacks: {  }

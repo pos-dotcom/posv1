@@ -8,7 +8,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Mantenimientos/Rubros
+                Mantenimientos/Categorias
 
             </h1>
             <!--<ol class="breadcrumb">
@@ -31,9 +31,10 @@
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th width="5%"> Cod. Categoria </th>
-                                        <th width="10%"> Nombre </th>
-                                        <th width="10%"> Accion </th>
+                                        <th> Cod. Categoria </th>
+                                        <th> Rubro </th>
+                                        <th> Nombre </th>
+                                        <th> Accion </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,8 +50,11 @@
                                                 {{dato.nombreCategoria}}
                                             </td>
                                             <td>
+                                                {{dato.nombreCategoria}}
+                                            </td>
+                                            <td>
 
-                                                <a   href="{{path('editcategorias',{'codigoCategoria':dato.codigoCategoria})}}/{{dato.codigoCategoria}}" class="btn btn-primary btn-mini" title="Editar" ><i class="fa fa-edit"></i> </a> 
+                                                <a   href="{{path('editcategorias',{'codigoCategoria':dato.codigoCategoria})}}" class="btn btn-primary btn-mini" title="Editar" ><i class="fa fa-edit"></i> </a> 
                                                 <a href="{{asset('')}}/{{dato.codigoCategoria}}" class="btn btn-danger btn-mini" title="Borrar"><i class="fa fa-trash"></i></a>
                                             </td>
 
