@@ -47,7 +47,7 @@
 
                                             </td>
                                             <td>
-                                                {{dato.nombreCategoria}}
+                                                {{dato.rubros.nombreRubro}}
                                             </td>
                                             <td>
                                                 {{dato.nombreCategoria}}
@@ -57,10 +57,10 @@
                                                 <a   href="{{path('editcategorias',{'codigoCategoria':dato.codigoCategoria})}}" class="btn btn-primary btn-mini" title="Editar" ><i class="fa fa-edit"></i> </a> 
                                                 <a href="{{asset('')}}/{{dato.codigoCategoria}}" class="btn btn-danger btn-mini" title="Borrar"><i class="fa fa-trash"></i></a>
                                             </td>
-
-
-
-
+                                        {% else %}
+                                        <tr>
+                                            <td>No hay resultados.</td>
+                                        </tr>
                                         </tr>
                                     {% endfor %}
                                 </tbody>

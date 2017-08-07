@@ -14,10 +14,11 @@ class ProductosController extends Controller {
         if ($session->has("id")) {
             $datos = $this->getDoctrine()
                     ->getRepository('MantenimientosBundle:Productos')
-                    ->findProductos();
+                   // ->findProductos();
                      //$categorias = $producto->getCategorias();
-                    //->findAll();
-            return $this->render('MantenimientosBundle:Catalogos:ListaProductos.html.twig', compact("datos"));
+                    ->findAll();
+            //$categoria = $datos->getCategorias()->getNombreCategoria();
+            return $this->render('MantenimientosBundle:Catalogos:ListaProductos.html.twig',compact("datos","categoria"));
 
             //  return $this->render('MantenimientosBundle:Catalogos:index.html.twig');
         } else {

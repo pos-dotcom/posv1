@@ -24,4 +24,18 @@ class CategoriasRepository extends \Doctrine\ORM\EntityRepository {
         }
     }
 
+    
+    public function findJoinedToRubro() {
+        $query = $this->getEntityManager()
+                ->createQuery(
+                        'SELECT c,r FROM MantenimientosBundle:Categorias c
+                                JOIN c.rubros r');
+                               // WHERE c.codigoCategoria = :id')
+                //->setParameter('id', $codigoRubro);
+        try {
+            return $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
 }

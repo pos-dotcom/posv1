@@ -1,0 +1,3 @@
+cuentasx_pagar_homepage:
+    path:     /
+    defaults: { _controller: CuentasxPagarBundle:Default:index }

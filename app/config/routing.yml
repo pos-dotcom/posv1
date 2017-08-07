@@ -1,3 +1,7 @@
+cuentasx_pagar:
+    resource: "@CuentasxPagarBundle/Resources/config/routing.yml"
+    prefix:   /
+
 compras:
     resource: "@ComprasBundle/Resources/config/routing.yml"
     prefix:   /
@@ -41,3 +45,9 @@ app:
     
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+    
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin

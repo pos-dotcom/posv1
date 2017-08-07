@@ -10,9 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Rubros {
 
-    /**
-     * @ORM\OneToMany(targetEntity="categorias", mappedBy="rubros")
-     */
+    
     protected $categorias;
 
     public function __construct() {
@@ -86,14 +84,20 @@ class Rubros {
      * @return array
      */
     public function getRubros() {
-        return $this->Rubros->toArray();
+        return $this->Rubros;//->toArray();
     }
 
     public function __toString() {
         return strval($this->codigoRubro);
             
     }
-    
+    /**
+     * @return array
+     */
+//    public function getCategorias()
+//    {
+//        return $this->categorias->toArray();
+//    }
    
 
 }

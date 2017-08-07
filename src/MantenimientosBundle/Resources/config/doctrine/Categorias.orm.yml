@@ -25,4 +25,11 @@ MantenimientosBundle\Entity\Categorias:
         productos:
             targetEntity: Productos
             mappedBy: categorias
+    manyToOne:
+        rubros:
+            targetEntity: Rubros
+            inversedBy: categorias
+            joinColumn:
+                name: codigo_rubro
+                referencedColumnName: codigo_rubro
     lifecycleCallbacks: {  }

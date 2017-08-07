@@ -19,8 +19,7 @@ class CategoriasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombreCategoria',TextType::class,array("required"=>true))
-                //->add('codigoRubro',ChoiceType::class,array("required"=>true))
-                ->add('codigoRubro', EntityType::class,
+                ->add('rubros', EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Rubros',
                     'choice_value'=>'codigoRubro','choice_label'=>'nombreRubro'))
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));

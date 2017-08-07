@@ -17,4 +17,8 @@ MantenimientosBundle\Entity\Rubros:
             type: string
             length: '100'
             column: nombre_rubro
+    oneToMany:
+        categorias:
+            targetEntity: Categorias
+            mappedBy: rubros
     lifecycleCallbacks: {  }

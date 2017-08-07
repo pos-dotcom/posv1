@@ -11,13 +11,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Productos
 {
     
-    private $categorias;
+    protected $categorias;
     
     
     protected $comprasDet;
 
     public function __construct() {
-        $this->comprasDet = new ArrayCollection();
+      //  $this->comprasDet = new ArrayCollection();
+      //  $this->categorias = new ArrayCollection();  
     }
     
     
@@ -398,7 +399,15 @@ class Productos
         return strval($this->codigoProducto);
     }
     
+    /**
+     * Get Categorias
+     *
+     * @return \MantenimientosBundle\Entity\Categorias 
+     */
+   public function getCategorias()
+    {
+        return $this->categorias;//->toArray();
+    }
    
-    
     
 }
