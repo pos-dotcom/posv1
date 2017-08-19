@@ -26,7 +26,6 @@ class AppKernel extends Kernel
             new MovimientosBundle\MovimientosBundle(),
             new ReportesBundle\ReportesBundle(),
             new ComprasBundle\ComprasBundle(),
-            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new CuentasxPagarBundle\CuentasxPagarBundle(),
         ];
 

@@ -22,7 +22,7 @@ class Categorias
     protected $productos;
 
     public function __construct() {
-       // $this->productos = new ArrayCollection();
+        $this->productos = new ArrayCollection();
        // $this->rubros   = new ArrayCollection();
        //$this->categorias =new ArrayCollection();
         

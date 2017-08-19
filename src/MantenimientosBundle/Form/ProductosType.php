@@ -21,14 +21,14 @@ class ProductosType extends AbstractType
         $builder->add('codigoArticulo',TextType::class,array('label'=>"Codigo"))
                 ->add('categorias',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Categorias',
-                    'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria','label'=>"Categoria"))
+                    'choice_value'=>'codigoCategoria','choice_label'=>'nombreCategoria'))
                 ->add('nombre',TextType::class,array('label'=>"Nombre"))
                 ->add('precioVenta',TextType::class,array('label'=>"Precio Venta",'required'=>False))
                 ->add('precioCosto',TextType::class,array('label'=>"Costo",'required'=>False))
                 ->add('ganancia',TextType::class,array('label'=>"Ganancias",'required'=>False))
                 ->add('existencia',TextType::class,array('label'=>"Unidades",'required'=>False))
                 ->add('docena',TextType::class,array('label'=>"Docena",'required'=>False))
-                ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena",'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
+                ->add('bPrecioDocena',CheckboxType::class,array('label'=>"Precio Docena",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
                 ->add('save', SubmitType::class, array('label' => 'GUARDAR'));
     }
     

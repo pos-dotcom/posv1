@@ -1,4 +1,4 @@
-{%extends '::frontend.html.twig'%}
+{%extends '::frontendMantenimientos.html.twig'%}
 
 {% block javascripts %}
     <script type="text/javascript">
@@ -44,100 +44,112 @@
 {% endblock %}
 {% block body %}
 
-    {{ include('navfixed.html.twig')}}
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span2">
-                <div class="well sidebar-nav">
-                    <ul class="nav nav-list">
-                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
-                        <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
-                        <li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
-                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
-                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                        <li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                        <li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                        <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                        <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                        <br><br><br>		
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Mantenimientos/Productos
 
-                    </ul>                               
-                </div><!--/.well -->
-            </div><!--/span-->
+            </h1>
+            <!--<ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Tables</a></li>
+                <li class="active">Data tables</li>
+            </ol>-->
+        </section>
 
-            <div class="span10">
-                <div class="contentheader">
-                    <i class="icon-building"></i> Productos
-                </div>
-                <ul class="breadcrumb">
-                    <li><a href="">Mantenimiento</a></li> /
-                    <li class="active">Productos</li>
-                </ul>
-                <div style="margin-top: -19px; margin-bottom: 21px;">
-                    <h2>Listado de Productos</h2>
-                </div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!-- <h3 class="box-title">Data Table With Full Features</h3>-->
 
-                <div id="maintable">
-
-                    <center>
-                        <h4>
-                            <i class="icon-plus-sign icon-large"></i>Nuevo Producto
-                        </h4>
-                    </center>
-                    <hr>
-                    <div id="center">
-                        <div id="ac">
-                            <div class="edit_custom" >
-
-                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                                <span>Codigo:</span>{{ form_widget(form.codigoArticulo) }}
-
-                                <br>
-                                <span>Categoria:</span>
-                                {{ form_errors(form.codigoCategoria) }}
-                                {{ form_widget(form.codigoCategoria) }}
-                                <br>
-                                <span>Nombre:</span>
-                                {{ form_errors(form.nombre) }}
-                                {{ form_widget(form.nombre) }}
-                                <br>
-
-                                <span>Precio venta:</span>
-                                {{ form_errors(form.precioVenta) }}
-                                {{ form_widget(form.precioVenta) }}
-                                <br>
-                                <span>Precio Docena:</span>
-                                {{ form_errors(form.bPrecioDocena) }}
-                                {{ form_widget(form.bPrecioDocena) }}
-                                <br>
-                                <span>Costo:</span>
-                                {{ form_errors(form.precioCosto) }}
-                                {{ form_widget(form.precioCosto,{ 'attr': {'onKeyUp'  :'ganancia();'} }) }}
-                                
-                                <br>
-                                <span>Ganancia:</span>
-                                {{ form_errors(form.ganancia) }}
-                                {{ form_widget(form.ganancia) }}
-                                <br>
-                                <span>Unidades:</span>
-                                {{ form_errors(form.existencia) }}
-                                {{ form_widget(form.existencia,{ 'attr': {'onKeyUp'  :'docena();'} }) }}
-                                <br>
-                                <span>Docena:</span>
-                                {{ form_errors(form.docena) }}
-                                {{ form_widget(form.docena) }}
-
-                                <br>
-                                <center>{{ form_widget(form.save) }}</center>
-                                {{ form_end(form) }}
-                            </div>
                         </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Nuevo Producto</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                        <span>Codigo:</span>{{ form_widget(form.codigoArticulo) }}
+
+                                        <br>
+                                        <span>Categoria:</span>
+                                        {{ form_errors(form.categorias) }}
+                                        {{ form_widget(form.categorias) }}
+                                        <br>
+                                        <span>Nombre:</span>
+                                        {{ form_errors(form.nombre) }}
+                                        {{ form_widget(form.nombre) }}
+                                        <br>
+
+                                        <span>Precio venta:</span>
+                                        {{ form_errors(form.precioVenta) }}
+                                        {{ form_widget(form.precioVenta) }}
+                                        <br>
+                                        <span>Precio Docena:</span>
+                                        {{ form_errors(form.bPrecioDocena) }}
+                                        {{ form_widget(form.bPrecioDocena) }}
+                                        <br>
+                                        <span>Costo:</span>
+                                        {{ form_errors(form.precioCosto) }}
+                                        {{ form_widget(form.precioCosto,{ 'attr': {'onKeyUp'  :'ganancia();'} }) }}
+
+                                        <br>
+                                        <span>Ganancia:</span>
+                                        {{ form_errors(form.ganancia) }}
+                                        {{ form_widget(form.ganancia) }}
+                                        <br>
+                                        <span>Unidades:</span>
+                                        {{ form_errors(form.existencia) }}
+                                        {{ form_widget(form.existencia,{ 'attr': {'onKeyUp'  :'docena();'} }) }}
+                                        <br>
+                                        <span>Docena:</span>
+                                        {{ form_errors(form.docena) }}
+                                        {{ form_widget(form.docena) }}
+
+                                        <br>
+                                        <center>{{ form_widget(form.save) }}</center>
+                                            {{ form_end(form) }}
+                                    </div>
+                                    <!-- /.box-body -->
+
+                                    <!-- /.box-footer -->
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
                     </div>
-                    <div class="clearfix"></div>
-                </div> 
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
             </div>
         </div>
-    </div>       
-{% endblock %}
+    </div>
+    <footer class="main-footer">
+
+    </footer>
+    <div class="control-sidebar-bg"></div>
+
+{% endblock body%}
+
+

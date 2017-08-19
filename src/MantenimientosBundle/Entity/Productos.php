@@ -409,5 +409,17 @@ class Productos
         return $this->categorias;//->toArray();
     }
    
-    
+    /**
+     * Set categorias
+     *
+     * @param \MantenimientosBundle\Entity\Categorias $categorias
+     *
+     * @return categorias
+     */
+    public function setCategorias(\MantenimientosBundle\Entity\Categorias $categorias = null)
+    {
+        $this->categorias= $categorias;
+
+        return $this;
+    }
 }

@@ -1,66 +1,81 @@
-{%extends '::frontend.html.twig'%}
+{%extends '::frontendMantenimientos.html.twig'%}
+
 {% block body %}
-    
-     {{ include('navfixed.html.twig')}}
-   <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-                     <ul class="nav nav-list">
-                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tableros</a></li> 
-			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
-			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
-                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
-                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
-			<li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-			<li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
-                        <br><br><br>		
-			
-				</ul>                               
-        </div><!--/.well -->
-        </div><!--/span-->
-        
-        <div class="span10">
-          <div class="contentheader">
-			<i class="icon-building"></i> Agencias
-	  </div>
-          <ul class="breadcrumb">
-			<li><a href="">Mantenimiento</a></li> /
-			<li class="active">Agencias</li>
-	  </ul>
-        <div style="margin-top: -19px; margin-bottom: 21px;">
-            <h2>Listado de Agencias</h2>
+
+
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Mantenimientos/Agencias
+
+            </h1>
+            <!--<ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Tables</a></li>
+                <li class="active">Data tables</li>
+            </ol>-->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!-- <h3 class="box-title">Data Table With Full Features</h3>-->
+                           
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Nueva Agencia</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                       {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            {{ form_widget(form) }}
+                            {{ form_errors(form) }}
+
+                            {{ form_end(form) }}
+                          
+
+                                    </div>
+                                    <!-- /.box-body -->
+                                  
+                                    <!-- /.box-footer -->
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
         </div>
-     
-  <div id="maintable">
-  
-   <center>
-        <h4>
-            <i class="icon-plus-sign icon-large"></i>Nueva Agencia
-        </h4>
-    </center>
-    <hr>
-    <div id="ac">
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{ form_widget(form) }}
-        {{ form_errors(form) }}
-        
-    {{ form_end(form) }}
-    <br>
-    
     </div>
-      
-      
-      
-      
-      
-	 <div class="clearfix"></div>
-    </div> 
-    </div>
-    </div>
-</div> 
-{% endblock %}
+    <footer class="main-footer">
+
+    </footer>
+    <div class="control-sidebar-bg"></div>
+
+{% endblock body%}
+
+
