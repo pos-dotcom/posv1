@@ -1,24 +1,18 @@
 <?php
 
 namespace MantenimientosBundle\Entity;
-//namespace ComprasBundle\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 
 /**
  * Proveedor
  */
 class Proveedor
 {
-    /**
-     * @ORM\OneToMany(targetEntity="ComprasEnc", mappedBy="Proveedor")
-     */
-    protected $comprasEnc;
-
     public function __construct() {
-        $this->comprasEnc = new ArrayCollection();
+      //  $this->comprasEnc = new ArrayCollection();
     }
 
     /**
@@ -47,6 +41,18 @@ class Proveedor
     private $notas;
 
 
+    /**
+     * Get comprasEnc
+     *
+     * @return \ComprasBundle\Entity\ComprasEnc
+     */
+    protected $comprasEnc;
+    
+    public function getComprasEnc(){
+        return $this->$comprasEnc;//;->toArray();
+               
+    }
+    
     /**
      * Get id
      *
@@ -180,6 +186,7 @@ class Proveedor
     
     /**
      * @return array
+     * 
      */
     public function getProveedor()
     {

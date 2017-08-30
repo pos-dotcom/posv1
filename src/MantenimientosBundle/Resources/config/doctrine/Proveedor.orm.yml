@@ -27,6 +27,11 @@ MantenimientosBundle\Entity\Proveedor:
             nullable: true
         notas:
             type: string
-            length: 'a00'
+            length: '100'
             nullable: true
+    oneToMany:
+        comprasEnc:
+            targetEntity: \ComprasBundle\Entity\ComprasEnc
+            mappedBy: Proveedor    
+    
     lifecycleCallbacks: {  }

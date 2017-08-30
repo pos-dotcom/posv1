@@ -3,10 +3,17 @@
 namespace ComprasBundle\Entity;
 
 /**
- * Compras_Enc
+ * ComprasEnc
  */
-class Compras_Enc
+class ComprasEnc
 {
+    
+    
+     /**
+     * @var \MantenimientosBundle\Entity\Proveedor
+     */
+    protected $proveedor;
+    
     /**
      * @var int
      */
@@ -41,6 +48,9 @@ class Compras_Enc
      * @var string
      */
     private $total;
+    
+    
+    
 
 
     /**
@@ -58,7 +68,7 @@ class Compras_Enc
      *
      * @param integer $codigoCompraEnc
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setCodigoCompraEnc($codigoCompraEnc)
     {
@@ -82,7 +92,7 @@ class Compras_Enc
      *
      * @param string $numFactura
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setNumFactura($numFactura)
     {
@@ -106,7 +116,7 @@ class Compras_Enc
      *
      * @param \DateTime $fechaCompra
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setFechaCompra($fechaCompra)
     {
@@ -130,7 +140,7 @@ class Compras_Enc
      *
      * @param integer $codigoProveedor
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setCodigoProveedor($codigoProveedor)
     {
@@ -154,7 +164,7 @@ class Compras_Enc
      *
      * @param string $observacion
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setObservacion($observacion)
     {
@@ -178,7 +188,7 @@ class Compras_Enc
      *
      * @param string $total
      *
-     * @return Compras_Enc
+     * @return ComprasEnc
      */
     public function setTotal($total)
     {
@@ -196,5 +206,31 @@ class Compras_Enc
     {
         return $this->total;
     }
+    
+    
+    
+     /**
+     * Get proveedor
+     *
+     * @return \MantenimientosBundle\Entity\Proveedor 
+     */
+    public function getProveedor() {
+        return $this->proveedor;
+    }
+    
+    /**
+     * Set proveedor
+     *
+     * @param \MantenimientosBundle\Entity\Proveedor $proveedor
+     *
+     * @return proveedor
+     */
+    public function setProveedor(\MantenimientosBundle\Entity\Proveedor $proveedor = null)
+    {
+        $this->proveedor = $proveedor;
+
+        return $this;
+    }
+    
 }
 

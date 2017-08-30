@@ -1,16 +1,17 @@
-ComprasBundle\Entity\Compras_Enc:
+ComprasBundle\Entity\ComprasEnc:
     type: entity
     table: null
-    repositoryClass: ComprasBundle\Repository\Compras_EncRepository
+    repositoryClass: ComprasBundle\Repository\ComprasEncRepository
     id:
         codigoCompraEnc:
             type: integer
+            id: true
             unique: true
             column: codigo_compra_enc
-            id: true
             generator:
                 strategy: IDENTITY
     fields:
+        
         numFactura:
             type: string
             length: '10'
@@ -29,4 +30,11 @@ ComprasBundle\Entity\Compras_Enc:
             type: decimal
             precision: '18'
             scale: '9'
+    manyToOne:
+        proveedor:
+            targetEntity: \MantenimientosBundle\Entity\Proveedor
+            inversedBy: ComprasEnc
+            joinColumn:
+                name: codigo_proveedor
+                referencedColumnName: codigo_proveedor 
     lifecycleCallbacks: {  }

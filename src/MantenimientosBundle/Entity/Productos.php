@@ -1,7 +1,6 @@
 <?php
 
 namespace MantenimientosBundle\Entity;
-//namespace ComprasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -12,7 +11,6 @@ class Productos
 {
     
     protected $categorias;
-    
     
     protected $comprasDet;
 
@@ -419,7 +417,6 @@ class Productos
     public function setCategorias(\MantenimientosBundle\Entity\Categorias $categorias = null)
     {
         $this->categorias= $categorias;
-
         return $this;
     }
 }

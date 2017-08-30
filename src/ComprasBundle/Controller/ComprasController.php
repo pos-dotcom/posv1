@@ -12,7 +12,7 @@ class ComprasController extends Controller
        $session = $request->getSession();
         if ($session->has("id")) {
             $datos = $this->getDoctrine()
-                    ->getRepository('ComprasBundle:Compras_Enc')
+                    ->getRepository('ComprasBundle:ComprasEnc')
                     ->findAll();
              return $this->render('ComprasBundle:Default:ComprasLista.html.twig',compact("datos"));
             //return $this->render('ComprasBundle:Default:bTemplate.html.twig',compact("datos"));
@@ -32,7 +32,7 @@ class ComprasController extends Controller
         //if ($session->has("id")) {
             
             $datoscompra = $this->getDoctrine()
-                    ->getRepository('ComprasBundle:Compras_Det')
+                    ->getRepository('ComprasBundle:ComprasDet')
                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
           //  return $this->render('ComprasBundle:Default:remTemplate.html.twig',compact("datoscompra"));
