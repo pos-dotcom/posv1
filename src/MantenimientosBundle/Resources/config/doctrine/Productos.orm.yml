@@ -68,4 +68,8 @@ MantenimientosBundle\Entity\Productos:
             joinColumn:
                 name: codigo_categoria
                 referencedColumnName: codigo_categoria
+    oneToMany:
+        comprasDet:
+            targetEntity: \ComprasBundle\Entity\ComprasDet
+            mappedBy: producto
     lifecycleCallbacks: {  }

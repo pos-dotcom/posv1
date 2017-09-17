@@ -1,0 +1,41 @@
+ComprasBundle\Entity\ComprasDet:
+    type: entity
+    table: ComprasDet
+    repositoryClass: ComprasBundle\Repository\ComprasDetRepository
+    id:
+        codigoCompraDet:
+            type: integer
+            id: true
+            unique: true
+            generator:
+                strategy: IDENTITY
+            column: codigo_compra_det
+    fields:
+        
+        codigoCompraEnc:
+            type: integer
+            column: codigo_compra_enc
+        numFactura:
+            type: string
+            length: '10'
+            column: num_factura
+        codigoProducto:
+            type: integer
+            column: codigo_producto
+        cantidad:
+            type: integer
+        bDocena:
+            type: integer
+            column: b_docena
+        costo:
+            type: decimal
+            precision: '18'
+            scale: '9'
+    manyToOne:
+        producto:
+            targetEntity: \MantenimientosBundle\Entity\Productos
+            inversedBy: comprasDet
+            joinColumn:
+                name: codigo_producto
+                referencedColumnName: codigo_producto
+    lifecycleCallbacks: {  }

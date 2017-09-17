@@ -32,6 +32,6 @@ MantenimientosBundle\Entity\Proveedor:
     oneToMany:
         comprasEnc:
             targetEntity: \ComprasBundle\Entity\ComprasEnc
-            mappedBy: Proveedor    
+            mappedBy: proveedor    
     
     lifecycleCallbacks: {  }

@@ -9,6 +9,7 @@
         <thead> 
             <tr>
                 <th > Codigo Artículo </th>
+                <th > Nombre </th>
                 <th > Cantidad </th>
                 <th > Costo </th>
                 <th > Total </th>
@@ -21,7 +22,10 @@
 
                 <tr class="record">
                     <td>
-                        {{dato.codigoProducto}}
+                        {{dato.producto.codigoArticulo}}
+                    </td>
+                    <td>
+                        {{dato.producto.nombre}}
                     </td>
                     <td>
                         {{dato.cantidad}}  

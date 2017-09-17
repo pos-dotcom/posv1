@@ -10,9 +10,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Productos
 {
     
-    protected $categorias;
+    private $categorias;
     
-    protected $comprasDet;
+    private $comprasDet;
 
     public function __construct() {
       //  $this->comprasDet = new ArrayCollection();
@@ -419,4 +419,21 @@ class Productos
         $this->categorias= $categorias;
         return $this;
     }
+    
+    /**
+     * Get comprasDet
+     *
+     * @return \ComprasBundle\Entity\ComprasDet
+     */
+    
+    
+    public function getComprasDet(){
+        return $this->$comprasDet;//;->toArray();
+               
+    }
+    
+    
+    
+    
+    
 }

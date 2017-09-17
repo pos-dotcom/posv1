@@ -1,19 +1,15 @@
 <?php
 
 namespace ComprasBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * ComprasEnc
  */
 class ComprasEnc
 {
-    
-    
-     /**
-     * @var \MantenimientosBundle\Entity\Proveedor
-     */
-    protected $proveedor;
-    
     /**
      * @var int
      */
@@ -23,6 +19,7 @@ class ComprasEnc
      * @var int
      */
     private $codigoCompraEnc;
+    
 
     /**
      * @var string
@@ -48,10 +45,24 @@ class ComprasEnc
      * @var string
      */
     private $total;
-    
-    
-    
 
+    /**
+     * @var int
+     */
+    private $codigoEmpleado;
+
+    /**
+     * @var \DateTime
+     */
+    private $fechaIngreso;
+
+    
+    private $proveedor;
+    
+    
+    public function __construct() {
+       
+    }
 
     /**
      * Get id
@@ -68,7 +79,7 @@ class ComprasEnc
      *
      * @param integer $codigoCompraEnc
      *
-     * @return ComprasEnc
+     * @return codigoCompraEnc
      */
     public function setCodigoCompraEnc($codigoCompraEnc)
     {
@@ -160,15 +171,15 @@ class ComprasEnc
     }
 
     /**
-     * Set observacion
+     * Set observador
      *
-     * @param string $observacion
+     * @param string $observador
      *
      * @return ComprasEnc
      */
-    public function setObservacion($observacion)
+    public function setObservador($observador)
     {
-        $this->observacion = $observacion;
+        $this->observador = $observador;
 
         return $this;
     }
@@ -206,18 +217,66 @@ class ComprasEnc
     {
         return $this->total;
     }
+
+    /**
+     * Set codigoEmpleado
+     *
+     * @param integer $codigoEmpleado
+     *
+     * @return ComprasEnc
+     */
+    public function setCodigoEmpleado($codigoEmpleado)
+    {
+        $this->codigoEmpleado = $codigoEmpleado;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoEmpleado
+     *
+     * @return int
+     */
+    public function getCodigoEmpleado()
+    {
+        return $this->codigoEmpleado;
+    }
+
+    /**
+     * Set fechaIngreso
+     *
+     * @param \DateTime $fechaIngreso
+     *
+     * @return ComprasEnc
+     */
+    public function setFechaIngreso($fechaIngreso)
+    {
+        $this->fechaIngreso = $fechaIngreso;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaIngreso
+     *
+     * @return \DateTime
+     */
+    public function getFechaIngreso()
+    {
+        return $this->fechaIngreso;
+    }
     
     
-    
-     /**
-     * Get proveedor
+    /**
+     * Get Proveedor
      *
      * @return \MantenimientosBundle\Entity\Proveedor 
      */
-    public function getProveedor() {
-        return $this->proveedor;
+   public function getProveedor()
+    {
+        return $this->proveedor;//->toArray();
     }
-    
+   
     /**
      * Set proveedor
      *
@@ -227,10 +286,8 @@ class ComprasEnc
      */
     public function setProveedor(\MantenimientosBundle\Entity\Proveedor $proveedor = null)
     {
-        $this->proveedor = $proveedor;
-
+        $this->proveedor= $proveedor;
         return $this;
     }
-    
 }
 

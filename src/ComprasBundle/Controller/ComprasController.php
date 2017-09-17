@@ -28,7 +28,7 @@ class ComprasController extends Controller
     
     public function verCompraAction($codigoCompraEnc)
     {
-       // $session = $request->getSession();
+        //$session = $request->getSession();
         //if ($session->has("id")) {
             
             $datoscompra = $this->getDoctrine()
@@ -37,11 +37,11 @@ class ComprasController extends Controller
             return $this->render('ComprasBundle:Default:verDetalleCompra.html.twig',compact("datoscompra"));
           //  return $this->render('ComprasBundle:Default:remTemplate.html.twig',compact("datoscompra"));
             
-       /* } else {
-            $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
-            return $this->redirect($this->generateUrl('login'));
+       // } else {
+       //     $this->get('session')->getFlashBag()->add('Mensaje', 'Debe estar logueado para mostrar este contenido');
+       //     return $this->redirect($this->generateUrl('login'));
         
-        * }  
-        */
+        // }  
+        
     }
 }

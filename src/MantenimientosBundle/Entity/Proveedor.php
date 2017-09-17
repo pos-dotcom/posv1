@@ -11,9 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Proveedor
 {
-    public function __construct() {
-      //  $this->comprasEnc = new ArrayCollection();
-    }
+    
 
     /**
      * @var int
@@ -46,11 +44,15 @@ class Proveedor
      *
      * @return \ComprasBundle\Entity\ComprasEnc
      */
-    protected $comprasEnc;
+    private $comprasEnc;
     
     public function getComprasEnc(){
         return $this->$comprasEnc;//;->toArray();
                
+    }
+    
+    public function __construct() {
+       // $this->comprasEnc = new ArrayCollection();
     }
     
     /**
