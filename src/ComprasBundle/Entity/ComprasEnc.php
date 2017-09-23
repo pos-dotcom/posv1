@@ -59,6 +59,8 @@ class ComprasEnc
     
     private $proveedor;
     
+     private $empleado;
+    
     
     public function __construct() {
        
@@ -289,5 +291,30 @@ class ComprasEnc
         $this->proveedor= $proveedor;
         return $this;
     }
+    
+    /**
+     * Get Empleado
+     *
+     * @return \MantenimientosBundle\Entity\Empleado 
+     */
+   public function getEmpleado()
+    {
+        return $this->empleado;//->toArray();
+    }
+   
+    /**
+     * Set empleado
+     *
+     * @param \MantenimientosBundle\Entity\Empleado $empleado
+     *
+     * @return empleado
+     */
+    public function setEmpleado(\MantenimientosBundle\Entity\Empleado $empleado = null)
+    {
+        $this->empleado= $empleado;
+        return $this;
+    }
+    
+    
 }
 

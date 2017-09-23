@@ -31,4 +31,8 @@ MantenimientosBundle\Entity\Empleados:
             type: string
             length: '10'
             nullable: true
+    oneToMany:
+        comprasEnc:
+            targetEntity: \ComprasBundle\Entity\ComprasEnc
+            mappedBy: empleado
     lifecycleCallbacks: {  }

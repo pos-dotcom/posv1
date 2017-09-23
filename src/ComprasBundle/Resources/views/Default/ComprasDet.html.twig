@@ -1,7 +1,10 @@
 {%extends '::frontendCompras.html.twig'%}
 
 {% block body %}
-  <div class="content-wrapper">
+
+
+
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -15,10 +18,7 @@
             </ol>-->
             <br>
             <div>
-                
-                  
-                 <a title="Nueva Compra" href="{{path('addcompra')}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" ><i class="fa fa-fw fa-plus"></i></a>
-                       
+                <button type="button" class="btn btn-block btn-primary btn-flat">Nueva Compra</button>
             </div>
         </section>
 
@@ -54,7 +54,7 @@
                                                 {{dato.fechaCompra|date('d/m/Y')}}  
                                             </td>
                                             <td>
-                                                {{dato.proveedor.nombreProveedor}}
+                                               {{dato.proveedor.nombreProveedor}}
                                             </td>
                                             <td>
                                                 {{dato.observacion}} 
@@ -62,11 +62,7 @@
                                             <td>
                                                 {{dato.total|number_format(2,'.',',')}} 
                                             </td>
-                                            <td>
-                                                <a href="{{path('vercompra',{'codigoCompraEnc': dato.codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" title="Ver Detalle"><i class="fa fa-search"></i></a>
-                                                <a href=""  class="btn btn-danger btn-mini" data-toggle="modal" data-target="#myModal" title="Borrar"><i class="fa fa-trash"></i></a>
-
-                                            </td>
+                                            
                                         </tr>
                                     {% endfor %}
                                 </tbody>

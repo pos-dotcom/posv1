@@ -2,6 +2,9 @@
 
 namespace MantenimientosBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Empleados
  */
@@ -190,5 +193,22 @@ class Empleados
     public function getTelefono()
     {
         return $this->telefono;
+    }
+    
+    
+    /**
+     * Get comprasEnc
+     *
+     * @return \ComprasBundle\Entity\ComprasEnc
+     */
+    private $comprasEnc;
+    
+    public function getComprasEnc(){
+        return $this->$comprasEnc;//;->toArray();
+               
+    }
+    
+    public function __toString() {
+        return strval($this->codigoEmpleado);
     }
 }
