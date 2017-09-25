@@ -7,6 +7,12 @@ vercompra:
 addcompra:
     path:      /compras/add
     defaults: { _controller: ComprasBundle:Compras:add }
+    
+addcompraenc:
+    path:      /compras/add
+    defaults: { _controller: ComprasBundle:Compras:add }
+
+
 editcompra:
     path:     /compras/edit/{codigoCompraEnc}
     defaults: {_controller: ComprasBundle:Compras:edit}

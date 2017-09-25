@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ComprasBundle\Form\ComprasEncType;
 use ComprasBundle\Entity\ComprasEnc;
+use ComprasBundle\Form\ComprasDetType;
+use ComprasBundle\Entity\ComprasDet;
 
 
 class ComprasController extends Controller
@@ -60,7 +62,8 @@ class ComprasController extends Controller
                   $em->persist($compra);
                   $em->flush();
                   
-                  return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc())));                 
+                  return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc()))); 
+                  
               }
               
               return $this->render('ComprasBundle:Default:addCompra.html.twig', array("form" => $form->createView()));
@@ -75,12 +78,45 @@ class ComprasController extends Controller
         
     }
     
+    
+    public function addcompraencAction(Request $request)
+    {
+            /*$session = $request -> getSession();
+            if ($session->has("id")) 
+            {
+              $compra=new ComprasEnc();
+              $form = $this->createForm(ComprasEncType::class,$compra,array('action'=>$this->generateUrl('addcompra'),'method'=>'POST'));
+             */ 
+             $form->handleRequest($request);
+             
+              if($form->isSubmitted() && $form->isValid())
+              {
+                  $em=$this->getDoctrine()->getManager();
+                  $em->persist($compra);
+                  $em->flush();
+                  
+                  //return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc())));                 
+              }
+              
+              return $this->render('ComprasBundle:Default:addCompra.html.twig', array("form" => $form->createView()));
+                 
+            //}
+            /*else
+            {
+                $this->get('session')->getFlashbag()->add('Mensaje','Debe estar logueado para mostrar este contenido');
+                return $this->redirect($this->generateUrl('login'));
+              
+            }
+        */
+    }
+    
+    
     public function editAction($codigoCompraEnc,Request $request)
     {
         $compraEnc=New ComprasEnc();
         $datos= $this->getDoctrine()
                      ->getRepository('ComprasBundle:ComprasEnc')
-                     ->find($codigoCompraEnc);
+                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
         
         if (!$datos)
         {
@@ -89,9 +125,19 @@ class ComprasController extends Controller
         }
         else
         {
-            return $this->render('ComprasBundle:Default:ComprasDet.html.twig', compact("datos"));            
+              $compradet=new ComprasDet();
+              $form = $this->createForm(ComprasDetType::class,$compradet);
+              $form->handleRequest($request);
+              if($form->isSubmitted() && $form->isValid())
+              {
+                  $em=$this->getDoctrine()->getManager();
+                  $em->persist($compradet);
+                  $em->flush();
+                 // return $this->render('ComprasBundle:Default:ComprasDet.html.twig', compact("datos"),array("form" => $form->createView()));            
+              }
+              return $this->render('ComprasBundle:Default:ComprasDet.html.twig', array("data"=>compact("datos"),"form" => $form->createView()));            
         }
-         
+        
         
     }
     

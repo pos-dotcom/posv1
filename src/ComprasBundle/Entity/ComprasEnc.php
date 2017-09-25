@@ -173,15 +173,15 @@ class ComprasEnc
     }
 
     /**
-     * Set observador
+     * Set observacion
      *
-     * @param string $observador
+     * @param string $observacion
      *
-     * @return ComprasEnc
+     * @return string
      */
-    public function setObservador($observador)
+    public function setObservacion($observacion)
     {
-        $this->observador = $observador;
+        $this->observacion = $observacion;
 
         return $this;
     }
@@ -295,7 +295,7 @@ class ComprasEnc
     /**
      * Get Empleado
      *
-     * @return \MantenimientosBundle\Entity\Empleado 
+     * @return \MantenimientosBundle\Entity\Empleados 
      */
    public function getEmpleado()
     {
@@ -305,11 +305,11 @@ class ComprasEnc
     /**
      * Set empleado
      *
-     * @param \MantenimientosBundle\Entity\Empleado $empleado
+     * @param \MantenimientosBundle\Entity\Empleados $empleado
      *
      * @return empleado
      */
-    public function setEmpleado(\MantenimientosBundle\Entity\Empleado $empleado = null)
+    public function setEmpleado(\MantenimientosBundle\Entity\Empleados $empleado = null)
     {
         $this->empleado= $empleado;
         return $this;

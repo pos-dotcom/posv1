@@ -35,42 +35,43 @@
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th> No. de Factura </th>
-                                        <th> Fecha </th>
-                                        <th> Proveedor </th>
-                                        <th> Comentario </th>
-                                        <th> Total </th>
-                                        <th> Accion </th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    {% for dato in datos %}
+                                    {% for dato in data %}
                                         <tr>
                                             <td>
-                                                {{dato.numFactura}}
+                                                <b>Num Factura: </b>  {{dato.numFactura}}
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.fechaCompra|date('d/m/Y')}}  
+                                               <b>Fecha Compra: </b>   {{dato.fechaCompra|date('d/m/Y')}}  
                                             </td>
+                                        </tr>
+                                        <tr>    
                                             <td>
-                                                {{dato.codigoProveedor}}
+                                               <b>Proveedor: </b>  {{dato.proveedor.nombreProveedor}}
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.observacion}} 
+                                               <b>Observación: </b>   {{dato.observacion}} 
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.total|number_format(2,'.',',')}} 
+                                              <b>Total: </b>    {{dato.total|number_format(2,'.',',')}} 
                                             </td>
-                                            <td>
-                                                <a href="{{path('vercompra',{'codigoCompraEnc': dato.codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" title="Ver Detalle"><i class="fa fa-search"></i></a>
-                                                <a href=""  class="btn btn-danger btn-mini" data-toggle="modal" data-target="#myModal" title="Borrar"><i class="fa fa-trash"></i></a>
-
-                                            </td>
+                                        </tr>    
                                         </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
+                                
+                             {{ include('navfixed.html.twig')}}    
                         </div>
                         <!-- /.box-body -->
                     </div>

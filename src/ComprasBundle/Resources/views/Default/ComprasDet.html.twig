@@ -18,7 +18,7 @@
             </ol>-->
             <br>
             <div>
-                <button type="button" class="btn btn-block btn-primary btn-flat">Nueva Compra</button>
+               
             </div>
         </section>
 
@@ -35,38 +35,52 @@
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th> No. de Factura </th>
-                                        <th> Fecha </th>
-                                        <th> Proveedor </th>
-                                        <th> Comentario </th>
-                                        <th> Total </th>
-                                        <th> Accion </th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    {% for dato in datos %}
+                                    {% for dato in data %}
                                         <tr>
                                             <td>
-                                                {{dato.numFactura}}
+                                                <b>Num Factura: </b>  {{dato.numFactura}}
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.fechaCompra|date('d/m/Y')}}  
+                                               <b>Fecha Compra: </b>   {{dato.fechaCompra|date('d/m/Y')}}  
                                             </td>
+                                        </tr>
+                                        <tr>    
                                             <td>
-                                               {{dato.proveedor.nombreProveedor}}
+                                               <b>Proveedor: </b>  {{dato.proveedor.nombreProveedor}}
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.observacion}} 
+                                               <b>Observación: </b>   {{dato.observacion}} 
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                {{dato.total|number_format(2,'.',',')}} 
+                                              <b>Total: </b>    {{dato.total|number_format(2,'.',',')}} 
                                             </td>
-                                            
+                                        </tr>    
                                         </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
+                             
+                                
+                           <form  id="Compradet" class="form-horizontal" method="POST" action="{{path('addcompradet')}}" >     
+                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                {{ form_widget(form) }}
+               
+                                {{ form_errors(form) }}
+                                <button type="submit" id="submitForm">Guardar</button>
+                                {{ form_end(form) }}
+
+                            </form>  
                         </div>
                         <!-- /.box-body -->
                     </div>
