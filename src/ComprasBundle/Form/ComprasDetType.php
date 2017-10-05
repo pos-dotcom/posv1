@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
@@ -20,15 +21,15 @@ class ComprasDetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoCompraEnc')
-                ->add('numFactura')
-                ->add('codigoProducto')
+        $builder->add('producto',EntityType::class,
+                       array('class'=>'MantenimientosBundle\Entity\Productos',
+                    'choice_value'=>'codigoProducto','choice_label'=>'nombre'))
+                ->add('codigoCompraEnc', HiddenType::class,array('data'=>'0'))
+//                ->add('numFactura')
+//                ->add('codigoProducto')
                 ->add('cantidad',TextType::class,array('label'=>"Cantidad",'required'=>true))
                 ->add('bDocena',CheckboxType::class,array('label'=>"Docena",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
-                ->add('costo')
-                ->add('producto',EntityType::class,
-                       array('class'=>'MantenimientosBundle\Entity\Productos',
-                    'choice_value'=>'codigoProducto','choice_label'=>'nombre'));
+                ->add('costo');                
     }
     
     /**

@@ -11,12 +11,14 @@ addcompra:
 addcompraenc:
     path:      /compras/add
     defaults: { _controller: ComprasBundle:Compras:add }
-
-
+    
 editcompra:
     path:     /compras/edit/{codigoCompraEnc}
     defaults: {_controller: ComprasBundle:Compras:edit}
-    
+
+adddetcompra:
+    path:   /compras/edit/{codigoCompraEnc}
+    defaults: {_controller: ComprasBundle:Compras:adddetcompra}
     
 
     

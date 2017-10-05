@@ -2,14 +2,11 @@
 
 {% block body %}
 
-
-
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
                 Compras
-               
             </h1>
             <!--<ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -17,70 +14,111 @@
                 <li class="active">Data tables</li>
             </ol>-->
             <br>
-            <div>
-               
+            <div>           
             </div>
         </section>
-
         <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                           <!-- <h3 class="box-title">Data Table With Full Features</h3>-->
+                            <!-- <h3 class="box-title">Data Table With Full Features</h3>-->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                       
+
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    {% for dato in data %}
-                                        <tr>
-                                            <td>
-                                                <b>Num Factura: </b>  {{dato.numFactura}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <b>Fecha Compra: </b>   {{dato.fechaCompra|date('d/m/Y')}}  
-                                            </td>
-                                        </tr>
-                                        <tr>    
-                                            <td>
-                                               <b>Proveedor: </b>  {{dato.proveedor.nombreProveedor}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <b>Observación: </b>   {{dato.observacion}} 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                              <b>Total: </b>    {{dato.total|number_format(2,'.',',')}} 
-                                            </td>
-                                        </tr>    
-                                        </tr>
-                                    {% endfor %}
+
+                                    <tr>
+                                        <td>
+                                            <b>Num Factura: </b>  {{data[0].numFactura}}
+                                        </td>
+                                        <td>
+                                            <b>Fecha Compra: </b>   {{data[0].fechaCompra|date('d/m/Y')}}  
+                                        </td>
+                                    </tr>
+
+                                    <tr>    
+                                        <td>
+                                            <b>Proveedor: </b>  {{data[0].proveedor.nombreProveedor}}
+                                        </td>
+                                        <td>
+                                            <b>Observación: </b>   {{data[0].observacion}} 
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <b>Total: </b>    {{data[0].total|number_format(2,'.',',')}} 
+                                        </td>
+
+                                    </tr>    
+                                    </tr>
+
                                 </tbody>
                             </table>
-                             
-                                
-                           <form  id="Compradet" class="form-horizontal" method="POST" action="{{path('addcompradet')}}" >     
-                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                                {{ form_widget(form) }}
-               
-                                {{ form_errors(form) }}
-                                <button type="submit" id="submitForm">Guardar</button>
-                                {{ form_end(form) }}
 
-                            </form>  
+                            <table  class="table table-bordered table-striped">
+
+                                <thead>
+                                    <tr>
+                                        <th> Cod. Producto </th>
+                                        <th> Nombre </th>
+                                        <th> Cantidad </th>
+                                        <th> Docena </th>
+                                        <th> Costo </th>
+                                        <th> Accion </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    {% for dato in datadet %}
+                                        <tr>
+                                            <td>
+                                                {{dato.producto.codigoArticulo}}
+                                            </td>
+
+                                            <td>
+
+                                                {{dato.producto.nombre}}
+                                            </td>
+
+                                            <td>
+                                                {{dato.cantidad}}
+                                            </td>
+
+                                            <td>
+
+                                                {% if dato.bDocena == true %}
+                                                    <input type="checkbox" checked disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
+                                                {% else %}
+                                                    <input type="checkbox" disabled style="width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle" >
+                                                {% endif %}
+                                            </td>
+
+                                            <td >
+                                                {{dato.cantidad * dato.costo |number_format(2,'.',',')}} 
+                                            </td>
+                                            <td>
+                                                <b>accion</b>
+                                            </td>
+
+                                        </tr>    
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>    
+
+
+
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -92,14 +130,14 @@
         </section>
         <!-- /.content -->
     </div>
-                                <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     <footer class="main-footer">
 
     </footer>
