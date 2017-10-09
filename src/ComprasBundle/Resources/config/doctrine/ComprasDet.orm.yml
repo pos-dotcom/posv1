@@ -15,10 +15,6 @@ ComprasBundle\Entity\ComprasDet:
         codigoCompraEnc:
             type: integer
             column: codigo_compra_enc
-        numFactura:
-            type: string
-            length: '10'
-            column: num_factura
         codigoProducto:
             type: integer
             column: codigo_producto

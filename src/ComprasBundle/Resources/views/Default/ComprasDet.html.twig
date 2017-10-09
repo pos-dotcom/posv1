@@ -38,7 +38,7 @@
 
                                     <tr>
                                         <td>
-                                            <b>Num Factura: </b>  {{data[0].numFactura}}
+                                            <b>Num Facturas: </b>  {{data[0].numFactura}}
                                         </td>
                                         <td>
                                             <b>Fecha Compra: </b>   {{data[0].fechaCompra|date('d/m/Y')}}  
@@ -64,7 +64,9 @@
 
                                 </tbody>
                             </table>
-
+                           <br>
+                             <a title="Agregar Producto" href="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" ><i class="fa fa-fw fa-plus"></i></a>
+                             <br><br>
                             <table  class="table table-bordered table-striped">
 
                                 <thead>

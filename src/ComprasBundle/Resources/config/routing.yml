@@ -20,5 +20,9 @@ adddetcompra:
     path:   /compras/edit/{codigoCompraEnc}
     defaults: {_controller: ComprasBundle:Compras:adddetcompra}
     
+addproductocompra:
+    path:   /compras/addproductocompra/{codigoCompraEnc}
+    defaults: {_controller: ComprasBundle:Compras:addproductocompra}
+    
 
     

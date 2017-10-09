@@ -66,7 +66,7 @@ class ComprasController extends Controller
                   
               }
               
-              return $this->render('ComprasBundle:Default:addCompra.html.twig', array("form" => $form->createView()));
+            return $this->render('ComprasBundle:Default:addCompra.html.twig', array("form" => $form->createView()));
                  
             }
             else
@@ -115,9 +115,7 @@ class ComprasController extends Controller
         $compraEnc=New ComprasEnc();
         $datos= $this->getDoctrine()
                      ->getRepository('ComprasBundle:ComprasEnc')
-                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
-        
-        
+                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));       
         if (!$datos)
         {
             throw $this->createNotFoundException('No existe compra con valor '. $codigoCompraEnc);
@@ -125,7 +123,8 @@ class ComprasController extends Controller
         }
         else
         {
-              $compradet=new ComprasDet();
+              //$compradet=new ComprasDet();
+              //$compraDet->setCodigoCompraEnc($codigoCompraEnc);
               $datosdet= $this->getDoctrine()
                      ->getRepository('ComprasBundle:ComprasDet')
                      ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
@@ -155,20 +154,57 @@ class ComprasController extends Controller
         $datos= $this->getDoctrine()
                      ->getRepository('ComprasBundle:ComprasEnc')
                      ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
-              
-        
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid() )
         {
             $em=$this->getDoctrine()->getManager();
             $em->persist($adddetcompra);
             $em->flush();
+            // return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc()))); 
+                 
          }
-        // return $this->render('ComprasBundle:Default:addDetCompra.html.twig', array("form" => $form->createView()));
+        // return $this->render('ComprasBundle:Default:addDetCompra.html.twig', array("form" => $form->createView()));   
+    } 
+    
+    
+    public  function addproductocompraAction($codigoCompraEnc,Request $request)
+    {
+        $compraDet=New ComprasDet();
+        $compraDet->setCodigoCompraEnc($codigoCompraEnc);
+        $datos= $this->getDoctrine()
+                     ->getRepository('ComprasBundle:ComprasEnc')
+                     ->findBy(array('codigoCompraEnc'=> $codigoCompraEnc));
+        
+        $form = $this->createForm(ComprasDetType::class,$compraDet);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid() )
+        {
+            
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($compraDet);
+            $em->flush();
+            
+            $compraEnc= $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
+            
+            $total=$compraEnc->GetTotal();
+            
+            $total=$total + ($compraDet->getCantidad() * $compraDet->getCosto());
+            
+            $compraEnc->SetTotal($total);
+            $em->persist($compraEnc);
+            $em->flush();
+                     
+            //return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc()))); 
+           //return $this->render('ComprasBundle:Default:ComprasDet.html.twig',array('data'=>$datos,'datadet'=>$compraDet)); 
+           return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compraDet->getCodigoCompraEnc()))); 
+                      
+         }
+        return $this->render('ComprasBundle:Default:addDetCompra.html.twig', array("data"=>$datos,"form" => $form->createView()));
               
         
         
-    }       
+    }
 
     
     

@@ -22,11 +22,7 @@ class ComprasDet
      */
     private $codigoCompraEnc;
 
-    /**
-     * @var string
-     */
-    private $numFactura;
-
+    
     /**
      * @var int
      */
@@ -108,29 +104,6 @@ class ComprasDet
         return $this->codigoCompraEnc;
     }
 
-    /**
-     * Set numFactura
-     *
-     * @param string $numFactura
-     *
-     * @return ComprasDet
-     */
-    public function setNumFactura($numFactura)
-    {
-        $this->numFactura = $numFactura;
-
-        return $this;
-    }
-
-    /**
-     * Get numFactura
-     *
-     * @return string
-     */
-    public function getNumFactura()
-    {
-        return $this->numFactura;
-    }
 
     /**
      * Set codigoProducto
@@ -250,7 +223,7 @@ class ComprasDet
      */
     public function setProducto(\MantenimientosBundle\Entity\Productos $productos=null)
     {    
-        $this->producto=$producto;
+        $this->producto=$productos;
         return $this;
     
     }

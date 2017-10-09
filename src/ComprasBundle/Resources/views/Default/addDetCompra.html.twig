@@ -7,11 +7,10 @@
 
         <tbody>-->
         
-        <form  id="CompraDet" class="form-horizontal" method="POST" action="{{path('adddetcompra')}}" >     
+        <form  id="CompraDet" class="form-horizontal" method="POST" action="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" >     
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_widget(form) }}
+                {{ form_widget(form) }} 
                
-                {{ form_errors(form) }}
                 <button type="submit" id="submitForm">Agregar</button>
                 {{ form_end(form) }}
 

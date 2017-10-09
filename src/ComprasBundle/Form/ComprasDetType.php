@@ -24,9 +24,7 @@ class ComprasDetType extends AbstractType
         $builder->add('producto',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Productos',
                     'choice_value'=>'codigoProducto','choice_label'=>'nombre'))
-                ->add('codigoCompraEnc', HiddenType::class,array('data'=>'0'))
-//                ->add('numFactura')
-//                ->add('codigoProducto')
+                ->add('codigoCompraEnc', HiddenType::class)
                 ->add('cantidad',TextType::class,array('label'=>"Cantidad",'required'=>true))
                 ->add('bDocena',CheckboxType::class,array('label'=>"Docena",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
                 ->add('costo');                
