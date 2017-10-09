@@ -9,7 +9,9 @@
         
         <form  id="CompraDet" class="form-horizontal" method="POST" action="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" >     
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_widget(form) }} 
+                {{ form_widget(form) }}
+               
+                
                
                 <button type="submit" id="submitForm">Agregar</button>
                 {{ form_end(form) }}
