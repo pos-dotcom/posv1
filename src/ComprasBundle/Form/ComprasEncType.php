@@ -23,9 +23,7 @@ class ComprasEncType extends AbstractType
                 ->add('fechaCompra',  DateType::class,array('label'=>'Fecha Compra:'))
                 //->add('codigoProveedor')
                 ->add('observacion',TextareaType::class,array('label'=>'Observación:'))
-                ->add('total',TextType::class,array('label'=>"Total:",'required'=>False))
-                //->add('codigoEmpleado')
-                ->add('fechaIngreso')
+                
                 ->add('empleado',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Empleados',
                     'choice_value'=>'codigoEmpleado','choice_label'=>'nombres'))

@@ -38,25 +38,25 @@
 
                                     <tr>
                                         <td>
-                                            <b>Num Facturas: </b>  {{data[0].numFactura}}
+                                            <b>Num Facturas: </b>  {{CompraEnc[0].numFactura}}
                                         </td>
                                         <td>
-                                            <b>Fecha Compra: </b>   {{data[0].fechaCompra|date('d/m/Y')}}  
+                                            <b>Fecha Compra: </b>   {{CompraEnc[0].fechaCompra|date('d/m/Y')}}  
                                         </td>
                                     </tr>
 
                                     <tr>    
                                         <td>
-                                            <b>Proveedor: </b>  {{data[0].proveedor.nombreProveedor}}
+                                            <b>Proveedor: </b>  {{CompraEnc[0].proveedor.nombreProveedor}}
                                         </td>
                                         <td>
-                                            <b>Observación: </b>   {{data[0].observacion}} 
+                                            <b>Observación: </b>   {{CompraEnc[0].observacion}} 
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td colspan="2">
-                                            <b>Total: </b>    {{data[0].total|number_format(2,'.',',')}} 
+                                            <b>Total: </b>    {{CompraEnc[0].total|number_format(2,'.',',')}} 
                                         </td>
 
                                     </tr>    
@@ -65,7 +65,7 @@
                                 </tbody>
                             </table>
                            <br>
-                             <a title="Agregar Producto" href="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" ><i class="fa fa-fw fa-plus"></i></a>
+                             <a title="Agregar Producto" href="{{path('addproductocompra',{'codigoCompraEnc': CompraEnc[0].codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" ><i class="fa fa-fw fa-plus"></i></a>
                              <br><br>
                             <table  class="table table-bordered table-striped">
 
@@ -82,7 +82,7 @@
 
                                 <tbody>
 
-                                    {% for dato in datadet %}
+                                    {% for dato in CompraDet %}
                                         <tr>
                                             <td>
                                                 {{dato.producto.codigoArticulo}}

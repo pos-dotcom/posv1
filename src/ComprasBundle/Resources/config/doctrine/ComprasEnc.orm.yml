@@ -49,4 +49,5 @@ ComprasBundle\Entity\ComprasEnc:
             joinColumn:
                 name: codigo_empleado
                 referencedColumnName: codigo_empleado
+        
     lifecycleCallbacks: {  }

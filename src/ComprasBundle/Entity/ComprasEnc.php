@@ -50,6 +50,11 @@ class ComprasEnc
      * @var int
      */
     private $codigoEmpleado;
+    
+    /**
+     * @var int
+     */
+    private $usuarioRegistra;
 
     /**
      * @var \DateTime
@@ -59,7 +64,9 @@ class ComprasEnc
     
     private $proveedor;
     
-     private $empleado;
+    private $empleado;
+   
+     
     
     
     public function __construct() {
@@ -243,6 +250,32 @@ class ComprasEnc
     {
         return $this->codigoEmpleado;
     }
+    
+    
+    
+    /**
+     * Set usuarioRegistra
+     *
+     * @param integer usuarioRegistra
+     *
+     * @return ComprasEnc
+     */
+    public function setUsuarioRegistra($usuarioRegistra)
+    {
+        $this->usuarioRegistra = $usuarioRegistra;
+
+        return $this;
+    }
+
+    /**
+     * Get usuarioRegistra
+     *
+     * @return int
+     */
+    public function getUsuarioRegistra()
+    {
+        return $this->usuarioRegistra;
+    }
 
     /**
      * Set fechaIngreso
@@ -302,7 +335,7 @@ class ComprasEnc
         return $this->empleado;//->toArray();
     }
    
-    /**
+   /**
      * Set empleado
      *
      * @param \MantenimientosBundle\Entity\Empleados $empleado
@@ -313,7 +346,10 @@ class ComprasEnc
     {
         $this->empleado= $empleado;
         return $this;
-    }
+    } 
+    
+    
+    
     
     
 }

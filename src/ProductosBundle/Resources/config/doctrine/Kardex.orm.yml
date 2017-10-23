@@ -1,0 +1,77 @@
+ProductosBundle\Entity\Kardex:
+    type: entity
+    table: null
+    repositoryClass: ProductosBundle\Repository\KardexRepository
+    id:
+        codigoKardex:
+            type: integer
+            nullable: false
+            id: true
+            unique: true
+            generator:
+               strategy: IDENTITY
+            column: codigo_kardex
+    fields:
+        codigoMovimiento:
+            type: string
+            length: '1'
+            column: codigo_movimiento
+        
+        codigoAgencia:
+            type: integer
+            column: codigo_agencia
+        saldoAnterior:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: saldo_anterior
+        precioAnterior:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_anterior
+        totalAnterior:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: total_anterior
+        salida:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        precioSalida:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_salida
+        ingreso:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        precioIngreso:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_ingreso
+        saldoFinal:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: saldo_final
+        totalFinal:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: total_final
+        fechaMovimiento:
+            type: datetime
+            column: fecha_movimiento
+        codigoEmpleado:
+            type: integer
+            column: codigo_empleado
+    oneToMany:
+        codigoProducto:
+            targetEntity: \MantenimientosBundle\Entity\Productos
+            mappedBy: producto
+            
+    lifecycleCallbacks: {  }
