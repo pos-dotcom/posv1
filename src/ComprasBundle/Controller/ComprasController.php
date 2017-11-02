@@ -45,7 +45,8 @@ class ComprasController extends Controller {
 
     public function addAction(Request $request) {
         $session = $request->getSession();
-        if ($session->has("id")) {
+        if ($session->has("id")) 
+        {
             $compra = new ComprasEnc();
             $fecha = new \DateTime('today');
             $compra->setFechaIngreso($fecha);
@@ -159,7 +160,7 @@ class ComprasController extends Controller {
 
 
             //$compraEnc= $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
-            $kardexold = $em->getRepository('ProductoBundle:Kardex')->find($compraDet->getCodigoProducto());
+            $kardexold = $em->getRepository('ProductosBundle:Kardex')->find($compraDet->getCodigoProducto());
 
             if (!$kardexold) {
                 $kardex = new Kardex();

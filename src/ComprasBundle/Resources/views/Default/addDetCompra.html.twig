@@ -6,7 +6,7 @@
   <!--  <table class="table table-bordered table-striped">
 
         <tbody>-->
-        
+  <div class="form-group">
         <form  id="CompraDet" class="form-horizontal" method="POST" action="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" >     
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_widget(form) }}
@@ -17,6 +17,7 @@
                 {{ form_end(form) }}
 
         </form>  
+  </div>
             <!-- /.box-body -->
 
             <!-- /.box-footer -->

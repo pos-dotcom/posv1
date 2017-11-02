@@ -29,7 +29,7 @@ class ComprasDetType extends AbstractType
                                         $codigo= $prod->getCodigoArticulo();
                                         $nom   =   $prod->getNombre();
                                         return $codigo ." - ".$nom; 
-                                     },'attr'=>array('style'=>'class="form-control select2"')))
+                                     },'attr'=>array('class'=>'form-control select2')))
                 ->add('codigoCompraEnc', HiddenType::class)
                 ->add('cantidad',TextType::class,array('label'=>"Cantidad",'required'=>true))
                 ->add('bDocena',CheckboxType::class,array('label'=>"Docena",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))

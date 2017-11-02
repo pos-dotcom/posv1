@@ -6,7 +6,10 @@
   <!--  <table class="table table-bordered table-striped">
 
         <tbody>-->
-        
+        <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
         <form  id="CompraEnc" class="form-horizontal" method="POST" action="{{path('addcompra')}}" >     
                 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                 {{ form_widget(form) }}
