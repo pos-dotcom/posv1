@@ -51,10 +51,13 @@ class ComprasController extends Controller {
             $fecha = new \DateTime('today');
             $compra->setFechaIngreso($fecha);
             $compra->setTotal(0.00);
-
+            $compra->setCodigoEmpleado($session->get('id'));  
+            
             $form = $this->createForm(ComprasEncType::class, $compra);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) 
+            {
+                       
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($compra);
                 $em->flush();
@@ -155,10 +158,6 @@ class ComprasController extends Controller {
             $compraEnc->SetTotal($total);
             $em->persist($compraEnc);
             $em->flush();
-
-
-
-
             //$compraEnc= $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
             $kardexold = $em->getRepository('ProductosBundle:Kardex')->find($compraDet->getCodigoProducto());
 

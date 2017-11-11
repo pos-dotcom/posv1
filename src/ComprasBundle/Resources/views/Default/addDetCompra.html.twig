@@ -3,29 +3,27 @@
     <h4 class="modal-title">Detalle de Compra</h4>
 </div>
 <div class="modal-body">
-  <!--  <table class="table table-bordered table-striped">
-
-        <tbody>-->
-  <div class="form-group">
+    <!--  <table class="table table-bordered table-striped">
+  
+          <tbody>-->
+    <div class="form-group">
         <form  id="CompraDet" class="form-horizontal" method="POST" action="{{path('addproductocompra',{'codigoCompraEnc': data[0].codigoCompraEnc})}}" >     
-                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_widget(form) }}
-               
-                
-               
-                <button type="submit" id="submitForm">Agregar</button>
-                {{ form_end(form) }}
+
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(form) }}
+            <button type="submit" id="submitForm">Agregar</button>
+            {{ form_end(form) }}
 
         </form>  
-  </div>
-            <!-- /.box-body -->
+    </div>
+    <!-- /.box-body -->
 
-            <!-- /.box-footer -->
-        
-     <!--   </tbody>
-    </table>-->
+    <!-- /.box-footer -->
 
- 
+    <!--   </tbody>
+   </table>-->
+
+
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

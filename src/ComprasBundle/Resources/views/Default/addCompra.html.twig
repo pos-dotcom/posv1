@@ -2,31 +2,49 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">Encabezado de Compra</h4>
 </div>
+<script>
+    $(document).on("click", ".modal-body", function () {
+        $("#datepicker").datepicker({
+            dateFormat: 'dd/mm/yyyy'
+        });
+    });
+</script> 
 <div class="modal-body">
-  <!--  <table class="table table-bordered table-striped">
+    <!--  <table class="table table-bordered table-striped">
+   
+          <tbody>-->
+   
+    <form  id="CompraEnc" class="form-horizontal" method="POST" action="{{path('addcompra')}}" >     
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-        <tbody>-->
-        <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-        <form  id="CompraEnc" class="form-horizontal" method="POST" action="{{path('addcompra')}}" >     
-                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                {{ form_widget(form) }}
-               
-                {{ form_errors(form) }}
-                <button type="submit" id="submitForm">Guardar</button>
-                {{ form_end(form) }}
+        <span><b># Factura:&nbsp;</b></span>
+        {{ form_errors(form.numFactura) }}
+        {{ form_widget(form.numFactura) }}
+        <br>
+         <div class="form-group">
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>  
+                    {{ form_errors(form.fecha) }}
+                    {{ form_widget(form.fecha,{ 'id': 'datepicker' }) }}
+                    
+                </div>
 
-        </form>  
-            <!-- /.box-body -->
-
-            <!-- /.box-footer -->
+            </div>
+        </div>
         
-     <!--   </tbody>
-    </table>-->
-
- 
+        <span><b>Proveedor:&nbsp;</b></span>
+        {{ form_errors(form.proveedor) }}
+        {{ form_widget(form.proveedor) }}
+        <br>
+        <span><b>Observacion:&nbsp;</b></span>
+        {{ form_errors(form.observacion) }}
+        {{ form_widget(form.observacion) }}
+       
+        <br>
+        <button type="submit" id="submitForm">Guardar</button>
+        {{ form_end(form) }}
+    </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

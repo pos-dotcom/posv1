@@ -18,18 +18,19 @@ class ComprasEncType extends AbstractType
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
+            
     {
-        $builder->add('numFactura',  TextType::class,array('label'=>'Numero Factura:'))
-                ->add('fechaCompra',  DateType::class,array('label'=>'Fecha Compra:'))
+        $builder->add('numFactura',  TextType::class)
+                ->add('fecha',  TextType::class,array('attr'=>array('class'=>"form-control pull-right")))
                 //->add('codigoProveedor')
-                ->add('observacion',TextareaType::class,array('label'=>'Observación:'))
-                
-                ->add('empleado',EntityType::class,
+                /*->add('empleado',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Empleados',
-                    'choice_value'=>'codigoEmpleado','choice_label'=>'nombres'))
+                    'choice_value'=>'codigoEmpleado','choice_label'=>'nombres'))*/
                 ->add('proveedor',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Proveedor',
-                    'choice_value'=>'codigoProveedor','choice_label'=>'nombreProveedor'));
+                    'choice_value'=>'codigoProveedor','choice_label'=>'nombreProveedor'))
+            ->add('observacion',TextareaType::class);
+            
                // ->add('save',SubmitType::class, array('label' => 'GUARDAR','attr'=>array('id'=>'submitForm')));
                 //->add('proveedor');
     } 

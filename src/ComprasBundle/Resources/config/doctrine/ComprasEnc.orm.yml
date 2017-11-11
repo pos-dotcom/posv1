@@ -43,11 +43,6 @@ ComprasBundle\Entity\ComprasEnc:
             joinColumn:
                 name: codigo_proveedor
                 referencedColumnName: codigo_proveedor
-        empleado:
-            targetEntity: \MantenimientosBundle\Entity\Empleados
-            inversedBy: comprasEnc
-            joinColumn:
-                name: codigo_empleado
-                referencedColumnName: codigo_empleado
+
         
     lifecycleCallbacks: {  }

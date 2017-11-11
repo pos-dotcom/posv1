@@ -3,6 +3,7 @@
 namespace ComprasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use DateTime;
 
 
 /**
@@ -52,19 +53,20 @@ class ComprasEnc
     private $codigoEmpleado;
     
     /**
-     * @var int
-     */
-    private $usuarioRegistra;
-
-    /**
      * @var \DateTime
      */
     private $fechaIngreso;
+    
+    /**
+     *
+     * @var string
+     */
+    private $fecha;
 
     
     private $proveedor;
     
-    private $empleado;
+    
    
      
     
@@ -138,7 +140,7 @@ class ComprasEnc
      *
      * @return ComprasEnc
      */
-    public function setFechaCompra($fechaCompra)
+    public function setFechaCompra( $fechaCompra)
     {
         $this->fechaCompra = $fechaCompra;
 
@@ -251,32 +253,6 @@ class ComprasEnc
         return $this->codigoEmpleado;
     }
     
-    
-    
-    /**
-     * Set usuarioRegistra
-     *
-     * @param integer usuarioRegistra
-     *
-     * @return ComprasEnc
-     */
-    public function setUsuarioRegistra($usuarioRegistra)
-    {
-        $this->usuarioRegistra = $usuarioRegistra;
-
-        return $this;
-    }
-
-    /**
-     * Get usuarioRegistra
-     *
-     * @return int
-     */
-    public function getUsuarioRegistra()
-    {
-        return $this->usuarioRegistra;
-    }
-
     /**
      * Set fechaIngreso
      *
@@ -325,32 +301,36 @@ class ComprasEnc
         return $this;
     }
     
-    /**
-     * Get Empleado
-     *
-     * @return \MantenimientosBundle\Entity\Empleados 
-     */
-   public function getEmpleado()
+     
+    
+    public function setFecha($fecha)
     {
-        return $this->empleado;//->toArray();
-    }
-   
-   /**
-     * Set empleado
-     *
-     * @param \MantenimientosBundle\Entity\Empleados $empleado
-     *
-     * @return empleado
-     */
-    public function setEmpleado(\MantenimientosBundle\Entity\Empleados $empleado = null)
-    {
-        $this->empleado= $empleado;
+        $this->fecha=$fecha;
+        $f=strtotime($this->fecha);
+        $date = DateTime::createFromFormat('d/m/Y',$fecha);
+        $this->setFechaCompra($date);// date($date);//->format('Y-m-d');
+       
         return $this;
-    } 
+        
+    }
+    
+    public function getFecha()
+    {
+        return $this->fecha;
+        
+    }
+    
+    public function getFechaFormat()
+    {
+        $date = new Date($this->$fecha);
+        $this->fechaCompra=  $date->format('Y-m-d');
+               
+    }
     
     
     
     
     
 }
+
 
