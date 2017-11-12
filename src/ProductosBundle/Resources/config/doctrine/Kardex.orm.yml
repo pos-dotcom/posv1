@@ -1,6 +1,6 @@
 ProductosBundle\Entity\Kardex:
     type: entity
-    table: null
+    table: Kardex
     repositoryClass: ProductosBundle\Repository\KardexRepository
     id:
         codigoKardex:
@@ -25,11 +25,7 @@ ProductosBundle\Entity\Kardex:
             precision: '18'
             scale: '9'
             column: saldo_anterior
-        precioAnterior:
-            type: decimal
-            precision: '18'
-            scale: '9'
-            column: precio_anterior
+        
         totalAnterior:
             type: decimal
             precision: '18'
@@ -69,9 +65,11 @@ ProductosBundle\Entity\Kardex:
         codigoEmpleado:
             type: integer
             column: codigo_empleado
-    oneToMany:
         codigoProducto:
-            targetEntity: \MantenimientosBundle\Entity\Productos
-            mappedBy: producto
+            type: integer
+            column: codigo_producto
+        codigoCompra:
+            type: integer
+            column: codigo_compra
             
     lifecycleCallbacks: {  }

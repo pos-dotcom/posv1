@@ -13,7 +13,19 @@ class KardexType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoMovimiento')->add('codigoAgencia')->add('saldoAnterior')->add('precioAnterior')->add('totalAnterior')->add('salida')->add('precioSalida')->add('ingreso')->add('precioIngreso')->add('saldoFinal')->add('totalFinal')->add('fechaMovimiento')->add('codigoEmpleado');
+        $builder->add('codigoMovimiento')
+                ->add('codigoAgencia')
+                ->add('saldoAnterior')
+                ->add('precioAnterior')
+                ->add('totalAnterior')
+                ->add('salida')
+                ->add('precioSalida')
+                ->add('ingreso')
+                ->add('precioIngreso')
+                ->add('saldoFinal')
+                ->add('totalFinal')
+                ->add('fechaMovimiento')
+                ->add('codigoEmpleado');
     }
     
     /**

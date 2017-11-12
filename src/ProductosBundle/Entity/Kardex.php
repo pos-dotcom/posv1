@@ -37,11 +37,7 @@ class Kardex
      */
     private $saldoAnterior;
 
-    /**
-     * @var string
-     */
-    private $precioAnterior;
-
+    
     /**
      * @var string
      */
@@ -88,34 +84,35 @@ class Kardex
     private $codigoEmpleado;
     
     /*
-     * @var Producto
+     * @var codigoCompra
      * 
      */
-    private $producto;
+    private $codigoCompra;
 
     /*
-     * Get Producto
+     * Get $codigoCompra
      * 
-     * return \Mantenimientos\Entity\Productos
+     * return $codigoCompra
      */
     
-    public function getProducto()
+    public function getcodigoCompra()
     {
         
-      return $this->producto;  
+      return $this->codigoCompra;  
         
     }
     
     /*
-     * set Producto
+     * set $codigoCompra
      * 
-     * @param \Mantenimientos\Entity\Productos
-     * return Producto
+     * @param $codigoCompra
+     * return $codigoCompra
      * 
      */
-    public function setProducto(\MantenimientosBundle\Entity\Productos $productos=null)
+    
+    public function setcodigoCompra($codigoCompra)
     {    
-        $this->producto=$productos;
+        $this->codigoCompra=$codigoCompra;
         return $this;
     
     }
@@ -139,7 +136,7 @@ class Kardex
      *
      * @param integer $codigoKardex
      *
-     * @return Kardex
+     * @return codigoKardex
      */
     public function setCodigoKardex($codigoKardex)
     {
@@ -187,7 +184,7 @@ class Kardex
      *
      * @param integer $codigoProducto
      *
-     * @return Kardex
+     * @return $codigoProducto
      */
     public function setCodigoProducto($codigoProducto)
     {
@@ -254,29 +251,7 @@ class Kardex
         return $this->saldoAnterior;
     }
 
-    /**
-     * Set precioAnterior
-     *
-     * @param string $precioAnterior
-     *
-     * @return Kardex
-     */
-    public function setPrecioAnterior($precioAnterior)
-    {
-        $this->precioAnterior = $precioAnterior;
-
-        return $this;
-    }
-
-    /**
-     * Get precioAnterior
-     *
-     * @return string
-     */
-    public function getPrecioAnterior()
-    {
-        return $this->precioAnterior;
-    }
+    
 
     /**
      * Set totalAnterior

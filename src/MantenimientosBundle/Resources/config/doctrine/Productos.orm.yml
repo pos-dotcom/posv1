@@ -72,4 +72,9 @@ MantenimientosBundle\Entity\Productos:
         comprasDet:
             targetEntity: \ComprasBundle\Entity\ComprasDet
             mappedBy: producto
+    
+    oneToMany:
+        comprasDet:
+            targetEntity: \ComprasBundle\Entity\ComprasDet
+            mappedBy: producto
     lifecycleCallbacks: {  }

@@ -132,10 +132,9 @@ class ComprasController extends Controller {
     }
 
     public function addproductocompraAction($codigoCompraEnc, Request $request) {
+        $session = $request->getSession();
         $compraDet = New ComprasDet();
         $compraDet->setCodigoCompraEnc($codigoCompraEnc);
-
-
         $datos = $this->getDoctrine()
                 ->getRepository('ComprasBundle:ComprasEnc')
                 ->findBy(array('codigoCompraEnc' => $codigoCompraEnc));
@@ -144,42 +143,65 @@ class ComprasController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            
             $em = $this->getDoctrine()->getManager();
+            $prod=$compraDet->getProducto();
+            //$prod=$compraDet->getCodigoProducto();
+            $kardexold = $em->getRepository('ProductosBundle:Kardex')->findBy(array('codigoProducto'=>$prod->getCodigoProducto()));
+            $compraEnc = $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
+            
+            $total = $compraEnc->GetTotal();
+            $total = $total + ($compraDet->getCantidad() * $compraDet->getCosto());
+            
             $em->persist($compraDet);
             $em->flush();
-
-            $compraEnc = $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
-
-            $total = $compraEnc->GetTotal();
-
-            $total = $total + ($compraDet->getCantidad() * $compraDet->getCosto());
 
             $compraEnc->SetTotal($total);
             $em->persist($compraEnc);
             $em->flush();
             //$compraEnc= $em->getRepository('ComprasBundle:ComprasEnc')->find($codigoCompraEnc);
-            $kardexold = $em->getRepository('ProductosBundle:Kardex')->find($compraDet->getCodigoProducto());
-
+            
             if (!$kardexold) {
                 $kardex = new Kardex();
                 $kardex->setCodigoMovimiento('I');
                 $fecha = new \DateTime('today');
 
                 $kardex->setFechaMovimiento($fecha);
-                $kardex->setCodigoProducto($compraDet->getCodigoProducto());
-                $saldoA = $kardex->getSaldoFinal($compraDet->getCodigoProducto());
-                if ($compraDet->getBDocena() == 1) {
-                    $saldoF = $saldoA + ($compraDet->getCantidad() * 12);
+                $kardex->setCodigoProducto($prod->getCodigoProducto());
+                $saldoA = 0;//$kardex->getSaldoFinal($compraDet->getCodigoProducto());
+                if ($compraDet->getBDocena() == 1) 
+                {
+                    $saldoF = $compraDet->getCantidad() * 12;//$saldoA + ($compraDet->getCantidad() * 12);
                 } else {
-                    $saldoF = $saldoA + $compraDet->getCantidad();
+                    $saldoF = $compraDet->getCantidad();//$saldoA + $compraDet->getCantidad();
                 }
                 $totalF = $compraDet->getCosto() * $saldoF;
-                $totalA = $kardex->getTotalFinal($compraDet->getCodigoProducto());
+                $totalA = 0;//$kardex->getTotalFinal($compraDet->getCodigoProducto());
                 $kardex->setSaldoAnterior($totalA);
                 $kardex->setSaldoFinal($saldoF);
-            } 
-            
+                $kardex->setSalida(0);
+                $kardex->setPrecioSalida(0);
+                $kardex->setIngreso($saldoF);
+                $kardex->setPrecioIngreso($compraDet->getCosto());
+                $kardex->setTotalAnterior(0);
+                $kardex->setTotalFinal($totalF);
+                $kardex->setCodigoEmpleado($session->get('id'));
+                $kardex->setcodigoCompra($codigoCompraEnc);
+                $em->persist($kardex);
+                $em->flush();
+            }
+            /*
+            else
+            {
+             $saldoA=$kardexold->getSaldoFinal();
+             $totalA=$kardexold->getTotalAnterior();
+             
+             $kardex = new Kardex();
+             $kardex->setCodigoMovimiento('S');
+             $fecha = new \DateTime('today');
+                
+            }
+            */
 
             //return $this->redirect($this->generateUrl('editcompra',array('codigoCompraEnc'=>$compra->getCodigoCompraEnc()))); 
             //return $this->render('ComprasBundle:Default:ComprasDet.html.twig',array('data'=>$datos,'datadet'=>$compraDet)); 
