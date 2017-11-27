@@ -1,7 +1,7 @@
 {%extends '::frontendCompras.html.twig'%}
 
 {% block body %}
-
+   
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -14,8 +14,6 @@
                 <li class="active">Data tables</li>
             </ol>-->
             <br>
-            <div>           
-            </div>
         </section>
         <!-- Main content -->
         <section class="content">
@@ -30,12 +28,10 @@
                             <table id="tblPpal" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-
+                                        <th colspan="2"><center>Detalle de Factura</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
                                     <tr>
                                         <td>
                                             <b>Num Facturas: </b>  {{CompraEnc[0].numFactura}}
@@ -44,7 +40,6 @@
                                             <b>Fecha Compra: </b>   {{CompraEnc[0].fechaCompra|date('d/m/Y')}}  
                                         </td>
                                     </tr>
-
                                     <tr>    
                                         <td>
                                             <b>Proveedor: </b>  {{CompraEnc[0].proveedor.nombreProveedor}}
@@ -53,22 +48,18 @@
                                             <b>Observación: </b>   {{CompraEnc[0].observacion}} 
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td colspan="2">
                                             <b>Total: </b>    {{CompraEnc[0].total|number_format(2,'.',',')}} 
                                         </td>
-
                                     </tr>    
-                                    </tr>
-
+                                  
                                 </tbody>
                             </table>
                            <br>
                              <a title="Agregar Producto" href="{{path('addproductocompra',{'codigoCompraEnc': CompraEnc[0].codigoCompraEnc})}}" class="btn btn-primary btn-mini" data-toggle="modal" data-target="#myModal" ><i class="fa fa-fw fa-plus"></i></a>
                              <br><br>
                             <table  class="table table-bordered table-striped">
-
                                 <thead>
                                     <tr>
                                         <th> Cod. Producto </th>
@@ -79,8 +70,7 @@
                                         <th> Accion </th>
                                     </tr>
                                 </thead>
-
-                                <tbody>
+                               <tbody>
 
                                     {% for dato in CompraDet %}
                                         <tr>
@@ -110,7 +100,7 @@
                                                 {{dato.cantidad * dato.costo |number_format(2,'.',',')}} 
                                             </td>
                                             <td>
-                                                <b>accion</b>
+                                                 <a href=""  class="btn btn-danger btn-mini" data-toggle="modal" data-target="#myModal" title="Borrar"><i class="fa fa-trash"></i></a>
                                             </td>
 
                                         </tr>    
@@ -118,10 +108,8 @@
                                     {% endfor %}
                                 </tbody>
                             </table>    
-
-
-
                         </div>
+                                
                         <!-- /.box-body -->
                     </div>
                     <!-- /.box -->

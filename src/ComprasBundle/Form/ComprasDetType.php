@@ -31,9 +31,11 @@ class ComprasDetType extends AbstractType
                                         return $codigo ." - ".$nom; 
                                      },'attr'=>array('class'=>'form-control select2')))
                 ->add('codigoCompraEnc', HiddenType::class)
-                ->add('cantidad',TextType::class,array('label'=>"Cantidad",'required'=>true))
-                ->add('bDocena',CheckboxType::class,array('label'=>"Docena",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
-                ->add('costo');                
+                ->add('cantidad',TextType::class,array('label'=>"Cantidad:",'required'=>true))
+                ->add('bDocena',CheckboxType::class,array('label'=>"Docena:",'required'=>False,'attr'=>array('style'=>"width: 20px; height:20px;padding-top: 6px; padding-bottom: 6px;alignment-baseline: middle")))
+                ->add('costo',TextType::class,array('label'=>"Costo:",'required'=>true))
+                ->add('precioVenta',TextType::class,array('label'=>"Precio Venta:",'required'=>true));
+                                     
     }
     
     /**

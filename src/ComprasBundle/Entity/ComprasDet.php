@@ -43,6 +43,7 @@ class ComprasDet
      */
     private $costo;
     
+    private $precioVenta;
     private $producto;
 
 
@@ -200,6 +201,34 @@ class ComprasDet
     {
         return $this->costo;
     }
+    
+    
+    /**
+     * Set precioVenta
+     *
+     * @param string $precioVenta
+     *
+     * @return precioVenta
+     */
+    public function precioVenta($precioVenta)
+    {
+        $this->precioVenta = $precioVenta;
+
+        return $this;
+    }
+
+    /**
+     * Get precioVenta
+     *
+     * @return string
+     */
+    public function getprecioVenta()
+    {
+        return $this->precioVenta;
+    }
+    
+    
+    
     
     /*
      * Get Producto

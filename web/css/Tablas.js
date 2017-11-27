@@ -1,4 +1,3 @@
- 
             $(function () {
                 $("#tblPpal").DataTable();
                 $('#tblDet').DataTable({

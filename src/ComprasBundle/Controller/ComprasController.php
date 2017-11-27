@@ -189,6 +189,12 @@ class ComprasController extends Controller {
                 $kardex->setcodigoCompra($codigoCompraEnc);
                 $em->persist($kardex);
                 $em->flush();
+                
+                
+                
+                
+                
+                
             }
             /*
             else
