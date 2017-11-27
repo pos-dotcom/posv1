@@ -1,0 +1,59 @@
+VentasBundle\Entity\VentasDet:
+    type: entity
+    table: null
+    repositoryClass: VentasBundle\Repository\VentasDetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoVentaDet:
+            type: integer
+            unique: true
+            column: codigo_venta_det
+        codigoVentaEnc:
+            type: integer
+            column: codigo_venta_enc
+        numFactura:
+            type: string
+            length: '10'
+            column: num_factura
+        fechaVenta:
+            type: datetime
+            column: fecha_venta
+        codigoProducto:
+            type: integer
+            column: codigo_producto
+        cantidad:
+            type: integer
+        monto:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        ganancia:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        codigoCategoria:
+            type: integer
+            column: codigo_categoria
+        precioVenta:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_venta
+        descuento:
+            type: decimal
+            precision: '18'
+            scale: '9'
+        precioFacturado:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: precio_facturado
+        codigoAgencia:
+            type: integer
+            column: codigo_agencia
+    lifecycleCallbacks: {  }

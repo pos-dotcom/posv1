@@ -28,8 +28,9 @@ class ComprasEncType extends AbstractType
                     'choice_value'=>'codigoEmpleado','choice_label'=>'nombres'))*/
                 ->add('proveedor',EntityType::class,
                        array('class'=>'MantenimientosBundle\Entity\Proveedor',
-                    'choice_value'=>'codigoProveedor','choice_label'=>'nombreProveedor'))
-            ->add('observacion',TextareaType::class);
+                    'choice_value'=>'codigoProveedor',
+                    'choice_label'=>'nombreProveedor'))
+            ->add('observacion',TextAreaType::class);
             
                // ->add('save',SubmitType::class, array('label' => 'GUARDAR','attr'=>array('id'=>'submitForm')));
                 //->add('proveedor');

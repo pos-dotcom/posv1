@@ -1,0 +1,43 @@
+VentasBundle\Entity\VentasEnc:
+    type: entity
+    table: null
+    repositoryClass: VentasBundle\Repository\VentasEncRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoVentaEnc:
+            type: integer
+            unique: true
+            column: codigo_venta_enc
+        numFactura:
+            type: string
+            length: '10'
+            column: num_factura
+        codigoEmpleado:
+            type: integer
+            column: codigo_empleado
+        fechaVenta:
+            type: datetime
+            column: fecha_venta
+        tipoVenta:
+            type: string
+            length: '4'
+            column: tipo_venta
+        montoTotal:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: monto_total
+        gananciaTotal:
+            type: decimal
+            precision: '18'
+            scale: '9'
+            column: ganancia_total
+        codigoAgencia:
+            type: integer
+            column: codigo_agencia
+    lifecycleCallbacks: {  }
