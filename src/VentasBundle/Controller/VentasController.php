@@ -8,6 +8,13 @@ class VentasController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('VentasBundle:Default:index.html.twig');
+        return $this->render('VentasBundle:Default:VentasLista.html.twig');
+    }
+    
+    public function addventaAction()
+    {
+        
+        
+        
     }
 }
