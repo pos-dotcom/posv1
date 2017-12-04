@@ -32,7 +32,7 @@ MantenimientosBundle\Entity\Empleados:
             length: '10'
             nullable: true
     oneToMany:
-        comprasEnc:
-            targetEntity: \ComprasBundle\Entity\ComprasEnc
-            mappedBy: empleado
+        ventasEnc:
+            targetEntity: \VentasBundle\Entity\VentasEnc
+            mappedBy: vendedor 
     lifecycleCallbacks: {  }

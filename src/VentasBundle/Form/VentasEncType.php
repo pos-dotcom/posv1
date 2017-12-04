@@ -13,7 +13,20 @@ class VentasEncType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codigoVentaEnc')->add('numFactura')->add('codigoEmpleado')->add('fechaVenta')->add('tipoVenta')->add('montoTotal')->add('gananciaTotal')->add('codigoAgencia');
+        $builder->add('codigoVentaEnc')
+                ->add('numFactura')
+                ->add('vendedor',EntityType::class,
+                        array('class'=>'MantenimientosBundle\Entity\Empleados',
+                            'choice_value'=>'codigoEmpleado',
+                            'choice_label'=>'nombres'))
+                ->add('fechaVenta', TextType::class,array('attr'=>array('class'=>"form-control pull-right")))
+                ->add('tipoVenta')
+                ->add('montoTotal')
+                ->add('gananciaTotal')
+                ->add('agencia',EntityType::class,
+                        array('class'=>'MantenimientoBundle\Entity\Agencia',
+                            'choice_value'=>'codigoAgencia',
+                            'choice_label'=>'nombreAgencia'));
     }
     
     /**

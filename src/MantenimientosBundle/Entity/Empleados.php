@@ -40,7 +40,13 @@ class Empleados
      */
     private $telefono;
 
-
+ /**
+     * Get ventasEnc
+     *
+     * @return \VentasBundle\Entity\VentasEnc
+     */
+    private $ventasEnc;
+    
     /**
      * Get id
      *
@@ -210,5 +216,17 @@ class Empleados
     
     public function __toString() {
         return strval($this->codigoEmpleado);
+    }
+    
+   
+    
+    public function getVentasEnc(){
+        return $this->$ventasEnc;//;->toArray();
+               
+    }
+    
+    public function getEmpleado()
+    {
+        return $this->Empleado->toArray();
     }
 }

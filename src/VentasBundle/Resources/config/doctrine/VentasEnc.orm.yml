@@ -23,6 +23,9 @@ VentasBundle\Entity\VentasEnc:
         fechaVenta:
             type: datetime
             column: fecha_venta
+        fechaIngreso:
+            type: datetime
+            column: fecha_ingreso
         tipoVenta:
             type: string
             length: '4'
@@ -40,4 +43,20 @@ VentasBundle\Entity\VentasEnc:
         codigoAgencia:
             type: integer
             column: codigo_agencia
+    manyToOne:
+        vendedor:
+            TargetEntity: MantenimientoBundle\Entity\Empleados
+            InversedBy: VentasEnc
+            joinColumn :
+                name:   codigo_empleado
+                referenedColumnName: codigo_empleado
+        agencia:
+            TagetEntity: MantenimientoBundle\Entity\Agencia
+            InversedBy: VentasEnc
+            joinColumn:
+                name: codigo_agencia
+                referencedColumnName: codigo_agencia
+      
+            
+        
     lifecycleCallbacks: {  }

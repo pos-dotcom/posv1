@@ -31,6 +31,11 @@ class VentasEnc
      * @var \DateTime
      */
     private $fechaVenta;
+    
+    /**
+     * @var \DateTime
+     */
+    private $fechaIngreso;
 
     /**
      * @var string
@@ -51,6 +56,11 @@ class VentasEnc
      * @var int
      */
     private $codigoAgencia;
+    
+    
+    private $vendedor;
+    
+    private $agencia;
 
 
     /**
@@ -158,6 +168,32 @@ class VentasEnc
     {
         return $this->fechaVenta;
     }
+    
+    
+    
+    /**
+     * Set fechaIngreso
+     *
+     * @param \DateTime $fechaIngreso
+     *
+     * @return VentasEnc
+     */
+    public function setFechaIngreso($fechaIngreso)
+    {
+        $this->fechaIngreso = $fechaIngreso;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaIngreso
+     *
+     * @return \DateTime
+     */
+    public function getFechaIngreo()
+    {
+        return $this->fechaIngreso;
+    }
 
     /**
      * Set tipoVenta
@@ -253,6 +289,53 @@ class VentasEnc
     public function getCodigoAgencia()
     {
         return $this->codigoAgencia;
+    }
+    
+    
+    /**
+     * Get vendedor
+     *
+     * @return \MantenimientosBundle\Entity\Empleados 
+     */
+    public function getVendedor()
+    {
+        return $this->vendedor;        
+    }
+    
+    
+    /**
+     * Set vendedor
+     *
+     * @param \MantenimientosBundle\Entity\Empleados $empleado
+     *
+     * @return proveedor
+     */
+    public function setVendedor(\MantenimientosBundle\Entity\Empleados $empleado=null)
+    {
+        $this->vendedor=$empleado;
+        return $this;
+               
+    }
+    
+    /*
+     * Get agencia
+     * @return \MantenimientosBundle\Entity\Agencia
+     */
+    public function getAgencia()
+    {
+            return $this->agencia;
+    }
+    
+    /*
+     * Set agencia
+     * @param \MantenimientoBundle\Entity\Agencia $agencia
+     * @return agencia 
+     */
+    public function setAgencia(\MantenimientoBundle\Entity\Agencia $agencia=null)
+    {
+        $this->agencia=$agencia;
+        return $this;
+        
     }
 }
 
