@@ -24,7 +24,7 @@ class VentasEncType extends AbstractType
                 ->add('montoTotal')
                 ->add('gananciaTotal')
                 ->add('agencia',EntityType::class,
-                        array('class'=>'MantenimientoBundle\Entity\Agencia',
+                        array('class'=>'MantenimientosBundle\Entity\Agencia',
                             'choice_value'=>'codigoAgencia',
                             'choice_label'=>'nombreAgencia'));
     }

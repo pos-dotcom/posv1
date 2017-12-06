@@ -1,18 +1,17 @@
 VentasBundle\Entity\VentasEnc:
     type: entity
-    table: null
+    table: VentasEnc
     repositoryClass: VentasBundle\Repository\VentasEncRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoVentaEnc:
             type: integer
+            id: true
             unique: true
+            generator:
+                strategy: IDENTITY
             column: codigo_venta_enc
+    fields:
+            
         numFactura:
             type: string
             length: '10'
@@ -45,18 +44,15 @@ VentasBundle\Entity\VentasEnc:
             column: codigo_agencia
     manyToOne:
         vendedor:
-            TargetEntity: MantenimientoBundle\Entity\Empleados
+            TargetEntity: \MantenimientosBundle\Entity\Empleados
             InversedBy: VentasEnc
             joinColumn :
                 name:   codigo_empleado
                 referenedColumnName: codigo_empleado
         agencia:
-            TagetEntity: MantenimientoBundle\Entity\Agencia
+            TagetEntity: \MantenimientosBundle\Entity\Agencia
             InversedBy: VentasEnc
             joinColumn:
                 name: codigo_agencia
                 referencedColumnName: codigo_agencia
-      
-            
-        
     lifecycleCallbacks: {  }

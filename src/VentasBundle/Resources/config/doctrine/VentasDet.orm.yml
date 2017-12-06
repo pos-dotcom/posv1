@@ -1,18 +1,16 @@
 VentasBundle\Entity\VentasDet:
     type: entity
-    table: null
+    table: VentasDet
     repositoryClass: VentasBundle\Repository\VentasDetRepository
     id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
-    fields:
         codigoVentaDet:
             type: integer
+            id: true
             unique: true
+            generator:
+                strategy: IDENTITY
             column: codigo_venta_det
+    fields:
         codigoVentaEnc:
             type: integer
             column: codigo_venta_enc
@@ -56,4 +54,11 @@ VentasBundle\Entity\VentasDet:
         codigoAgencia:
             type: integer
             column: codigo_agencia
+        manyToOne:
+        producto:
+            targetEntity: \MantenimientosBundle\Entity\Productos
+            inversedBy: ventasDet
+            joinColumn:
+                name: codigo_producto
+                referencedColumnName: codigo_producto
     lifecycleCallbacks: {  }

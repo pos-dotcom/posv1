@@ -1,8 +1,13 @@
-
 ventas:
-    path:     /ventas
-    defaults: { _controller: VentasBundle:Ventas:index }  
+    path:   /ventas
+    defaults: { _controller: VentasBundle:Ventas:index } 
+
+editventa:
+    path:     /ventas/edit/{codigoVentaEnc}
+    defaults: {_controller: VentasBundle:Ventas:edit }
     
 addventa:
     path:   /ventas/add
-    default: { _controller: VentasBundle:Ventas:add }
+    defaults: { _controller: VentasBundle:Ventas:add }
+    
+

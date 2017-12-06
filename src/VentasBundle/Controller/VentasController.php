@@ -15,10 +15,10 @@ class VentasController extends Controller
         $session=$request->getSession();
         if($session->has("id"))
         {
-            $datos->getDoctrine()
+            $datos=$this->getDoctrine()
                     ->getRepository('VentasBundle:VentasEnc')
                     ->findAll();
-            return $this->render('VentasBundle:Default:VentasLista.html.twig',  compact($datos));
+            return $this->render('VentasBundle:Default:VentasLista.html.twig',  compact("datos"));
         }
         else
         {

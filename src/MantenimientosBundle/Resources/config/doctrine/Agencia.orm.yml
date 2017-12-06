@@ -27,7 +27,7 @@ MantenimientosBundle\Entity\Agencia:
             length: '100'
             nullable: true
     oneToMany:
-        ventasEnc:
+        VentasEnc:
             targetEntity: \VentasBundle\Entity\VentasEnc
             mappedBy: agencia
     lifecycleCallbacks: {  }
